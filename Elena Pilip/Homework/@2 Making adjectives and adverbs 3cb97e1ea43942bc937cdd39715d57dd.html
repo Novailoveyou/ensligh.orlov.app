@@ -126,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -143,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -187,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -251,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -710,4 +740,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="3cb97e1e-a439-42bc-937c-dd39715d57dd" class="page sans"><header><h1 class="page-title" dir="auto"><a href="../Part%205/2%20Making%20adjectives%20and%20adverbs%206cb100bfc9fb484bb204427a230b8498.html">2. Making adjectives and adverbs</a> </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Homework</th><td>1) Online practice (word building)<br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf074-word-formation-sentences.htm">Exercise 1</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf073-word-formation-sentences.htm">Exercise 2</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf067.htm">Exercise 3</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf045-sentences.htm">Exercise 4</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf044-sentences.htm">Exercise 5</a><br/><br/>2) Practice word building a little bit more <a href="../Part%205/2%20Making%20adjectives%20and%20adverbs/Homework%2060cc920ee5f74fd488178737e4b66e59.html"><span class="icon">📒</span>Homework</a> </td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Date</th><td><time>@August 7, 2024</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Done</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td></tr></tbody></table></header><div class="page-body"></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="3cb97e1e-a439-42bc-937c-dd39715d57dd" class="page sans"><header><h1 class="page-title" dir="auto"><a href="../Part%205/2%20Making%20adjectives%20and%20adverbs%206cb100bfc9fb484bb204427a230b8498.html">2. Making adjectives and adverbs</a> </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Homework</th><td>1) Online practice (word building)<br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf074-word-formation-sentences.htm">Exercise 1</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf073-word-formation-sentences.htm">Exercise 2</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf067.htm">Exercise 3</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf045-sentences.htm">Exercise 4</a><br/><a href="https://www.english-grammar.at/online_exercises/word-formation/wf044-sentences.htm">Exercise 5</a><br/><br/>2) Practice word building a little bit more <a href="../Part%205/2%20Making%20adjectives%20and%20adverbs/Homework%2060cc920ee5f74fd488178737e4b66e59.html"><span class="icon">📒</span>Homework</a> </td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Date</th><td><time>August 7, 2024</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Done</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td></tr></tbody></table></header><div class="page-body"></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

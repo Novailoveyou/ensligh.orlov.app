@@ -126,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -143,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -187,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -251,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -710,4 +740,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="c4370473-c12b-4f5a-b18d-de0489892f8c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⬜</span></div><h1 class="page-title" dir="auto">Vocabulary</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="15a6c978-6a07-4596-b1a3-b6ce965f92d4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Strong%20adjectives%2015a6c9786a074596b1a3b6ce965f92d4.html">Strong adjectives</a></td></tr><tr id="8d89f87f-76b1-417f-a465-b341c885cf52"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Family%208d89f87f76b1417fa465b341c885cf52.html">Family</a></td></tr><tr id="23090f94-f7f1-4b43-89f8-67f08ee0d909"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Talking%20about%20abilities%2023090f94f7f14b4389f867f08ee0d909.html">Talking about abilities</a></td></tr><tr id="5201f3aa-0adf-4011-9837-c16678acfd63"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/-ing%20-ed%20adjectives%205201f3aa0adf40119837c16678acfd63.html">-ing/-ed adjectives</a></td></tr><tr id="71b1cd46-b536-4e16-b85f-f644e5ad5825"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Phone%20language%2071b1cd46b5364e16b85ff644e5ad5825.html">Phone language</a></td></tr><tr id="6b508222-ca9b-46a2-906b-e0c0da1b2e3f"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Cinema%206b508222ca9b46a2906be0c0da1b2e3f.html">Cinema</a></td></tr><tr id="a282f657-9537-4dfb-89ec-599adb35e8cc"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Bad%20weather%20and%20natural%20disasters%20a282f65795374dfb89ec599adb35e8cc.html">Bad weather and natural disasters</a></td></tr><tr id="ff4dff1b-e8fb-4d2d-bd55-45f43fe74167"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Body%20and%20body%20movements%20ff4dff1be8fb4d2dbd5545f43fe74167.html">Body and body movements</a></td></tr><tr id="f1e7b613-c4cd-4e69-9456-d50dc6158097"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Describing%20people%20f1e7b613c4cd4e699456d50dc6158097.html">Describing people</a></td></tr><tr id="d7dd62e4-0e8c-4093-a43f-1b192aeb8165"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Education%20d7dd62e40e8c4093a43f1b192aeb8165.html">Education</a></td></tr><tr id="726d6cf1-5b4e-4849-b115-aa75ecd386df"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Houses%20726d6cf15b4e4849b115aa75ecd386df.html">Houses</a></td></tr><tr id="01de314f-12e4-4ea2-b136-8843b63d9fd8"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Making%20suggestions%2001de314f12e44ea2b1368843b63d9fd8.html">Making suggestions</a></td></tr><tr id="9ba1d545-7df8-46c8-a829-4f4464bf2591"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Shopping%209ba1d5457df846c8a8294f4464bf2591.html">Shopping</a></td></tr><tr id="8a027741-41fa-4153-a737-77f0748a838a"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Nouns%20from%20verbs%208a02774141fa4153a73777f0748a838a.html">Nouns from verbs</a></td></tr><tr id="59f697b9-ebc7-423c-81e8-1586ffbb9ad4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/News%2059f697b9ebc7423c81e81586ffbb9ad4.html">News</a></td></tr><tr id="282301ae-cdd1-4d41-8012-96be4c8cc5e3"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Work%20282301aecdd14d41801296be4c8cc5e3.html">Work</a></td></tr><tr id="588e9b6f-1bee-42ea-a130-fdee41fbedb5"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Electronic%20devices%20588e9b6f1bee42eaa130fdee41fbedb5.html">Electronic devices</a></td></tr><tr id="17515e0e-4a09-808e-b1ed-fc389472dfd7"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Communication%2017515e0e4a09808eb1edfc389472dfd7.html">Communication</a></td></tr></tbody></table><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="c4370473-c12b-4f5a-b18d-de0489892f8c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⬜</span></div><h1 class="page-title" dir="auto">Vocabulary</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="15a6c978-6a07-4596-b1a3-b6ce965f92d4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Strong%20adjectives%2015a6c9786a074596b1a3b6ce965f92d4.html">Strong adjectives</a></td></tr><tr id="8d89f87f-76b1-417f-a465-b341c885cf52"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Family%208d89f87f76b1417fa465b341c885cf52.html">Family</a></td></tr><tr id="23090f94-f7f1-4b43-89f8-67f08ee0d909"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Talking%20about%20abilities%2023090f94f7f14b4389f867f08ee0d909.html">Talking about abilities</a></td></tr><tr id="5201f3aa-0adf-4011-9837-c16678acfd63"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/-ing%20-ed%20adjectives%205201f3aa0adf40119837c16678acfd63.html">-ing/-ed adjectives</a></td></tr><tr id="71b1cd46-b536-4e16-b85f-f644e5ad5825"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Phone%20language%2071b1cd46b5364e16b85ff644e5ad5825.html">Phone language</a></td></tr><tr id="6b508222-ca9b-46a2-906b-e0c0da1b2e3f"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Cinema%206b508222ca9b46a2906be0c0da1b2e3f.html">Cinema</a></td></tr><tr id="a282f657-9537-4dfb-89ec-599adb35e8cc"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Bad%20weather%20and%20natural%20disasters%20a282f65795374dfb89ec599adb35e8cc.html">Bad weather and natural disasters</a></td></tr><tr id="ff4dff1b-e8fb-4d2d-bd55-45f43fe74167"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Body%20and%20body%20movements%20ff4dff1be8fb4d2dbd5545f43fe74167.html">Body and body movements</a></td></tr><tr id="f1e7b613-c4cd-4e69-9456-d50dc6158097"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Describing%20people%20f1e7b613c4cd4e699456d50dc6158097.html">Describing people</a></td></tr><tr id="d7dd62e4-0e8c-4093-a43f-1b192aeb8165"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Education%20d7dd62e40e8c4093a43f1b192aeb8165.html">Education</a></td></tr><tr id="726d6cf1-5b4e-4849-b115-aa75ecd386df"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Houses%20726d6cf15b4e4849b115aa75ecd386df.html">Houses</a></td></tr><tr id="01de314f-12e4-4ea2-b136-8843b63d9fd8"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Making%20suggestions%2001de314f12e44ea2b1368843b63d9fd8.html">Making suggestions</a></td></tr><tr id="9ba1d545-7df8-46c8-a829-4f4464bf2591"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Shopping%209ba1d5457df846c8a8294f4464bf2591.html">Shopping</a></td></tr><tr id="8a027741-41fa-4153-a737-77f0748a838a"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Nouns%20from%20verbs%208a02774141fa4153a73777f0748a838a.html">Nouns from verbs</a></td></tr><tr id="59f697b9-ebc7-423c-81e8-1586ffbb9ad4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/News%2059f697b9ebc7423c81e81586ffbb9ad4.html">News</a></td></tr><tr id="282301ae-cdd1-4d41-8012-96be4c8cc5e3"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Work%20282301aecdd14d41801296be4c8cc5e3.html">Work</a></td></tr><tr id="588e9b6f-1bee-42ea-a130-fdee41fbedb5"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Electronic%20devices%20588e9b6f1bee42eaa130fdee41fbedb5.html">Electronic devices</a></td></tr><tr id="17515e0e-4a09-808e-b1ed-fc389472dfd7"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Communication%2017515e0e4a09808eb1edfc389472dfd7.html">Communication</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

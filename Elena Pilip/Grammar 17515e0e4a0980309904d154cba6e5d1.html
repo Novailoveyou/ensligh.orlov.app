@@ -126,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -143,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -187,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -251,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -710,4 +740,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="17515e0e-4a09-8030-9904-d154cba6e5d1" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🟧</span></div><h1 class="page-title" dir="auto">Grammar</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="18115e0e-4a09-80a0-80ff-ca21dcd751f5"><td class="cell-title"><a href="Grammar/Question%20formation%2018115e0e4a0980a080ffca21dcd751f5.html">Question formation</a></td></tr><tr id="1c215e0e-4a09-800c-be67-f6dac85170a7"><td class="cell-title"><a href="Grammar/Uses%20of%20auxiliaries%201c215e0e4a09800cbe67f6dac85170a7.html">Uses of auxiliaries</a></td></tr><tr id="1f215e0e-4a09-80ea-b6a7-c482247bbf54"><td class="cell-title"><a href="Grammar/Present%20Perfect%201f215e0e4a0980eab6a7c482247bbf54.html">Present Perfect</a></td></tr><tr id="25415e0e-4a09-8031-a19e-e6056eb19149"><td class="cell-title"><a href="Grammar/Present%20Perfect%20Simple%20vs%20Continuous%2025415e0e4a098031a19ee6056eb19149.html">Present Perfect Simple vs Continuous</a></td></tr><tr id="2be15e0e-4a09-80c3-8c5f-dcbb50adafa1"><td class="cell-title"><a href="Grammar/Zero%20and%20First%20Conditional,%20future%20time%20clauses%202be15e0e4a0980c38c5fdcbb50adafa1.html">Zero and First Conditional, future time clauses</a></td></tr><tr id="2f515e0e-4a09-80eb-aeec-d23d93aed394"><td class="cell-title"><a href="Grammar/The%E2%80%A6the%20+%20comparative%202f515e0e4a0980ebaeecd23d93aed394.html">The…the + comparative</a></td></tr></tbody></table><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="17515e0e-4a09-8030-9904-d154cba6e5d1" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🟧</span></div><h1 class="page-title" dir="auto">Grammar</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="18115e0e-4a09-80a0-80ff-ca21dcd751f5"><td class="cell-title"><a href="Grammar/Question%20formation%2018115e0e4a0980a080ffca21dcd751f5.html">Question formation</a></td></tr><tr id="1c215e0e-4a09-800c-be67-f6dac85170a7"><td class="cell-title"><a href="Grammar/Uses%20of%20auxiliaries%201c215e0e4a09800cbe67f6dac85170a7.html">Uses of auxiliaries</a></td></tr><tr id="1f215e0e-4a09-80ea-b6a7-c482247bbf54"><td class="cell-title"><a href="Grammar/Present%20Perfect%201f215e0e4a0980eab6a7c482247bbf54.html">Present Perfect</a></td></tr><tr id="25415e0e-4a09-8031-a19e-e6056eb19149"><td class="cell-title"><a href="Grammar/Present%20Perfect%20Simple%20vs%20Continuous%2025415e0e4a098031a19ee6056eb19149.html">Present Perfect Simple vs Continuous</a></td></tr><tr id="2be15e0e-4a09-80c3-8c5f-dcbb50adafa1"><td class="cell-title"><a href="Grammar/Zero%20and%20First%20Conditional,%20future%20time%20clauses%202be15e0e4a0980c38c5fdcbb50adafa1.html">Zero and First Conditional, future time clauses</a></td></tr><tr id="2f515e0e-4a09-80eb-aeec-d23d93aed394"><td class="cell-title"><a href="Grammar/The%E2%80%A6the%20+%20comparative%202f515e0e4a0980ebaeecd23d93aed394.html">The…the + comparative</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

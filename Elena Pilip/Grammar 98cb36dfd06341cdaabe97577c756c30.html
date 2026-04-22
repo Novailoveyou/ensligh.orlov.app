@@ -126,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -143,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -187,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -251,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -710,4 +740,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="98cb36df-d063-41cd-aabe-97577c756c30" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⬜</span></div><h1 class="page-title" dir="auto">Grammar</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="0eb02eb7-02f9-48d4-94ea-91a21a793bf8"><td class="cell-title"><a href="Grammar%2098cb-6c30/Articles%200eb02eb702f948d494ea91a21a793bf8.html">Articles</a></td></tr><tr id="0ec6a280-b13c-4973-a2b2-bc92f1ff7be0"><td class="cell-title"><a href="Grammar%2098cb-6c30/Can%20could%20be%20able%20to%200ec6a280b13c4973a2b2bc92f1ff7be0.html">Can/could/be able to</a></td></tr><tr id="09805b7b-4acf-40f8-a0e5-d13f1cfdd5b6"><td class="cell-title"><a href="Grammar%2098cb-6c30/Obligation%20and%20permission%2009805b7b4acf40f8a0e5d13f1cfdd5b6.html">Obligation and permission</a></td></tr><tr id="f0e86d30-4c45-46b8-a8d7-c41a8edff8a3"><td class="cell-title"><a href="Grammar%2098cb-6c30/Present%20and%20past%20habits%20f0e86d304c4546b8a8d7c41a8edff8a3.html">Present and past habits</a></td></tr><tr id="3008c022-c7e4-41f4-bca2-649c0fbd2988"><td class="cell-title"><a href="Grammar%2098cb-6c30/Passive%20voice%203008c022c7e441f4bca2649c0fbd2988.html">Passive voice</a></td></tr><tr id="d3429e5f-966e-4dc5-bf60-a840a4b0128e"><td class="cell-title"><a href="Grammar%2098cb-6c30/Modals%20of%20deduction%20d3429e5f966e4dc5bf60a840a4b0128e.html">Modals of deduction</a></td></tr><tr id="6c26708b-74d1-4780-88ef-f2d543795f51"><td class="cell-title"><a href="Grammar%2098cb-6c30/First%20Conditional%20and%20future%20time%20clause%206c26708b74d1478088eff2d543795f51.html">First Conditional and future time clause</a></td></tr><tr id="d233f48c-2203-4dec-8b92-72e9f8a6c495"><td class="cell-title"><a href="Grammar%2098cb-6c30/Second%20Conditional%20d233f48c22034dec8b9272e9f8a6c495.html">Second Conditional</a></td></tr><tr id="c4046554-5f51-44d5-8810-597af37f84eb"><td class="cell-title"><a href="Grammar%2098cb-6c30/Gerund%20vs%20infinitive%20c40465545f5144d58810597af37f84eb.html">Gerund vs infinitive</a></td></tr><tr id="4ea4989f-292e-46c2-9fdd-143a50ba2386"><td class="cell-title"><a href="Grammar%2098cb-6c30/Reported%20speech%204ea4989f292e46c29fdd143a50ba2386.html">Reported speech</a></td></tr><tr id="40b013e9-2c5e-4bcc-8212-b3fdbdfeede4"><td class="cell-title"><a href="Grammar%2098cb-6c30/Reporting%20verbs%2040b013e92c5e4bcc8212b3fdbdfeede4.html">Reporting verbs</a></td></tr><tr id="a35236d3-4b89-45b7-b107-e72c29ea9946"><td class="cell-title"><a href="Grammar%2098cb-6c30/Third%20Conditional%20a35236d34b8945b7b107e72c29ea9946.html">Third Conditional</a></td></tr><tr id="10c15e0e-4a09-80c0-bab8-c1ea49f745ee"><td class="cell-title"><a href="Grammar%2098cb-6c30/Relative%20clauses%2010c15e0e4a0980c0bab8c1ea49f745ee.html">Relative clauses</a></td></tr><tr id="11315e0e-4a09-80dd-8e3f-c09e7f36bc98"><td class="cell-title"><a href="Grammar%2098cb-6c30/Indirect%20questions%2011315e0e4a0980dd8e3fc09e7f36bc98.html">Indirect questions</a></td></tr><tr id="12715e0e-4a09-8054-976e-de2bf62fcecf"><td class="cell-title"><a href="Grammar%2098cb-6c30/Question%20tags%2012715e0e4a098054976ede2bf62fcecf.html">Question tags</a></td></tr></tbody></table><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="98cb36df-d063-41cd-aabe-97577c756c30" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⬜</span></div><h1 class="page-title" dir="auto">Grammar</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="0eb02eb7-02f9-48d4-94ea-91a21a793bf8"><td class="cell-title"><a href="Grammar%2098cb-6c30/Articles%200eb02eb702f948d494ea91a21a793bf8.html">Articles</a></td></tr><tr id="0ec6a280-b13c-4973-a2b2-bc92f1ff7be0"><td class="cell-title"><a href="Grammar%2098cb-6c30/Can%20could%20be%20able%20to%200ec6a280b13c4973a2b2bc92f1ff7be0.html">Can/could/be able to</a></td></tr><tr id="09805b7b-4acf-40f8-a0e5-d13f1cfdd5b6"><td class="cell-title"><a href="Grammar%2098cb-6c30/Obligation%20and%20permission%2009805b7b4acf40f8a0e5d13f1cfdd5b6.html">Obligation and permission</a></td></tr><tr id="f0e86d30-4c45-46b8-a8d7-c41a8edff8a3"><td class="cell-title"><a href="Grammar%2098cb-6c30/Present%20and%20past%20habits%20f0e86d304c4546b8a8d7c41a8edff8a3.html">Present and past habits</a></td></tr><tr id="3008c022-c7e4-41f4-bca2-649c0fbd2988"><td class="cell-title"><a href="Grammar%2098cb-6c30/Passive%20voice%203008c022c7e441f4bca2649c0fbd2988.html">Passive voice</a></td></tr><tr id="d3429e5f-966e-4dc5-bf60-a840a4b0128e"><td class="cell-title"><a href="Grammar%2098cb-6c30/Modals%20of%20deduction%20d3429e5f966e4dc5bf60a840a4b0128e.html">Modals of deduction</a></td></tr><tr id="6c26708b-74d1-4780-88ef-f2d543795f51"><td class="cell-title"><a href="Grammar%2098cb-6c30/First%20Conditional%20and%20future%20time%20clause%206c26708b74d1478088eff2d543795f51.html">First Conditional and future time clause</a></td></tr><tr id="d233f48c-2203-4dec-8b92-72e9f8a6c495"><td class="cell-title"><a href="Grammar%2098cb-6c30/Second%20Conditional%20d233f48c22034dec8b9272e9f8a6c495.html">Second Conditional</a></td></tr><tr id="c4046554-5f51-44d5-8810-597af37f84eb"><td class="cell-title"><a href="Grammar%2098cb-6c30/Gerund%20vs%20infinitive%20c40465545f5144d58810597af37f84eb.html">Gerund vs infinitive</a></td></tr><tr id="4ea4989f-292e-46c2-9fdd-143a50ba2386"><td class="cell-title"><a href="Grammar%2098cb-6c30/Reported%20speech%204ea4989f292e46c29fdd143a50ba2386.html">Reported speech</a></td></tr><tr id="40b013e9-2c5e-4bcc-8212-b3fdbdfeede4"><td class="cell-title"><a href="Grammar%2098cb-6c30/Reporting%20verbs%2040b013e92c5e4bcc8212b3fdbdfeede4.html">Reporting verbs</a></td></tr><tr id="a35236d3-4b89-45b7-b107-e72c29ea9946"><td class="cell-title"><a href="Grammar%2098cb-6c30/Third%20Conditional%20a35236d34b8945b7b107e72c29ea9946.html">Third Conditional</a></td></tr><tr id="10c15e0e-4a09-80c0-bab8-c1ea49f745ee"><td class="cell-title"><a href="Grammar%2098cb-6c30/Relative%20clauses%2010c15e0e4a0980c0bab8c1ea49f745ee.html">Relative clauses</a></td></tr><tr id="11315e0e-4a09-80dd-8e3f-c09e7f36bc98"><td class="cell-title"><a href="Grammar%2098cb-6c30/Indirect%20questions%2011315e0e4a0980dd8e3fc09e7f36bc98.html">Indirect questions</a></td></tr><tr id="12715e0e-4a09-8054-976e-de2bf62fcecf"><td class="cell-title"><a href="Grammar%2098cb-6c30/Question%20tags%2012715e0e4a098054976ede2bf62fcecf.html">Question tags</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
