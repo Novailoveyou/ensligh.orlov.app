@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="fe1a6b5c-69b3-4c18-974c-3ee5153d8328" class="page sans"><header><h1 class="page-title" dir="auto">1. Work</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="b56ae861-4ef0-4378-be96-692707ef9a6e" class="image"><a href="1%20Work/Untitled.png"><img style="width:709.9913330078125px" src="1%20Work/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="e151c6fc-d5cf-4fa9-ab1c-ceefde50cff1" class="block-color-teal_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="1636412d-b726-486e-a243-e0dea795e65b"><a href="https://wordwall.net/resource/19456751/work-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Work (EF)</div><div class="bookmark-description">get promoted - get a higher position, apply for - to send your documents to an HR because you need that position, do overtime - to spend time working after the usual time needed or expected in a job, resign - to give up a job or position by telling</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/19456751/work-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/0466b5ad6d304ab0b1fc159f82945d64" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="7a8537b5-9479-4b5a-b84c-b356a473d3a8" class="block-color-teal_background">Exercise 2</h2></div><div style="display:contents" dir="auto"><p id="857b29aa-d2c0-45d7-a022-9afa0e680e94" class="">Complete the sentences with <em>at, for, in </em>or<em> of</em></p></div><div style="display:contents" dir="auto"><ol type="1" id="2382b6ff-f83f-42de-90eb-e79011ab2888" class="numbered-list" start="1"><li>I work <strong>for</strong> a multinational company</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="dc7a8f53-34d0-418b-9aa7-3059b52509d6" class="numbered-list" start="2"><li>I’m<strong> in</strong> charge <strong>of</strong> the marketing department</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37e0bde9-501b-40ef-9ce7-0ddbdf1e05ab" class="numbered-list" start="3"><li>I’m responsible <strong>for</strong> customer loans</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="bb869341-77ac-4ed2-a07a-d66eee546cce" class="numbered-list" start="4"><li>I’m <strong>at</strong> school/university</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1509d5da-03ce-4a9d-a99c-aa86ba5f47cf" class="numbered-list" start="5"><li>I’m<strong> in</strong> my third year at university</li></ol></div><div style="display:contents" dir="auto"><h2 id="ba25eca7-a875-48a2-a0b0-ce5de12bae58" class="block-color-teal_background">Exercise 3</h2></div><div style="display:contents" dir="auto"><div id="56f780ab-30fc-4fe4-8deb-96f538fc1bbf" class="column-list"><div style="display:contents" dir="auto"><div id="8e114ad3-76df-40b7-86cd-914bd144c3c1" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="b685f8df-b662-43f6-9c7f-5d70dc564d5a" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="51d5ef9a-aef5-416b-a713-ddf9e7abff07"><td id="[O?L" class=""></td><td id="}AW=" class="">Noun</td></tr></div><div style="display:contents" dir="ltr"><tr id="6f631ea0-8696-47bc-b5dd-f2338ba218b4"><td id="[O?L" class="">promote</td><td id="}AW=" class="">promotion</td></tr></div><div style="display:contents" dir="ltr"><tr id="0d2c062d-7ee7-49fd-95e8-ffb49c4b2409"><td id="[O?L" class="">apply</td><td id="}AW=" class="">application</td></tr></div><div style="display:contents" dir="ltr"><tr id="4c6c383f-80ac-4a59-9cfc-d4ba342c49b0"><td id="[O?L" class="">retire</td><td id="}AW=" class="">retirement</td></tr></div><div style="display:contents" dir="ltr"><tr id="dc53df90-8fbc-452e-843d-8ca66e83c858"><td id="[O?L" class="">employ</td><td id="}AW=" class="">employment</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa59e6e6-06f3-4a2a-9aea-cd0c34250490"><td id="[O?L" class="">qualify</td><td id="}AW=" class="">qualification</td></tr></div><div style="display:contents" dir="ltr"><tr id="7bf61b5d-29c9-4ee3-8e6e-2f15bf919860"><td id="[O?L" class="">resign</td><td id="}AW=" class="">resignation</td></tr></div></tbody></table></div></div></div><div style="display:contents" dir="auto"><div id="c3dd2dc4-0e2f-45d2-a0d8-291acfc6c4a5" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="30dc425a-ee99-4f16-a483-9facab66b54a" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="8dcfa73d-a36c-477d-b05d-71753e42abc4"><td id="[NS=" class=""></td><td id="wVHy" class="">Noun (professions)</td></tr></div><div style="display:contents" dir="ltr"><tr id="50e9438c-c802-4ab2-8082-49e79d545784"><td id="[NS=" class="">science</td><td id="wVHy" class="">scientist</td></tr></div><div style="display:contents" dir="ltr"><tr id="5b386839-d799-438d-85cf-edcda7e9eae3"><td id="[NS=" class="">law</td><td id="wVHy" class="">lawyer</td></tr></div><div style="display:contents" dir="ltr"><tr id="4f0ea8a2-8589-40fb-8ffe-9a3f72226197"><td id="[NS=" class="">music</td><td id="wVHy" class="">musician</td></tr></div><div style="display:contents" dir="ltr"><tr id="a888a5f7-69e6-4aa7-9ff1-dc645ebba8cf"><td id="[NS=" class="">pharmacy</td><td id="wVHy" class="">pharmacist</td></tr></div><div style="display:contents" dir="ltr"><tr id="f14fd447-26cd-4828-adf3-735171f0c9f0"><td id="[NS=" class="">farm</td><td id="wVHy" class="">farmer</td></tr></div><div style="display:contents" dir="ltr"><tr id="a1767517-f7a7-4cd8-8833-94343979849c"><td id="[NS=" class="">translate</td><td id="wVHy" class="">translator</td></tr></div></tbody></table></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="46165e3a-d657-4432-86f9-cccd9dcc1fce" class="block-color-teal_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="ceed23fa-7bfd-4ac9-91a8-5f671a50905e" class="image"><a href="1%20Work/Screenshot_2021-10-15_at_14.43.55.png"><img style="width:709.9913330078125px" src="1%20Work/Screenshot_2021-10-15_at_14.43.55.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1f9bdcef-4724-4604-a700-c2796f910dd8" class="block-color-teal_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="3d3e632d-7c8e-43b6-b0a5-cb669e1bd2fc"><a href="https://wordwall.net/resource/27750938/work-inter-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Work (inter EF)</div><div class="bookmark-description">What business is doing well nowadays?, Was there a period when you were an unemployed? How long did you look for a job?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/27750938/work-inter-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/c4bdc901a9114ca884745ca294da7a75" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="b4a1ac08-1c67-42e0-94ca-458ea3a80673" class="block-color-teal_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="b0a972cd-a2c4-4a6b-8156-ac94eb3c1552"><a href="https://wordwall.net/resource/13127681/work" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Work</div><div class="bookmark-description">1) Are you a hard worker? What motivates you to work / study? 2) When you were a child, what did you want to be when you grew up?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/13127681/work</div></div><img src="https://az779572.vo.msecnd.net/screens-800/f2d5492861cd4c318b0938f725540813" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="6baabc56-b528-41a9-b713-ed1e7bee5091" class="link-to-page"><a href="1%20Work/English%20File%20Workbook%208A%20VOCABULARY%206baabc56b52841a9b713ed1e7bee5091.html"><span class="icon">📒</span>English File Workbook 8A VOCABULARY</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="fe1a6b5c-69b3-4c18-974c-3ee5153d8328" class="page sans"><header><h1 class="page-title" dir="auto">1. Work</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="b56ae861-4ef0-4378-be96-692707ef9a6e" class="image" data-notion-image="1%20Work/Untitled.png" dir="ltr"><a href="1%20Work/Untitled.png"><img style="width:709.9913330078125px" src="1%20Work/Untitled.png"/></a></figure><h2 id="e151c6fc-d5cf-4fa9-ab1c-ceefde50cff1" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto">Exercise 1</h2><figure id="1636412d-b726-486e-a243-e0dea795e65b" dir="ltr"><a href="https://wordwall.net/resource/19456751/work-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Work (EF)</div><div class="bookmark-description">get promoted - get a higher position, apply for - to send your documents to an HR because you need that position, do overtime - to spend time working after the usual time needed or expected in a job, resign - to give up a job or position by telling</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/19456751/work-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/0466b5ad6d304ab0b1fc159f82945d64" class="bookmark-image"/></a></figure><h2 id="7a8537b5-9479-4b5a-b84c-b356a473d3a8" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto">Exercise 2</h2><p id="857b29aa-d2c0-45d7-a022-9afa0e680e94" class="" dir="auto">Complete the sentences with <em>at, for, in </em>or<em> of</em></p><ol type="1" id="2382b6ff-f83f-42de-90eb-e79011ab2888" class="numbered-list" start="1" dir="auto"><li>I work <strong>for</strong> a multinational company</li></ol><ol type="1" id="dc7a8f53-34d0-418b-9aa7-3059b52509d6" class="numbered-list" start="2" dir="auto"><li>I’m<strong> in</strong> charge <strong>of</strong> the marketing department</li></ol><ol type="1" id="37e0bde9-501b-40ef-9ce7-0ddbdf1e05ab" class="numbered-list" start="3" dir="auto"><li>I’m responsible <strong>for</strong> customer loans</li></ol><ol type="1" id="bb869341-77ac-4ed2-a07a-d66eee546cce" class="numbered-list" start="4" dir="auto"><li>I’m <strong>at</strong> school/university</li></ol><ol type="1" id="1509d5da-03ce-4a9d-a99c-aa86ba5f47cf" class="numbered-list" start="5" dir="auto"><li>I’m<strong> in</strong> my third year at university</li></ol><h2 id="ba25eca7-a875-48a2-a0b0-ce5de12bae58" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto">Exercise 3</h2><div id="56f780ab-30fc-4fe4-8deb-96f538fc1bbf" class="column-list" data-notion-column-list="" dir="auto"><div id="8e114ad3-76df-40b7-86cd-914bd144c3c1" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><table id="b685f8df-b662-43f6-9c7f-5d70dc564d5a" class="simple-table" dir="ltr"><tbody><tr id="51d5ef9a-aef5-416b-a713-ddf9e7abff07" dir="ltr"><td id="[O?L" class=""></td><td id="}AW=" class="">Noun</td></tr><tr id="6f631ea0-8696-47bc-b5dd-f2338ba218b4" dir="ltr"><td id="[O?L" class="">promote</td><td id="}AW=" class="">promotion</td></tr><tr id="0d2c062d-7ee7-49fd-95e8-ffb49c4b2409" dir="ltr"><td id="[O?L" class="">apply</td><td id="}AW=" class="">application</td></tr><tr id="4c6c383f-80ac-4a59-9cfc-d4ba342c49b0" dir="ltr"><td id="[O?L" class="">retire</td><td id="}AW=" class="">retirement</td></tr><tr id="dc53df90-8fbc-452e-843d-8ca66e83c858" dir="ltr"><td id="[O?L" class="">employ</td><td id="}AW=" class="">employment</td></tr><tr id="fa59e6e6-06f3-4a2a-9aea-cd0c34250490" dir="ltr"><td id="[O?L" class="">qualify</td><td id="}AW=" class="">qualification</td></tr><tr id="7bf61b5d-29c9-4ee3-8e6e-2f15bf919860" dir="ltr"><td id="[O?L" class="">resign</td><td id="}AW=" class="">resignation</td></tr></tbody></table></div><div id="c3dd2dc4-0e2f-45d2-a0d8-291acfc6c4a5" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><table id="30dc425a-ee99-4f16-a483-9facab66b54a" class="simple-table" dir="ltr"><tbody><tr id="8dcfa73d-a36c-477d-b05d-71753e42abc4" dir="ltr"><td id="[NS=" class=""></td><td id="wVHy" class="">Noun (professions)</td></tr><tr id="50e9438c-c802-4ab2-8082-49e79d545784" dir="ltr"><td id="[NS=" class="">science</td><td id="wVHy" class="">scientist</td></tr><tr id="5b386839-d799-438d-85cf-edcda7e9eae3" dir="ltr"><td id="[NS=" class="">law</td><td id="wVHy" class="">lawyer</td></tr><tr id="4f0ea8a2-8589-40fb-8ffe-9a3f72226197" dir="ltr"><td id="[NS=" class="">music</td><td id="wVHy" class="">musician</td></tr><tr id="a888a5f7-69e6-4aa7-9ff1-dc645ebba8cf" dir="ltr"><td id="[NS=" class="">pharmacy</td><td id="wVHy" class="">pharmacist</td></tr><tr id="f14fd447-26cd-4828-adf3-735171f0c9f0" dir="ltr"><td id="[NS=" class="">farm</td><td id="wVHy" class="">farmer</td></tr><tr id="a1767517-f7a7-4cd8-8833-94343979849c" dir="ltr"><td id="[NS=" class="">translate</td><td id="wVHy" class="">translator</td></tr></tbody></table></div></div><h2 id="46165e3a-d657-4432-86f9-cccd9dcc1fce" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto">Exercise 4</h2><figure id="ceed23fa-7bfd-4ac9-91a8-5f671a50905e" class="image" data-notion-image="1%20Work/Screenshot_2021-10-15_at_14.43.55.png" dir="ltr"><a href="1%20Work/Screenshot_2021-10-15_at_14.43.55.png"><img style="width:709.9913330078125px" src="1%20Work/Screenshot_2021-10-15_at_14.43.55.png"/></a></figure><h2 id="1f9bdcef-4724-4604-a700-c2796f910dd8" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto">Exercise 5</h2><figure id="3d3e632d-7c8e-43b6-b0a5-cb669e1bd2fc" dir="ltr"><a href="https://wordwall.net/resource/27750938/work-inter-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Work (inter EF)</div><div class="bookmark-description">What business is doing well nowadays?, Was there a period when you were an unemployed? How long did you look for a job?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/27750938/work-inter-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/c4bdc901a9114ca884745ca294da7a75" class="bookmark-image"/></a></figure><h2 id="b4a1ac08-1c67-42e0-94ca-458ea3a80673" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto">Exercise 6</h2><figure id="b0a972cd-a2c4-4a6b-8156-ac94eb3c1552" dir="ltr"><a href="https://wordwall.net/resource/13127681/work" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Work</div><div class="bookmark-description">1) Are you a hard worker? What motivates you to work / study? 2) When you were a child, what did you want to be when you grew up?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/13127681/work</div></div><img src="https://az779572.vo.msecnd.net/screens-800/f2d5492861cd4c318b0938f725540813" class="bookmark-image"/></a></figure><figure id="6baabc56-b528-41a9-b713-ed1e7bee5091" class="link-to-page"><a href="1%20Work/English%20File%20Workbook%208A%20VOCABULARY%206baabc56b52841a9b713ed1e7bee5091.html" data-notion-page-id="6baabc56-b528-41a9-b713-ed1e7bee5091" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab"><span class="icon" data-emoji="📒"></span>English File Workbook 8A VOCABULARY</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>9. Revision</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>9. Revision</title><meta name="data-notion-page-icon" content="🛥️"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%9B%A5%EF%B8%8F%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="092912f4-c8b9-4941-8a0f-072ce20a7aed" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🛥️</span></div><h1 class="page-title" dir="auto">9. Revision</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="46b515dc-52a8-46b2-94f5-bb0a10019b3b" class="image"><a href="9%20Revision/Screenshot_2023-02-14_at_12.14.59.png"><img style="width:976px" src="9%20Revision/Screenshot_2023-02-14_at_12.14.59.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1d8c3012-7d4b-4d50-9f70-b9025d710a58" class="block-color-pink_background">Strong adjectives</h2></div><div style="display:contents" dir="auto"><h3 id="61200f5d-a7b3-47f9-8cc0-667ab51b8e3d" class="">Exercise 1</h3></div><div style="display:contents" dir="ltr"><figure id="d0e1264a-679b-470d-bb78-30c3817f05bd" class="image"><a href="9%20Revision/Screenshot_2022-06-16_at_12.58.00.png"><img style="width:1176px" src="9%20Revision/Screenshot_2022-06-16_at_12.58.00.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="a142d4f3-b476-43b2-bb64-f3622a1db44c" class="">Exercise 2</h3></div><div style="display:contents" dir="ltr"><figure id="a85108bd-2ebb-46d5-8759-5be5f8104507" class="image"><a href="9%20Revision/Screenshot_2022-06-16_at_12.58.23.png"><img style="width:1180px" src="9%20Revision/Screenshot_2022-06-16_at_12.58.23.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="f9471e6d-cc28-46b3-b32b-d18a5af3b67a" class="">Exercise 3</h3></div><div style="display:contents" dir="ltr"><figure id="c2ddd91c-1553-40c7-9569-b12eaaae448f" class="image"><a href="9%20Revision/Screenshot_2022-06-16_at_13.04.45.png"><img style="width:972px" src="9%20Revision/Screenshot_2022-06-16_at_13.04.45.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="3a9af619-0a74-40e7-9bff-d04d0c4ef6e3" class="">Exercise 4</h3></div><div style="display:contents" dir="auto"><p id="0267f68d-a76b-4b90-97fd-7514fb5378fe" class=""><strong>Ask and answer the questions using strong adjectives</strong></p></div><div style="display:contents" dir="ltr"><figure id="80019de8-619f-4a0a-b1c0-547c3fa5a6c1" class="image"><a href="9%20Revision/Screenshot_2022-06-16_at_13.01.12.png"><img style="width:1376px" src="9%20Revision/Screenshot_2022-06-16_at_13.01.12.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="988346b4-eead-484a-8210-4d438f222518" class="block-color-pink_background">Articles</h2></div><div style="display:contents" dir="auto"><h3 id="71b77fb9-6c31-47fb-8330-c3209889dbbf" class="">Exercise 5</h3></div><div style="display:contents" dir="ltr"><figure id="c860cb45-e803-4315-8d52-89217ab67a73"><a href="https://wordwall.net/resource/34532574/articles-revision-int-quiz" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Articles revision Int quiz</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/34532574/articles-revision-int-quiz</div></div><img src="https://az779572.vo.msecnd.net/screens-800/d7be85c650994022a5929b8116f1b1fc_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="28193013-ee5c-4701-8b25-6386a974ac6e" class="">Exercise 6</h3></div><div style="display:contents" dir="ltr"><figure id="6d0596cc-e99f-4425-aa5a-18adaba78aee"><a href="https://wordwall.net/resource/16671918/articles-f2f-7c" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Articles (F2F, 7c)</div><div class="bookmark-description">Tap each box in turn to open them up and reveal the item inside.. 1) Do you know anyone who has just bought _____ new laptop?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/16671918/articles-f2f-7c</div></div><img src="https://az779572.vo.msecnd.net/screens-800/095927c2460c48599da32a69d43642ac_42" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="c1cd8f10-c5e7-49f2-8c4e-8deaf6be9c17" class="">Exercise 7</h3></div><div style="display:contents" dir="ltr"><figure id="1eb24dbc-f6eb-4e99-803e-473d37e7b7b3"><a href="https://wordwall.net/resource/36857145/once-upon-a-time-" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Once upon a time !</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/36857145/once-upon-a-time-</div></div><img src="https://az779572.vo.msecnd.net/screens-800/819d714a53b246288561c3840b8c1637_0" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="092912f4-c8b9-4941-8a0f-072ce20a7aed" class="page sans" data-notion-page-icon="🛥️"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🛥️"></span></div><h1 class="page-title" dir="auto">9. Revision</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="46b515dc-52a8-46b2-94f5-bb0a10019b3b" class="image" data-notion-image="9%20Revision/Screenshot_2023-02-14_at_12.14.59.png" dir="ltr"><a href="9%20Revision/Screenshot_2023-02-14_at_12.14.59.png"><img style="width:976px" src="9%20Revision/Screenshot_2023-02-14_at_12.14.59.png"/></a></figure><h2 id="1d8c3012-7d4b-4d50-9f70-b9025d710a58" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Strong adjectives</h2><h3 id="61200f5d-a7b3-47f9-8cc0-667ab51b8e3d" class="" dir="auto">Exercise 1</h3><figure id="d0e1264a-679b-470d-bb78-30c3817f05bd" class="image" data-notion-image="9%20Revision/Screenshot_2022-06-16_at_12.58.00.png" dir="ltr"><a href="9%20Revision/Screenshot_2022-06-16_at_12.58.00.png"><img style="width:1176px" src="9%20Revision/Screenshot_2022-06-16_at_12.58.00.png"/></a></figure><h3 id="a142d4f3-b476-43b2-bb64-f3622a1db44c" class="" dir="auto">Exercise 2</h3><figure id="a85108bd-2ebb-46d5-8759-5be5f8104507" class="image" data-notion-image="9%20Revision/Screenshot_2022-06-16_at_12.58.23.png" dir="ltr"><a href="9%20Revision/Screenshot_2022-06-16_at_12.58.23.png"><img style="width:1180px" src="9%20Revision/Screenshot_2022-06-16_at_12.58.23.png"/></a></figure><h3 id="f9471e6d-cc28-46b3-b32b-d18a5af3b67a" class="" dir="auto">Exercise 3</h3><figure id="c2ddd91c-1553-40c7-9569-b12eaaae448f" class="image" data-notion-image="9%20Revision/Screenshot_2022-06-16_at_13.04.45.png" dir="ltr"><a href="9%20Revision/Screenshot_2022-06-16_at_13.04.45.png"><img style="width:972px" src="9%20Revision/Screenshot_2022-06-16_at_13.04.45.png"/></a></figure><h3 id="3a9af619-0a74-40e7-9bff-d04d0c4ef6e3" class="" dir="auto">Exercise 4</h3><p id="0267f68d-a76b-4b90-97fd-7514fb5378fe" class="" dir="auto"><strong>Ask and answer the questions using strong adjectives</strong></p><figure id="80019de8-619f-4a0a-b1c0-547c3fa5a6c1" class="image" data-notion-image="9%20Revision/Screenshot_2022-06-16_at_13.01.12.png" dir="ltr"><a href="9%20Revision/Screenshot_2022-06-16_at_13.01.12.png"><img style="width:1376px" src="9%20Revision/Screenshot_2022-06-16_at_13.01.12.png"/></a></figure><h2 id="988346b4-eead-484a-8210-4d438f222518" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Articles</h2><h3 id="71b77fb9-6c31-47fb-8330-c3209889dbbf" class="" dir="auto">Exercise 5</h3><figure id="c860cb45-e803-4315-8d52-89217ab67a73" dir="ltr"><a href="https://wordwall.net/resource/34532574/articles-revision-int-quiz" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Articles revision Int quiz</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/34532574/articles-revision-int-quiz</div></div><img src="https://az779572.vo.msecnd.net/screens-800/d7be85c650994022a5929b8116f1b1fc_0" class="bookmark-image"/></a></figure><h3 id="28193013-ee5c-4701-8b25-6386a974ac6e" class="" dir="auto">Exercise 6</h3><figure id="6d0596cc-e99f-4425-aa5a-18adaba78aee" dir="ltr"><a href="https://wordwall.net/resource/16671918/articles-f2f-7c" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Articles (F2F, 7c)</div><div class="bookmark-description">Tap each box in turn to open them up and reveal the item inside.. 1) Do you know anyone who has just bought _____ new laptop?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/16671918/articles-f2f-7c</div></div><img src="https://az779572.vo.msecnd.net/screens-800/095927c2460c48599da32a69d43642ac_42" class="bookmark-image"/></a></figure><h3 id="c1cd8f10-c5e7-49f2-8c4e-8deaf6be9c17" class="" dir="auto">Exercise 7</h3><figure id="1eb24dbc-f6eb-4e99-803e-473d37e7b7b3" dir="ltr"><a href="https://wordwall.net/resource/36857145/once-upon-a-time-" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Once upon a time !</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/36857145/once-upon-a-time-</div></div><img src="https://az779572.vo.msecnd.net/screens-800/819d714a53b246288561c3840b8c1637_0" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

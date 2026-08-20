@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,5 +791,5 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="b1aaf56e-cd94-49d1-9584-079b04532d7d" class="page sans"><header><h1 class="page-title" dir="auto">6. News</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="dbf9b9e6-2959-4cab-a693-098190a12794" class="image"><a href="6%20News/Screenshot_2023-12-07_at_15.21.25.png"><img style="width:896px" src="6%20News/Screenshot_2023-12-07_at_15.21.25.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="e3868352-8ae0-4808-b798-b6089cbfb6d1" class="block-color-blue_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="50886e1e-611f-45f0-9bc3-1b4188a071ed"><a href="https://wordwall.net/resource/17841914/news-empower-intermediate" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">News Empower Intermediate</div><div class="bookmark-description">blogger - someone who writes a blog, presenter - someone who introduces a television or radio show, editor - a person who is in charge of a newspaper or magazine, reporter - a person whose job is to DISCOVER information about news events and describe them, social media - websites</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/17841914/news-empower-intermediate</div></div><img src="https://az779572.vo.msecnd.net/screens-800/378c36f9fc3f46188b6c4b3e14353665" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="35c867ac-4bfb-4995-8b8e-497e11e69a16" class="block-color-blue_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="f7757dae-b773-4a39-b22e-18f925007546" class="image"><a href="6%20News/Screenshot_2022-06-22_at_16.26.34.png"><img style="width:974px" src="6%20News/Screenshot_2022-06-22_at_16.26.34.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2366ed02-fcfc-4f9b-8047-c2fa25e45a75" class="block-color-blue_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="4d83a8b1-01ce-4c05-82b6-b9837092fbfa" class="image"><a href="6%20News/Screenshot_2022-06-22_at_16.26.38.png"><img style="width:942px" src="6%20News/Screenshot_2022-06-22_at_16.26.38.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="80d90af8-354c-4dac-a4e5-0e20a5378896" class="block-color-blue_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="e129f28e-4413-4bab-ac26-197c9d17aa01" class="image"><a href="6%20News/Screenshot_2022-06-22_at_16.28.11.png"><img style="width:1052px" src="6%20News/Screenshot_2022-06-22_at_16.28.11.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="8c27bb57-4139-4a5c-b86c-569500f8b197" class="block-color-blue_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="f70c03ba-2d4a-4821-8a99-c5f5fde76294"><a href="https://wordwall.net/resource/29742017/news-discussion" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">News discussion</div><div class="bookmark-description">Deal out cards at random from a shuffled deck.. Do you often pay attention to news headlines? , What news organizations do you trust? .</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/29742017/news-discussion</div></div><img src="https://az779572.vo.msecnd.net/screens-800/d6d0658281024c3a92adc2e0f33daccf_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="d4828a06-d08c-4647-b542-97db845b0f42" class="block-color-blue_background">Exercise 6</h2></div><div style="display:contents" dir="auto"><ol type="1" id="dcbf47e8-304a-4282-961e-fcffa3cb2dc0" class="numbered-list" start="1"><li>Social media is responsible for fake news</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="c1b8c18e-aad6-4699-b322-32094996e97a" class="numbered-list" start="2"><li>Celebrity news should be banned because it is private information about people</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ba696238-1d07-44ea-a87b-d94fa5bed638" class="numbered-list" start="3"><li>Reading news in English is pointless</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="78c97411-f9a3-46e0-ad13-f2f9f9ada1a7" class="numbered-list" start="4"><li>News headlines are always misleading</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="05072abd-8434-44ca-afe0-e1853a7c8c18" class="numbered-list" start="5"><li>Every news source is unreliable - there’s always propaganda</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="fdb66328-5eb0-45e3-a16d-d3fa85171b73" class="numbered-list" start="6"><li>Reading and checking the news every day is necessary to know all the relevant information</li></ol></div><div style="display:contents" dir="ltr"><figure id="fe7f6dfc-5872-4e9e-ba9a-ca8741dac75c" class="link-to-page"><a href="6%20News/Empower%20Workbook%208A%20fe7f6dfc58724e9eba9aca8741dac75c.html"><span class="icon">📒</span>Empower Workbook 8A</a></figure></div><div style="display:contents" dir="auto"><p id="30e1f689-710e-4167-8654-cbd4a2eec90c" class="">
-</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="b1aaf56e-cd94-49d1-9584-079b04532d7d" class="page sans"><header><h1 class="page-title" dir="auto">6. News</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="dbf9b9e6-2959-4cab-a693-098190a12794" class="image" data-notion-image="6%20News/Screenshot_2023-12-07_at_15.21.25.png" dir="ltr"><a href="6%20News/Screenshot_2023-12-07_at_15.21.25.png"><img style="width:896px" src="6%20News/Screenshot_2023-12-07_at_15.21.25.png"/></a></figure><h2 id="e3868352-8ae0-4808-b798-b6089cbfb6d1" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 1</h2><figure id="50886e1e-611f-45f0-9bc3-1b4188a071ed" dir="ltr"><a href="https://wordwall.net/resource/17841914/news-empower-intermediate" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">News Empower Intermediate</div><div class="bookmark-description">blogger - someone who writes a blog, presenter - someone who introduces a television or radio show, editor - a person who is in charge of a newspaper or magazine, reporter - a person whose job is to DISCOVER information about news events and describe them, social media - websites</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/17841914/news-empower-intermediate</div></div><img src="https://az779572.vo.msecnd.net/screens-800/378c36f9fc3f46188b6c4b3e14353665" class="bookmark-image"/></a></figure><h2 id="35c867ac-4bfb-4995-8b8e-497e11e69a16" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 2</h2><figure id="f7757dae-b773-4a39-b22e-18f925007546" class="image" data-notion-image="6%20News/Screenshot_2022-06-22_at_16.26.34.png" dir="ltr"><a href="6%20News/Screenshot_2022-06-22_at_16.26.34.png"><img style="width:974px" src="6%20News/Screenshot_2022-06-22_at_16.26.34.png"/></a></figure><h2 id="2366ed02-fcfc-4f9b-8047-c2fa25e45a75" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 3</h2><figure id="4d83a8b1-01ce-4c05-82b6-b9837092fbfa" class="image" data-notion-image="6%20News/Screenshot_2022-06-22_at_16.26.38.png" dir="ltr"><a href="6%20News/Screenshot_2022-06-22_at_16.26.38.png"><img style="width:942px" src="6%20News/Screenshot_2022-06-22_at_16.26.38.png"/></a></figure><h2 id="80d90af8-354c-4dac-a4e5-0e20a5378896" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 4</h2><figure id="e129f28e-4413-4bab-ac26-197c9d17aa01" class="image" data-notion-image="6%20News/Screenshot_2022-06-22_at_16.28.11.png" dir="ltr"><a href="6%20News/Screenshot_2022-06-22_at_16.28.11.png"><img style="width:1052px" src="6%20News/Screenshot_2022-06-22_at_16.28.11.png"/></a></figure><h2 id="8c27bb57-4139-4a5c-b86c-569500f8b197" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 5</h2><figure id="f70c03ba-2d4a-4821-8a99-c5f5fde76294" dir="ltr"><a href="https://wordwall.net/resource/29742017/news-discussion" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">News discussion</div><div class="bookmark-description">Deal out cards at random from a shuffled deck.. Do you often pay attention to news headlines? , What news organizations do you trust? .</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/29742017/news-discussion</div></div><img src="https://az779572.vo.msecnd.net/screens-800/d6d0658281024c3a92adc2e0f33daccf_0" class="bookmark-image"/></a></figure><h2 id="d4828a06-d08c-4647-b542-97db845b0f42" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 6</h2><ol type="1" id="dcbf47e8-304a-4282-961e-fcffa3cb2dc0" class="numbered-list" start="1" dir="auto"><li>Social media is responsible for fake news</li></ol><ol type="1" id="c1b8c18e-aad6-4699-b322-32094996e97a" class="numbered-list" start="2" dir="auto"><li>Celebrity news should be banned because it is private information about people</li></ol><ol type="1" id="ba696238-1d07-44ea-a87b-d94fa5bed638" class="numbered-list" start="3" dir="auto"><li>Reading news in English is pointless</li></ol><ol type="1" id="78c97411-f9a3-46e0-ad13-f2f9f9ada1a7" class="numbered-list" start="4" dir="auto"><li>News headlines are always misleading</li></ol><ol type="1" id="05072abd-8434-44ca-afe0-e1853a7c8c18" class="numbered-list" start="5" dir="auto"><li>Every news source is unreliable - there’s always propaganda</li></ol><ol type="1" id="fdb66328-5eb0-45e3-a16d-d3fa85171b73" class="numbered-list" start="6" dir="auto"><li>Reading and checking the news every day is necessary to know all the relevant information</li></ol><figure id="fe7f6dfc-5872-4e9e-ba9a-ca8741dac75c" class="link-to-page"><a href="6%20News/Empower%20Workbook%208A%20fe7f6dfc58724e9eba9aca8741dac75c.html" data-notion-page-id="fe7f6dfc-5872-4e9e-ba9a-ca8741dac75c" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab"><span class="icon" data-emoji="📒"></span>Empower Workbook 8A</a></figure><p id="30e1f689-710e-4167-8654-cbd4a2eec90c" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

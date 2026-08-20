@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Grammar</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Grammar</title><meta name="data-notion-page-icon" content="🟧"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%9F%A7%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="17515e0e-4a09-8030-9904-d154cba6e5d1" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🟧</span></div><h1 class="page-title" dir="auto">Grammar</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="18115e0e-4a09-80a0-80ff-ca21dcd751f5"><td class="cell-title"><a href="Grammar/Question%20formation%2018115e0e4a0980a080ffca21dcd751f5.html">Question formation</a></td></tr><tr id="1c215e0e-4a09-800c-be67-f6dac85170a7"><td class="cell-title"><a href="Grammar/Uses%20of%20auxiliaries%201c215e0e4a09800cbe67f6dac85170a7.html">Uses of auxiliaries</a></td></tr><tr id="1f215e0e-4a09-80ea-b6a7-c482247bbf54"><td class="cell-title"><a href="Grammar/Present%20Perfect%201f215e0e4a0980eab6a7c482247bbf54.html">Present Perfect</a></td></tr><tr id="25415e0e-4a09-8031-a19e-e6056eb19149"><td class="cell-title"><a href="Grammar/Present%20Perfect%20Simple%20vs%20Continuous%2025415e0e4a098031a19ee6056eb19149.html">Present Perfect Simple vs Continuous</a></td></tr><tr id="2be15e0e-4a09-80c3-8c5f-dcbb50adafa1"><td class="cell-title"><a href="Grammar/Zero%20and%20First%20Conditional,%20future%20time%20clauses%202be15e0e4a0980c38c5fdcbb50adafa1.html">Zero and First Conditional, future time clauses</a></td></tr><tr id="2f515e0e-4a09-80eb-aeec-d23d93aed394"><td class="cell-title"><a href="Grammar/The%E2%80%A6the%20+%20comparative%202f515e0e4a0980ebaeecd23d93aed394.html">The…the + comparative</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="17515e0e-4a09-8030-9904-d154cba6e5d1" class="page sans" data-notion-page-icon="🟧"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🟧"></span></div><h1 class="page-title" dir="auto">Grammar</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:100%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="3c115e0e-4a09-8028-b916-fe5a25689fb5"><td class="cell-title"><a href="Grammar/Uncountable%20and%20plural%20nouns%203c115e0e4a098028b916fe5a25689fb5.html" data-notion-page-id="3c115e0e-4a09-8028-b916-fe5a25689fb5" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Uncountable and plural nouns</a></td></tr><tr id="39615e0e-4a09-80f1-b269-c59c0b21401b"><td class="cell-title"><a href="Grammar/Used%20to%2039615e0e4a0980f1b269c59c0b21401b.html" data-notion-page-id="39615e0e-4a09-80f1-b269-c59c0b21401b" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Used to</a></td></tr><tr id="18115e0e-4a09-80a0-80ff-ca21dcd751f5"><td class="cell-title"><a href="Grammar/Question%20formation%2018115e0e4a0980a080ffca21dcd751f5.html" data-notion-page-id="18115e0e-4a09-80a0-80ff-ca21dcd751f5" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Question formation</a></td></tr><tr id="1c215e0e-4a09-800c-be67-f6dac85170a7"><td class="cell-title"><a href="Grammar/Uses%20of%20auxiliaries%201c215e0e4a09800cbe67f6dac85170a7.html" data-notion-page-id="1c215e0e-4a09-800c-be67-f6dac85170a7" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Uses of auxiliaries</a></td></tr><tr id="1f215e0e-4a09-80ea-b6a7-c482247bbf54"><td class="cell-title"><a href="Grammar/Present%20Perfect%201f215e0e4a0980eab6a7c482247bbf54.html" data-notion-page-id="1f215e0e-4a09-80ea-b6a7-c482247bbf54" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Present Perfect</a></td></tr><tr id="25415e0e-4a09-8031-a19e-e6056eb19149"><td class="cell-title"><a href="Grammar/Present%20Perfect%20Simple%20vs%20Continuous%2025415e0e4a098031a19ee6056eb19149.html" data-notion-page-id="25415e0e-4a09-8031-a19e-e6056eb19149" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Present Perfect Simple vs Continuous</a></td></tr><tr id="2be15e0e-4a09-80c3-8c5f-dcbb50adafa1"><td class="cell-title"><a href="Grammar/Zero%20and%20First%20Conditional,%20future%20time%20clauses%202be15e0e4a0980c38c5fdcbb50adafa1.html" data-notion-page-id="2be15e0e-4a09-80c3-8c5f-dcbb50adafa1" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Zero and First Conditional, future time clauses</a></td></tr><tr id="2f515e0e-4a09-80eb-aeec-d23d93aed394"><td class="cell-title"><a href="Grammar/The%E2%80%A6the%20+%20comparative%202f515e0e4a0980ebaeecd23d93aed394.html" data-notion-page-id="2f515e0e-4a09-80eb-aeec-d23d93aed394" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">The…the + comparative</a></td></tr><tr id="35815e0e-4a09-80d2-ad1d-e08030328d74"><td class="cell-title"><a href="Grammar/Narrative%20tenses%2035815e0e4a0980d2ad1de08030328d74.html" data-notion-page-id="35815e0e-4a09-80d2-ad1d-e08030328d74" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Narrative tenses</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

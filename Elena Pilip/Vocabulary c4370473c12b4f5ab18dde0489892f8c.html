@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Vocabulary</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Vocabulary</title><meta name="data-notion-page-icon" content="⬜"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%AC%9C%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="c4370473-c12b-4f5a-b18d-de0489892f8c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⬜</span></div><h1 class="page-title" dir="auto">Vocabulary</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="15a6c978-6a07-4596-b1a3-b6ce965f92d4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Strong%20adjectives%2015a6c9786a074596b1a3b6ce965f92d4.html">Strong adjectives</a></td></tr><tr id="8d89f87f-76b1-417f-a465-b341c885cf52"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Family%208d89f87f76b1417fa465b341c885cf52.html">Family</a></td></tr><tr id="23090f94-f7f1-4b43-89f8-67f08ee0d909"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Talking%20about%20abilities%2023090f94f7f14b4389f867f08ee0d909.html">Talking about abilities</a></td></tr><tr id="5201f3aa-0adf-4011-9837-c16678acfd63"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/-ing%20-ed%20adjectives%205201f3aa0adf40119837c16678acfd63.html">-ing/-ed adjectives</a></td></tr><tr id="71b1cd46-b536-4e16-b85f-f644e5ad5825"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Phone%20language%2071b1cd46b5364e16b85ff644e5ad5825.html">Phone language</a></td></tr><tr id="6b508222-ca9b-46a2-906b-e0c0da1b2e3f"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Cinema%206b508222ca9b46a2906be0c0da1b2e3f.html">Cinema</a></td></tr><tr id="a282f657-9537-4dfb-89ec-599adb35e8cc"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Bad%20weather%20and%20natural%20disasters%20a282f65795374dfb89ec599adb35e8cc.html">Bad weather and natural disasters</a></td></tr><tr id="ff4dff1b-e8fb-4d2d-bd55-45f43fe74167"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Body%20and%20body%20movements%20ff4dff1be8fb4d2dbd5545f43fe74167.html">Body and body movements</a></td></tr><tr id="f1e7b613-c4cd-4e69-9456-d50dc6158097"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Describing%20people%20f1e7b613c4cd4e699456d50dc6158097.html">Describing people</a></td></tr><tr id="d7dd62e4-0e8c-4093-a43f-1b192aeb8165"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Education%20d7dd62e40e8c4093a43f1b192aeb8165.html">Education</a></td></tr><tr id="726d6cf1-5b4e-4849-b115-aa75ecd386df"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Houses%20726d6cf15b4e4849b115aa75ecd386df.html">Houses</a></td></tr><tr id="01de314f-12e4-4ea2-b136-8843b63d9fd8"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Making%20suggestions%2001de314f12e44ea2b1368843b63d9fd8.html">Making suggestions</a></td></tr><tr id="9ba1d545-7df8-46c8-a829-4f4464bf2591"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Shopping%209ba1d5457df846c8a8294f4464bf2591.html">Shopping</a></td></tr><tr id="8a027741-41fa-4153-a737-77f0748a838a"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Nouns%20from%20verbs%208a02774141fa4153a73777f0748a838a.html">Nouns from verbs</a></td></tr><tr id="59f697b9-ebc7-423c-81e8-1586ffbb9ad4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/News%2059f697b9ebc7423c81e81586ffbb9ad4.html">News</a></td></tr><tr id="282301ae-cdd1-4d41-8012-96be4c8cc5e3"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Work%20282301aecdd14d41801296be4c8cc5e3.html">Work</a></td></tr><tr id="588e9b6f-1bee-42ea-a130-fdee41fbedb5"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Electronic%20devices%20588e9b6f1bee42eaa130fdee41fbedb5.html">Electronic devices</a></td></tr><tr id="17515e0e-4a09-808e-b1ed-fc389472dfd7"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Communication%2017515e0e4a09808eb1edfc389472dfd7.html">Communication</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="c4370473-c12b-4f5a-b18d-de0489892f8c" class="page sans" data-notion-page-icon="⬜"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="⬜"></span></div><h1 class="page-title" dir="auto">Vocabulary</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:100%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th></tr></thead><tbody><tr id="15a6c978-6a07-4596-b1a3-b6ce965f92d4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Strong%20adjectives%2015a6c9786a074596b1a3b6ce965f92d4.html" data-notion-page-id="15a6c978-6a07-4596-b1a3-b6ce965f92d4" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Strong adjectives</a></td></tr><tr id="8d89f87f-76b1-417f-a465-b341c885cf52"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Family%208d89f87f76b1417fa465b341c885cf52.html" data-notion-page-id="8d89f87f-76b1-417f-a465-b341c885cf52" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Family</a></td></tr><tr id="23090f94-f7f1-4b43-89f8-67f08ee0d909"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Talking%20about%20abilities%2023090f94f7f14b4389f867f08ee0d909.html" data-notion-page-id="23090f94-f7f1-4b43-89f8-67f08ee0d909" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Talking about abilities</a></td></tr><tr id="5201f3aa-0adf-4011-9837-c16678acfd63"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/-ing%20-ed%20adjectives%205201f3aa0adf40119837c16678acfd63.html" data-notion-page-id="5201f3aa-0adf-4011-9837-c16678acfd63" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">-ing/-ed adjectives</a></td></tr><tr id="71b1cd46-b536-4e16-b85f-f644e5ad5825"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Phone%20language%2071b1cd46b5364e16b85ff644e5ad5825.html" data-notion-page-id="71b1cd46-b536-4e16-b85f-f644e5ad5825" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Phone language</a></td></tr><tr id="6b508222-ca9b-46a2-906b-e0c0da1b2e3f"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Cinema%206b508222ca9b46a2906be0c0da1b2e3f.html" data-notion-page-id="6b508222-ca9b-46a2-906b-e0c0da1b2e3f" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Cinema</a></td></tr><tr id="a282f657-9537-4dfb-89ec-599adb35e8cc"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Bad%20weather%20and%20natural%20disasters%20a282f65795374dfb89ec599adb35e8cc.html" data-notion-page-id="a282f657-9537-4dfb-89ec-599adb35e8cc" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Bad weather and natural disasters</a></td></tr><tr id="ff4dff1b-e8fb-4d2d-bd55-45f43fe74167"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Body%20and%20body%20movements%20ff4dff1be8fb4d2dbd5545f43fe74167.html" data-notion-page-id="ff4dff1b-e8fb-4d2d-bd55-45f43fe74167" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Body and body movements</a></td></tr><tr id="f1e7b613-c4cd-4e69-9456-d50dc6158097"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Describing%20people%20f1e7b613c4cd4e699456d50dc6158097.html" data-notion-page-id="f1e7b613-c4cd-4e69-9456-d50dc6158097" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Describing people</a></td></tr><tr id="d7dd62e4-0e8c-4093-a43f-1b192aeb8165"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Education%20d7dd62e40e8c4093a43f1b192aeb8165.html" data-notion-page-id="d7dd62e4-0e8c-4093-a43f-1b192aeb8165" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Education</a></td></tr><tr id="726d6cf1-5b4e-4849-b115-aa75ecd386df"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Houses%20726d6cf15b4e4849b115aa75ecd386df.html" data-notion-page-id="726d6cf1-5b4e-4849-b115-aa75ecd386df" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Houses</a></td></tr><tr id="01de314f-12e4-4ea2-b136-8843b63d9fd8"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Making%20suggestions%2001de314f12e44ea2b1368843b63d9fd8.html" data-notion-page-id="01de314f-12e4-4ea2-b136-8843b63d9fd8" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Making suggestions</a></td></tr><tr id="9ba1d545-7df8-46c8-a829-4f4464bf2591"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Shopping%209ba1d5457df846c8a8294f4464bf2591.html" data-notion-page-id="9ba1d545-7df8-46c8-a829-4f4464bf2591" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Shopping</a></td></tr><tr id="8a027741-41fa-4153-a737-77f0748a838a"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Nouns%20from%20verbs%208a02774141fa4153a73777f0748a838a.html" data-notion-page-id="8a027741-41fa-4153-a737-77f0748a838a" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Nouns from verbs</a></td></tr><tr id="59f697b9-ebc7-423c-81e8-1586ffbb9ad4"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/News%2059f697b9ebc7423c81e81586ffbb9ad4.html" data-notion-page-id="59f697b9-ebc7-423c-81e8-1586ffbb9ad4" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">News</a></td></tr><tr id="282301ae-cdd1-4d41-8012-96be4c8cc5e3"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Work%20282301aecdd14d41801296be4c8cc5e3.html" data-notion-page-id="282301ae-cdd1-4d41-8012-96be4c8cc5e3" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Work</a></td></tr><tr id="588e9b6f-1bee-42ea-a130-fdee41fbedb5"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Electronic%20devices%20588e9b6f1bee42eaa130fdee41fbedb5.html" data-notion-page-id="588e9b6f-1bee-42ea-a130-fdee41fbedb5" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Electronic devices</a></td></tr><tr id="17515e0e-4a09-808e-b1ed-fc389472dfd7"><td class="cell-title"><a href="Vocabulary%20c437-2f8c/Communication%2017515e0e4a09808eb1edfc389472dfd7.html" data-notion-page-id="17515e0e-4a09-808e-b1ed-fc389472dfd7" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Communication</a></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

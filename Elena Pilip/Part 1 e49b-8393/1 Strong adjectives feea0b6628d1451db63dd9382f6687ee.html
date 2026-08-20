@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1. Strong adjectives</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1. Strong adjectives</title><meta name="data-notion-page-icon" content="💤"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%92%A4%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="feea0b66-28d1-451d-b63d-d9382f6687ee" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💤</span></div><h1 class="page-title" dir="auto">1. Strong adjectives</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="b1c0665f-3543-4e3a-97f7-20948835010e" class="image"><a href="1%20Strong%20adjectives/Screenshot_2022-05-08_at_23.51.58.png"><img style="width:709.982666015625px" src="1%20Strong%20adjectives/Screenshot_2022-05-08_at_23.51.58.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="aadbf21f-e519-40fe-b335-dc3cde49421b" class="block-color-blue_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="2ca25b96-ba68-4ca1-9a96-f19fdee3d378" class="image"><a href="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.41.35.png"><img style="width:2137px" src="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.41.35.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="dc9b2757-db3e-4c35-9d45-351bcf8d834b" class="image"><a href="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.33.03.png"><img style="width:709.9913330078125px" src="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.33.03.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="ebc3b3bd-b119-4c05-a87d-4c9cfd70a1a2" class="block-color-blue_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="1f52c595-2b55-4b30-8d0a-dcac9c173dd5"><a href="https://wordwall.net/resource/11725922/strong-adjectives" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Strong Adjectives</div><div class="bookmark-description">tasty - delicious, cold - freezing, hot - boiling, scared - terrified, angry - furious, hungry - starving, happy - delighted, good - fantastic,brilliant, tired - exhausted, dirty - filthy, big - huge,enormous, surprised - amazed, sure - positive, funny - hilarious, small - tiny, interesting - fascinating , difficult - impossible, beautiful - gorgeous, wet - soaking, bad - terrible,horrible,</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/11725922/strong-adjectives</div></div><img src="https://az779572.vo.msecnd.net/screens-800/2296ae56e61449db857e92c47510a792_1" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="ltr"><table id="8c5c4f1a-5f0c-48ff-b666-4f514246b8db" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="f13e43e2-bfab-414b-8ff8-1d2cafc1e3ee"><th id=";ghj" class="simple-table-header-color simple-table-header" style="width:369.00000762939453px"><strong>gradable adjectives</strong></th><th id="p:cg" class="simple-table-header-color simple-table-header" style="width:340.22222900390625px"><strong>strong adjectives</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="91b8cf17-7262-4c55-be94-343f9d917e6d"><td id=";ghj" class="" style="width:369.00000762939453px">extremely/incredibly</td><td id="p:cg" class="" style="width:340.22222900390625px">absolutely</td></tr></div><div style="display:contents" dir="ltr"><tr id="8616e3e9-dc2f-41e7-8a57-52e471fa162b"><td id=";ghj" class="" style="width:369.00000762939453px">very</td><td id="p:cg" class="" style="width:340.22222900390625px">really</td></tr></div><div style="display:contents" dir="ltr"><tr id="14e673e4-21ac-4d1c-8099-ae98e6ca225e"><td id=";ghj" class="" style="width:369.00000762939453px">fairly</td><td id="p:cg" class="" style="width:340.22222900390625px"></td></tr></div><div style="display:contents" dir="ltr"><tr id="df4d9052-ac33-4832-85e0-7b710c64572e"><td id=";ghj" class="" style="width:369.00000762939453px">really</td><td id="p:cg" class="" style="width:340.22222900390625px"></td></tr></div><div style="display:contents" dir="ltr"><tr id="e662f77b-9c4a-4082-9d5f-e84b3ab28fb6"><td id=";ghj" class="" style="width:369.00000762939453px">quite</td><td id="p:cg" class="" style="width:340.22222900390625px"></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="d53bb314-c554-485e-87f5-dc10c5e423c8" class="block-color-blue_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="98a6c196-23f0-43ae-95bc-a32c4f67120c"><a href="https://wordwall.net/resource/26044306/strong-adj" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Strong adj</div><div class="bookmark-description">1) furious a) angry b) big c) afraid d) small 2) exhausted a) funny b) happy c) tired d) dirty 3) freezing a) hungry b) cold c) hot d) sure 4) tiny a) small b) surprized c) angry d) dirty 5) positive a) hot b) surprized c) sure d) tasty</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/26044306/strong-adj</div></div><img src="https://az779572.vo.msecnd.net/screens-800/4af634c883144d6493bf45512c5b5f2b" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="a8d4bbf8-5c50-41c0-8a9e-601729e6703f" class="block-color-blue_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="0408d726-7ff3-49da-a670-f07fdf0b9896" class="image"><a href="1%20Strong%20adjectives/Screenshot_2022-05-19_at_15.46.37.png"><img style="width:709.9913330078125px" src="1%20Strong%20adjectives/Screenshot_2022-05-19_at_15.46.37.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="9e64a9ff-2985-4baf-b41f-6346141177fb" class="block-color-blue_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="417ee386-d283-4424-b4af-f2313b2248ca" class="image"><a href="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.47.14.png"><img style="width:710.0000610351562px" src="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.47.14.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="d2bc1fb8-046c-4b02-a587-8e484df93526" class="block-color-blue_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="3c4db800-72c4-44f9-8e29-780872a98c8d"><a href="https://wordwall.net/resource/18042231/strong-adjectives-ef-2b-a-couple-of-adjectives" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Strong adjectives (EF 2B + a couple of adjectives)</div><div class="bookmark-description">When was the last time you felt really delighted ?, Is there any TV show / series / stand-up show that you think is absolutely hilarious?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/18042231/strong-adjectives-ef-2b-a-couple-of-adjectives</div></div><img src="https://az779572.vo.msecnd.net/screens-800/23d706838355402585820f2f0e411969_0" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="feea0b66-28d1-451d-b63d-d9382f6687ee" class="page sans" data-notion-page-icon="💤"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="💤"></span></div><h1 class="page-title" dir="auto">1. Strong adjectives</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="b1c0665f-3543-4e3a-97f7-20948835010e" class="image" data-notion-image="1%20Strong%20adjectives/Screenshot_2022-05-08_at_23.51.58.png" dir="ltr"><a href="1%20Strong%20adjectives/Screenshot_2022-05-08_at_23.51.58.png"><img style="width:709.982666015625px" src="1%20Strong%20adjectives/Screenshot_2022-05-08_at_23.51.58.png"/></a></figure><h2 id="aadbf21f-e519-40fe-b335-dc3cde49421b" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 1</h2><figure id="2ca25b96-ba68-4ca1-9a96-f19fdee3d378" class="image" data-notion-image="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.41.35.png" dir="ltr"><a href="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.41.35.png"><img style="width:2137px" src="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.41.35.png"/></a></figure><figure id="dc9b2757-db3e-4c35-9d45-351bcf8d834b" class="image" data-notion-image="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.33.03.png" dir="ltr"><a href="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.33.03.png"><img style="width:709.9913330078125px" src="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.33.03.png"/></a></figure><h2 id="ebc3b3bd-b119-4c05-a87d-4c9cfd70a1a2" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 2</h2><figure id="1f52c595-2b55-4b30-8d0a-dcac9c173dd5" dir="ltr"><a href="https://wordwall.net/resource/11725922/strong-adjectives" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Strong Adjectives</div><div class="bookmark-description">tasty - delicious, cold - freezing, hot - boiling, scared - terrified, angry - furious, hungry - starving, happy - delighted, good - fantastic,brilliant, tired - exhausted, dirty - filthy, big - huge,enormous, surprised - amazed, sure - positive, funny - hilarious, small - tiny, interesting - fascinating , difficult - impossible, beautiful - gorgeous, wet - soaking, bad - terrible,horrible,</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/11725922/strong-adjectives</div></div><img src="https://az779572.vo.msecnd.net/screens-800/2296ae56e61449db857e92c47510a792_1" class="bookmark-image"/></a></figure><table id="8c5c4f1a-5f0c-48ff-b666-4f514246b8db" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="f13e43e2-bfab-414b-8ff8-1d2cafc1e3ee" dir="ltr"><th id=";ghj" class="simple-table-header-color simple-table-header" style="width:369.00000762939453px"><strong>gradable adjectives</strong></th><th id="p:cg" class="simple-table-header-color simple-table-header" style="width:340.22222900390625px"><strong>strong adjectives</strong></th></tr></thead><tbody><tr id="91b8cf17-7262-4c55-be94-343f9d917e6d" dir="ltr"><td id=";ghj" class="" style="width:369.00000762939453px">extremely/incredibly</td><td id="p:cg" class="" style="width:340.22222900390625px">absolutely</td></tr><tr id="8616e3e9-dc2f-41e7-8a57-52e471fa162b" dir="ltr"><td id=";ghj" class="" style="width:369.00000762939453px">very</td><td id="p:cg" class="" style="width:340.22222900390625px">really</td></tr><tr id="14e673e4-21ac-4d1c-8099-ae98e6ca225e" dir="ltr"><td id=";ghj" class="" style="width:369.00000762939453px">fairly</td><td id="p:cg" class="" style="width:340.22222900390625px"></td></tr><tr id="df4d9052-ac33-4832-85e0-7b710c64572e" dir="ltr"><td id=";ghj" class="" style="width:369.00000762939453px">really</td><td id="p:cg" class="" style="width:340.22222900390625px"></td></tr><tr id="e662f77b-9c4a-4082-9d5f-e84b3ab28fb6" dir="ltr"><td id=";ghj" class="" style="width:369.00000762939453px">quite</td><td id="p:cg" class="" style="width:340.22222900390625px"></td></tr></tbody></table><h2 id="d53bb314-c554-485e-87f5-dc10c5e423c8" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 3</h2><figure id="98a6c196-23f0-43ae-95bc-a32c4f67120c" dir="ltr"><a href="https://wordwall.net/resource/26044306/strong-adj" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Strong adj</div><div class="bookmark-description">1) furious a) angry b) big c) afraid d) small 2) exhausted a) funny b) happy c) tired d) dirty 3) freezing a) hungry b) cold c) hot d) sure 4) tiny a) small b) surprized c) angry d) dirty 5) positive a) hot b) surprized c) sure d) tasty</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/26044306/strong-adj</div></div><img src="https://az779572.vo.msecnd.net/screens-800/4af634c883144d6493bf45512c5b5f2b" class="bookmark-image"/></a></figure><h2 id="a8d4bbf8-5c50-41c0-8a9e-601729e6703f" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 4</h2><figure id="0408d726-7ff3-49da-a670-f07fdf0b9896" class="image" data-notion-image="1%20Strong%20adjectives/Screenshot_2022-05-19_at_15.46.37.png" dir="ltr"><a href="1%20Strong%20adjectives/Screenshot_2022-05-19_at_15.46.37.png"><img style="width:709.9913330078125px" src="1%20Strong%20adjectives/Screenshot_2022-05-19_at_15.46.37.png"/></a></figure><h2 id="9e64a9ff-2985-4baf-b41f-6346141177fb" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 5</h2><figure id="417ee386-d283-4424-b4af-f2313b2248ca" class="image" data-notion-image="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.47.14.png" dir="ltr"><a href="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.47.14.png"><img style="width:710.0000610351562px" src="1%20Strong%20adjectives/Screenshot_2021-05-14_at_21.47.14.png"/></a></figure><h2 id="d2bc1fb8-046c-4b02-a587-8e484df93526" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 6</h2><figure id="3c4db800-72c4-44f9-8e29-780872a98c8d" dir="ltr"><a href="https://wordwall.net/resource/18042231/strong-adjectives-ef-2b-a-couple-of-adjectives" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Strong adjectives (EF 2B + a couple of adjectives)</div><div class="bookmark-description">When was the last time you felt really delighted ?, Is there any TV show / series / stand-up show that you think is absolutely hilarious?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/18042231/strong-adjectives-ef-2b-a-couple-of-adjectives</div></div><img src="https://az779572.vo.msecnd.net/screens-800/23d706838355402585820f2f0e411969_0" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

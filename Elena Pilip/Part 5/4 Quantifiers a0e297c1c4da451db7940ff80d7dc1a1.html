@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="a0e297c1-c4da-451d-b794-0ff80d7dc1a1" class="page sans"><header><h1 class="page-title" dir="auto">4. Quantifiers</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="d430288f-3a59-4c9d-9218-f9c429046090" class="image"><a href="4%20Quantifiers/Untitled.png"><img style="width:639px" src="4%20Quantifiers/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="fd87dc38-b1f0-4746-9481-7c43f35461c5" class="block-color-orange_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="1c449696-abfa-4151-960c-8b12613d50da" class="image"><a href="3%20Electronic%20devices/Screenshot_2022-07-21_at_17.24.09.png"><img style="width:708px" src="3%20Electronic%20devices/Screenshot_2022-07-21_at_17.24.09.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="ca6b4082-2237-4712-b99a-24293810ed19" class="block-color-orange_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="0c6d4674-8060-468a-8f87-b5c066b20b48" class="image"><a href="4%20Quantifiers/Screenshot_2022-07-24_at_15.27.44.png"><img style="width:708px" src="4%20Quantifiers/Screenshot_2022-07-24_at_15.27.44.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="209d57c4-1755-4e05-8323-1385782cba28" class="block-color-orange_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="211562b0-0eb6-4e9a-b6ea-31efe2b0ac7d" class="image"><a href="4%20Quantifiers/Untitled%201.png"><img style="width:2182px" src="4%20Quantifiers/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="dd96f6bb-32b7-4089-925f-a1c1e8aba8ae" class="block-color-orange_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="d8c8debb-4f71-406b-84f6-e95ff531d8fb" class="image"><a href="4%20Quantifiers/Screenshot_2022-02-04_at_13.43.32.png"><img style="width:708px" src="4%20Quantifiers/Screenshot_2022-02-04_at_13.43.32.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="bcdee4f9-0c79-40b6-8496-038cc0bccdc3" class="block-color-orange_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="3644e6e3-2a4a-4fb2-962d-8583d12c6b0e" class="image"><a href="4%20Quantifiers/Screenshot_2022-02-04_at_13.45.19.png"><img style="width:708px" src="4%20Quantifiers/Screenshot_2022-02-04_at_13.45.19.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="bd54bd80-30b6-4a11-9300-7bd7bb4c0c66" class="block-color-orange_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="af72048e-4327-4b2d-8189-0ed16d62d086"><a href="https://wordwall.net/resource/11946360/technology-and-quantifiers" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Technology and quantifiers</div><div class="bookmark-description">How many photos do you have on your phone? Are they organized into albums? How quickly could you find a photo if you wanted to show it to someone?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/11946360/technology-and-quantifiers</div></div><img src="https://az779572.vo.msecnd.net/screens-800/dcb393bfec204a9286ed3dc6240b7774" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="eae67d2b-7637-4a94-a62c-4e118a65d3ce" class="block-color-orange_background">Exercise 7</h2></div><div style="display:contents" dir="ltr"><figure id="70ddd7b8-eb48-4825-a60f-9072b38a78cb"><a href="https://wordwall.net/resource/21648191/quantifiers-lim-prod-ef-9b" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Quantifiers (lim. prod., EF 9B)</div><div class="bookmark-description">1) Are there _____ of restaurants in your city? a) much b) a lot c) any 2) How _____ planets do you think have life on them? a) much b) few c) many 3) What are _____ of your English favourite words?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/21648191/quantifiers-lim-prod-ef-9b</div></div><img src="https://az779572.vo.msecnd.net/screens-800/07f8a4be5d75488d955798e53d01b786_1" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="a0e297c1-c4da-451d-b794-0ff80d7dc1a1" class="page sans"><header><h1 class="page-title" dir="auto">4. Quantifiers</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="d430288f-3a59-4c9d-9218-f9c429046090" class="image" data-notion-image="4%20Quantifiers/Untitled.png" dir="ltr"><a href="4%20Quantifiers/Untitled.png"><img style="width:639px" src="4%20Quantifiers/Untitled.png"/></a></figure><h2 id="fd87dc38-b1f0-4746-9481-7c43f35461c5" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 1</h2><figure id="1c449696-abfa-4151-960c-8b12613d50da" class="image" data-notion-image="3%20Electronic%20devices/Screenshot_2022-07-21_at_17.24.09.png" dir="ltr"><a href="3%20Electronic%20devices/Screenshot_2022-07-21_at_17.24.09.png"><img style="width:708px" src="3%20Electronic%20devices/Screenshot_2022-07-21_at_17.24.09.png"/></a></figure><h2 id="ca6b4082-2237-4712-b99a-24293810ed19" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 2</h2><figure id="0c6d4674-8060-468a-8f87-b5c066b20b48" class="image" data-notion-image="4%20Quantifiers/Screenshot_2022-07-24_at_15.27.44.png" dir="ltr"><a href="4%20Quantifiers/Screenshot_2022-07-24_at_15.27.44.png"><img style="width:708px" src="4%20Quantifiers/Screenshot_2022-07-24_at_15.27.44.png"/></a></figure><h2 id="209d57c4-1755-4e05-8323-1385782cba28" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 3</h2><figure id="211562b0-0eb6-4e9a-b6ea-31efe2b0ac7d" class="image" data-notion-image="4%20Quantifiers/Untitled%201.png" dir="ltr"><a href="4%20Quantifiers/Untitled%201.png"><img style="width:2182px" src="4%20Quantifiers/Untitled%201.png"/></a></figure><h2 id="dd96f6bb-32b7-4089-925f-a1c1e8aba8ae" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 4</h2><figure id="d8c8debb-4f71-406b-84f6-e95ff531d8fb" class="image" data-notion-image="4%20Quantifiers/Screenshot_2022-02-04_at_13.43.32.png" dir="ltr"><a href="4%20Quantifiers/Screenshot_2022-02-04_at_13.43.32.png"><img style="width:708px" src="4%20Quantifiers/Screenshot_2022-02-04_at_13.43.32.png"/></a></figure><h2 id="bcdee4f9-0c79-40b6-8496-038cc0bccdc3" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 5</h2><figure id="3644e6e3-2a4a-4fb2-962d-8583d12c6b0e" class="image" data-notion-image="4%20Quantifiers/Screenshot_2022-02-04_at_13.45.19.png" dir="ltr"><a href="4%20Quantifiers/Screenshot_2022-02-04_at_13.45.19.png"><img style="width:708px" src="4%20Quantifiers/Screenshot_2022-02-04_at_13.45.19.png"/></a></figure><h2 id="bd54bd80-30b6-4a11-9300-7bd7bb4c0c66" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 6</h2><figure id="af72048e-4327-4b2d-8189-0ed16d62d086" dir="ltr"><a href="https://wordwall.net/resource/11946360/technology-and-quantifiers" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Technology and quantifiers</div><div class="bookmark-description">How many photos do you have on your phone? Are they organized into albums? How quickly could you find a photo if you wanted to show it to someone?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/11946360/technology-and-quantifiers</div></div><img src="https://az779572.vo.msecnd.net/screens-800/dcb393bfec204a9286ed3dc6240b7774" class="bookmark-image"/></a></figure><h2 id="eae67d2b-7637-4a94-a62c-4e118a65d3ce" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 7</h2><figure id="70ddd7b8-eb48-4825-a60f-9072b38a78cb" dir="ltr"><a href="https://wordwall.net/resource/21648191/quantifiers-lim-prod-ef-9b" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Quantifiers (lim. prod., EF 9B)</div><div class="bookmark-description">1) Are there _____ of restaurants in your city? a) much b) a lot c) any 2) How _____ planets do you think have life on them? a) much b) few c) many 3) What are _____ of your English favourite words?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/21648191/quantifiers-lim-prod-ef-9b</div></div><img src="https://az779572.vo.msecnd.net/screens-800/07f8a4be5d75488d955798e53d01b786_1" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

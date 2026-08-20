@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,7 +791,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="30515e0e-4a09-80e9-8d16-fa99f06bc61b" class="page sans"><header><h1 class="page-title" dir="auto">9. Good life</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="30515e0e-4a09-80df-ae47-faa4bc446853" class="image"><a href="9%20Good%20life/Screenshot_2024-02-19_at_13.20.36.png"><img style="width:707.984375px" src="9%20Good%20life/Screenshot_2024-02-19_at_13.20.36.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="30515e0e-4a09-8051-9e86-dac88c67bf76" class="block-color-orange_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="30515e0e-4a09-808f-a55a-cf4fcc78f336" class="image"><a href="9%20Good%20life/Untitled.png"><img style="width:2475px" src="9%20Good%20life/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><div id="30515e0e-4a09-8013-8636-ce4fc72f082c" class="column-list"><div style="display:contents" dir="auto"><div id="30515e0e-4a09-8041-83ca-fd100a8aa27d" style="width:56.25%" class="column"><div style="display:contents" dir="ltr"><figure id="30515e0e-4a09-801c-ba77-e026ba3fc118" class="image" style="text-align:left"><a href="9%20Good%20life/Untitled%201.png"><img style="width:336px" src="9%20Good%20life/Untitled%201.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30515e0e-4a09-80e9-903b-c00001d53810" style="width:43.75%" class="column"><div style="display:contents" dir="auto"><h2 id="30515e0e-4a09-809e-b3f7-e505c10b0afb" class="block-color-orange_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="30515e0e-4a09-80bc-9197-cd7a3c95e3d7"><a href="https://wordwall.net/resource/54622211" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Happiness (SO Int plus 6.3)</div><div class="bookmark-description">Match up - Drag and drop each keyword next to its definition.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/54622211</div></div><img src="https://az779572.vo.msecnd.net/screens-800/05b6c5242514442cb5d66f3c1bf2b9d2_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-8068-a97b-c370bb5a40fb" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-801c-b09e-e720ff1d89a5" class="">
-</p></div><div style="display:contents" dir="auto"><h2 id="30515e0e-4a09-8069-9f7d-c3133a1a6ad8" class="block-color-orange_background">Exercise 3</h2></div><div style="display:contents" dir="auto"><ol type="1" id="30515e0e-4a09-80f8-8ef8-fea48d69a029" class="numbered-list" start="1"><li>Samantha: &quot;How was your job interview?&quot;</li></ol></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-806c-bb1c-e6f71557bb8b" class="">Thomas: &quot;It went really well! I feel like I&#x27;m __________________ (very happy).&quot;</p></div><div style="display:contents" dir="auto"><ol type="1" id="30515e0e-4a09-8007-a028-e14ec0b837aa" class="numbered-list" start="2"><li>Anna: &quot;I can&#x27;t believe I failed my exam.&quot;</li></ol></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-8012-acd6-d276d4e6378e" class="">Ben: &quot;Don&#x27;t worry, ____________________ (forget about the fail and stay optimistic)  - you can always retake it.&quot;</p></div><div style="display:contents" dir="auto"><ol type="1" id="30515e0e-4a09-800d-8f3f-cf1e9a8d4a73" class="numbered-list" start="3"><li>Emily: &quot;What do you _______________ (like) doing in your free time?&quot;</li></ol></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-80c3-8c87-cce8817ecbe3" class="">Jack: &quot;I love hiking and exploring new trails in the mountains.&quot;</p></div><div style="display:contents" dir="auto"><ol type="1" id="30515e0e-4a09-8064-9a3f-ecca50cac25a" class="numbered-list" start="4"><li>Sophie: &quot;Are you coming to the party tonight?&quot;</li></ol></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-80c9-9fc1-dcff11d5219a" class="">Michael: &quot;Yes, I am. I can&#x27;t wait to _______________ (have fun) with our friends.&quot;</p></div><div style="display:contents" dir="auto"><ol type="1" id="30515e0e-4a09-80b0-a57f-d05951852eee" class="numbered-list" start="5"><li>Lily: &quot;What&#x27;s your motto in life?&quot;</li></ol></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-806b-9f3c-e3199004cd65" class="">David: &quot;I always try to __________________ (enjoy your life right now)  and enjoy every experience to the fullest.&quot;</p></div><div style="display:contents" dir="auto"><ol type="1" id="30515e0e-4a09-8053-a49d-fca2ef4a53a2" class="numbered-list" start="6"><li>Olivia: &quot;How do you feel about your new job?&quot;</li></ol></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-808e-b3c8-c8c093b0ee97" class="">Robert: &quot;I&#x27;m really _____________ (happy and satisfied) with it. The work is challenging and fulfilling.&quot;</p></div><div style="display:contents" dir="auto"><h2 id="30515e0e-4a09-8066-8458-cd6734dbb708" class="block-color-orange_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="30515e0e-4a09-8033-8b22-c4f0f2fb2c81"><a href="https://wordwall.net/resource/54624623" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Happiness discussion (SO Int plus 6.3 based)</div><div class="bookmark-description">Random wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/54624623</div></div><img src="https://az779572.vo.msecnd.net/screens-800/35e3ee7bc6fb4cf5ad477f8dfce9bb31_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="30515e0e-4a09-80d0-8b63-c24848c33625" class="link-to-page"><a href="9%20Good%20life/Speakout%20Intermediate%20Plus%20Workbook%20Unit%206%203%20VOCAB%2030515e0e4a0980d08b63c24848c33625.html">Speakout Intermediate Plus Workbook Unit 6.3 VOCABULARY + Speakout Intermediate Plus Student Book Happiness (p. 125)</a></figure></div><div style="display:contents" dir="auto"><p id="30515e0e-4a09-8047-ab0a-d1f5b1751a24" class="">
-</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="30515e0e-4a09-80e9-8d16-fa99f06bc61b" class="page sans"><header><h1 class="page-title" dir="auto">9. Good life</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="30515e0e-4a09-80df-ae47-faa4bc446853" class="image" data-notion-image="9%20Good%20life/Screenshot_2024-02-19_at_13.20.36.png" dir="ltr"><a href="9%20Good%20life/Screenshot_2024-02-19_at_13.20.36.png"><img style="width:707.984375px" src="9%20Good%20life/Screenshot_2024-02-19_at_13.20.36.png"/></a></figure><h2 id="30515e0e-4a09-8051-9e86-dac88c67bf76" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 1</h2><figure id="30515e0e-4a09-808f-a55a-cf4fcc78f336" class="image" data-notion-image="9%20Good%20life/Untitled.png" dir="ltr"><a href="9%20Good%20life/Untitled.png"><img style="width:2475px" src="9%20Good%20life/Untitled.png"/></a></figure><div id="30515e0e-4a09-8013-8636-ce4fc72f082c" class="column-list" data-notion-column-list="" dir="auto"><div id="30515e0e-4a09-8041-83ca-fd100a8aa27d" style="width:56.25%" class="column" data-notion-column-ratio="0.5625" dir="auto"><figure id="30515e0e-4a09-801c-ba77-e026ba3fc118" class="image" style="text-align:left" data-notion-image="9%20Good%20life/Untitled%201.png" dir="ltr"><a href="9%20Good%20life/Untitled%201.png"><img style="width:336px" src="9%20Good%20life/Untitled%201.png"/></a></figure></div><div id="30515e0e-4a09-80e9-903b-c00001d53810" style="width:43.75%" class="column" data-notion-column-ratio="0.4375" dir="auto"><h2 id="30515e0e-4a09-809e-b3f7-e505c10b0afb" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 2</h2><figure id="30515e0e-4a09-80bc-9197-cd7a3c95e3d7" dir="ltr"><a href="https://wordwall.net/resource/54622211" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Happiness (SO Int plus 6.3)</div><div class="bookmark-description">Match up - Drag and drop each keyword next to its definition.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/54622211</div></div><img src="https://az779572.vo.msecnd.net/screens-800/05b6c5242514442cb5d66f3c1bf2b9d2_0" class="bookmark-image"/></a></figure><p id="30515e0e-4a09-8068-a97b-c370bb5a40fb" class="" dir="auto">
+</p></div></div><p id="30515e0e-4a09-801c-b09e-e720ff1d89a5" class="" dir="auto">
+</p><h2 id="30515e0e-4a09-8069-9f7d-c3133a1a6ad8" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 3</h2><ol type="1" id="30515e0e-4a09-80f8-8ef8-fea48d69a029" class="numbered-list" start="1" dir="auto"><li>Samantha: &quot;How was your job interview?&quot;</li></ol><p id="30515e0e-4a09-806c-bb1c-e6f71557bb8b" class="" dir="auto">Thomas: &quot;It went really well! I feel like I&#x27;m __________________ (very happy).&quot;</p><ol type="1" id="30515e0e-4a09-8007-a028-e14ec0b837aa" class="numbered-list" start="2" dir="auto"><li>Anna: &quot;I can&#x27;t believe I failed my exam.&quot;</li></ol><p id="30515e0e-4a09-8012-acd6-d276d4e6378e" class="" dir="auto">Ben: &quot;Don&#x27;t worry, ____________________ (forget about the fail and stay optimistic)  - you can always retake it.&quot;</p><ol type="1" id="30515e0e-4a09-800d-8f3f-cf1e9a8d4a73" class="numbered-list" start="3" dir="auto"><li>Emily: &quot;What do you _______________ (like) doing in your free time?&quot;</li></ol><p id="30515e0e-4a09-80c3-8c87-cce8817ecbe3" class="" dir="auto">Jack: &quot;I love hiking and exploring new trails in the mountains.&quot;</p><ol type="1" id="30515e0e-4a09-8064-9a3f-ecca50cac25a" class="numbered-list" start="4" dir="auto"><li>Sophie: &quot;Are you coming to the party tonight?&quot;</li></ol><p id="30515e0e-4a09-80c9-9fc1-dcff11d5219a" class="" dir="auto">Michael: &quot;Yes, I am. I can&#x27;t wait to _______________ (have fun) with our friends.&quot;</p><ol type="1" id="30515e0e-4a09-80b0-a57f-d05951852eee" class="numbered-list" start="5" dir="auto"><li>Lily: &quot;What&#x27;s your motto in life?&quot;</li></ol><p id="30515e0e-4a09-806b-9f3c-e3199004cd65" class="" dir="auto">David: &quot;I always try to __________________ (enjoy your life right now)  and enjoy every experience to the fullest.&quot;</p><ol type="1" id="30515e0e-4a09-8053-a49d-fca2ef4a53a2" class="numbered-list" start="6" dir="auto"><li>Olivia: &quot;How do you feel about your new job?&quot;</li></ol><p id="30515e0e-4a09-808e-b3c8-c8c093b0ee97" class="" dir="auto">Robert: &quot;I&#x27;m really _____________ (happy and satisfied) with it. The work is challenging and fulfilling.&quot;</p><h2 id="30515e0e-4a09-8066-8458-cd6734dbb708" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 4</h2><figure id="30515e0e-4a09-8033-8b22-c4f0f2fb2c81" dir="ltr"><a href="https://wordwall.net/resource/54624623" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Happiness discussion (SO Int plus 6.3 based)</div><div class="bookmark-description">Random wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/54624623</div></div><img src="https://az779572.vo.msecnd.net/screens-800/35e3ee7bc6fb4cf5ad477f8dfce9bb31_0" class="bookmark-image"/></a></figure><figure id="30515e0e-4a09-80d0-8b63-c24848c33625" class="link-to-page"><a href="9%20Good%20life/Speakout%20Intermediate%20Plus%20Workbook%20Unit%206%203%20VOCAB%2030515e0e4a0980d08b63c24848c33625.html" data-notion-page-id="30515e0e-4a09-80d0-8b63-c24848c33625" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Speakout Intermediate Plus Workbook Unit 6.3 VOCABULARY + Speakout Intermediate Plus Student Book Happiness (p. 125)</a></figure><p id="30515e0e-4a09-8047-ab0a-d1f5b1751a24" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

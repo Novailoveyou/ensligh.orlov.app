@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,7 +791,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="1fb15e0e-4a09-8037-8de8-e8dbc2942fca" class="page sans"><header><h1 class="page-title" dir="auto">10. Word building (nouns)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-80ff-ac0c-f21748da1bb8" class="image"><a href="10%20Word%20building%20(nouns)/Screenshot_2023-11-29_at_21.58.02.png"><img style="width:710px" src="10%20Word%20building%20(nouns)/Screenshot_2023-11-29_at_21.58.02.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1fb15e0e-4a09-8064-b0cf-c8fbd32f7d1a" class="block-color-blue_background">Warm-up</h2></div><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-8087-aec0-f5ec8a2706b8"><a href="https://wordwall.net/resource/31312280/present-perfect-vs-past-simple" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Present Perfect vs Past Simple</div><div class="bookmark-description">Flash cards - Test yourself using cards with prompts on the front and answers on the back.</div></div><div class="bookmark-href"><img src="https://wordwallapp.azureedge.net/static/content/images/favicon.1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31312280/present-perfect-vs-past-simple</div></div><img src="https://wordwallscreens.azureedge.net/800/9a31e054b2f949db99ea3d56bb35b4e4_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1fb15e0e-4a09-8043-bfa6-f8f410a99ca0" class="block-color-blue_background">Exercise 1</h2></div><div style="display:contents" dir="auto"><p id="1fb15e0e-4a09-8036-a99a-ca533b1b17ba" class=""><strong>How would you feel if you were asked to 1) give up the internet for 30 days or 2) speak in public? Choose adjectives from the bох or your own ideas.</strong></p></div><div style="display:contents" dir="auto"><blockquote id="1fb15e0e-4a09-8099-9036-f295b96e10b1" class="block-color-gray_background"><em>frustrated / awkward / embаrrassed / creative / disappointed / anxious / angry / fascinated / worried / spontaneous / nervous / amused</em></blockquote></div><div style="display:contents" dir="auto"><p id="1fb15e0e-4a09-80f1-9c60-dbd60ebf9653" class="">
-</p></div><div style="display:contents" dir="auto"><p id="1fb15e0e-4a09-803f-a416-df4dcc836185" class=""><strong>Now look at these opinions and say if you can relate to any of them</strong></p></div><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-8048-8cd0-e98eff8e7f48" class="image"><a href="10%20Word%20building%20(nouns)/Screenshot_2024-02-29_at_14.26.29.png"><img style="width:709.9921875px" src="10%20Word%20building%20(nouns)/Screenshot_2024-02-29_at_14.26.29.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1fb15e0e-4a09-8033-8a93-cd3c5f2b81db" class="block-color-blue_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-8015-ab1a-d55dd95a8f91"><a href="https://learningapps.org/watch?v=ptzgrodq323" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Word-building: nouns (SO Unpper 1.2 Voc Plus)</div><div class="bookmark-description">add suffixes -ion, -ness, ment, -ty/ity or another form to make a noun out of these adjectives</div></div><div class="bookmark-href"><img src="https://learningapps.org/appicons/2/29722214.png?cache=1679595668&amp;large" class="icon bookmark-icon"/>https://learningapps.org/watch?v=ptzgrodq323</div></div><img src="https://learningapps.org/appicons/2/29722214.png?cache=1679595668&amp;large" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><div id="1fb15e0e-4a09-8015-8d3f-ef6bcf4a9c4e" class="column-list"><div style="display:contents" dir="auto"><div id="1fb15e0e-4a09-8069-8690-f770103f19d4" style="width:43.75%" class="column"><div style="display:contents" dir="auto"><h2 id="1fb15e0e-4a09-80ab-b020-ca0ee37555a6" class="block-color-blue_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-80a6-a49d-e9f8f1252b80" class="image" style="text-align:left"><a href="10%20Word%20building%20(nouns)/Untitled.png"><img style="width:336px" src="10%20Word%20building%20(nouns)/Untitled.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="1fb15e0e-4a09-80a3-a315-e8f8de71c2cd" style="width:56.25%" class="column"><div style="display:contents" dir="auto"><h2 id="1fb15e0e-4a09-808c-a969-eab0b4976310" class="block-color-blue_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-8098-83b9-ed9ad1c49924" class="image" style="text-align:left"><a href="10%20Word%20building%20(nouns)/Untitled%201.png"><img style="width:432px" src="10%20Word%20building%20(nouns)/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1fb15e0e-4a09-80c9-93cb-d1704f0aeac1" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="1fb15e0e-4a09-80c3-a911-d94d25d5d897" class="">
-</p></div><div style="display:contents" dir="auto"><h2 id="1fb15e0e-4a09-80c9-a49f-f20ef3bc29ce" class="block-color-blue_background">Exercise 5</h2></div><div style="display:contents" dir="auto"><p id="1fb15e0e-4a09-8042-92a3-dcd452fcc45f" class="">Choose 2 challenges from the previous lesson and think of how they would make you feel using new nouns from today’s lesson.</p></div><div style="display:contents" dir="ltr"><figure id="1fb15e0e-4a09-8062-bd13-db9cd6638035" class="link-to-page"><a href="10%20Word%20building%20(nouns)/Speakout%20Wordbook%201%202%20VOCABULARY%20PLUS%20+%20EXTRA%20WORD%201fb15e0e4a098062bd13db9cd6638035.html">Speakout Wordbook 1.2 VOCABULARY PLUS + EXTRA WORDS  </a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="1fb15e0e-4a09-8037-8de8-e8dbc2942fca" class="page sans"><header><h1 class="page-title" dir="auto">10. Word building (nouns)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="1fb15e0e-4a09-80ff-ac0c-f21748da1bb8" class="image" data-notion-image="10%20Word%20building%20(nouns)/Screenshot_2023-11-29_at_21.58.02.png" dir="ltr"><a href="10%20Word%20building%20(nouns)/Screenshot_2023-11-29_at_21.58.02.png"><img style="width:710px" src="10%20Word%20building%20(nouns)/Screenshot_2023-11-29_at_21.58.02.png"/></a></figure><h2 id="1fb15e0e-4a09-8064-b0cf-c8fbd32f7d1a" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Warm-up</h2><figure id="1fb15e0e-4a09-8087-aec0-f5ec8a2706b8" dir="ltr"><a href="https://wordwall.net/resource/31312280/present-perfect-vs-past-simple" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Present Perfect vs Past Simple</div><div class="bookmark-description">Flash cards - Test yourself using cards with prompts on the front and answers on the back.</div></div><div class="bookmark-href"><img src="https://wordwallapp.azureedge.net/static/content/images/favicon.1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31312280/present-perfect-vs-past-simple</div></div><img src="https://wordwallscreens.azureedge.net/800/9a31e054b2f949db99ea3d56bb35b4e4_0" class="bookmark-image"/></a></figure><h2 id="1fb15e0e-4a09-8043-bfa6-f8f410a99ca0" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 1</h2><p id="1fb15e0e-4a09-8036-a99a-ca533b1b17ba" class="" dir="auto"><strong>How would you feel if you were asked to 1) give up the internet for 30 days or 2) speak in public? Choose adjectives from the bох or your own ideas.</strong></p><blockquote id="1fb15e0e-4a09-8099-9036-f295b96e10b1" class="block-color-gray_background" data-notion-highlight="gray_background" dir="auto"><em>frustrated / awkward / embаrrassed / creative / disappointed / anxious / angry / fascinated / worried / spontaneous / nervous / amused</em></blockquote><p id="1fb15e0e-4a09-80f1-9c60-dbd60ebf9653" class="" dir="auto">
+</p><p id="1fb15e0e-4a09-803f-a416-df4dcc836185" class="" dir="auto"><strong>Now look at these opinions and say if you can relate to any of them</strong></p><figure id="1fb15e0e-4a09-8048-8cd0-e98eff8e7f48" class="image" data-notion-image="10%20Word%20building%20(nouns)/Screenshot_2024-02-29_at_14.26.29.png" dir="ltr"><a href="10%20Word%20building%20(nouns)/Screenshot_2024-02-29_at_14.26.29.png"><img style="width:709.9921875px" src="10%20Word%20building%20(nouns)/Screenshot_2024-02-29_at_14.26.29.png"/></a></figure><h2 id="1fb15e0e-4a09-8033-8a93-cd3c5f2b81db" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 2</h2><figure id="1fb15e0e-4a09-8015-ab1a-d55dd95a8f91" dir="ltr"><a href="https://learningapps.org/watch?v=ptzgrodq323" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Word-building: nouns (SO Unpper 1.2 Voc Plus)</div><div class="bookmark-description">add suffixes -ion, -ness, ment, -ty/ity or another form to make a noun out of these adjectives</div></div><div class="bookmark-href"><img src="https://learningapps.org/appicons/2/29722214.png?cache=1679595668&amp;large" class="icon bookmark-icon"/>https://learningapps.org/watch?v=ptzgrodq323</div></div><img src="https://learningapps.org/appicons/2/29722214.png?cache=1679595668&amp;large" class="bookmark-image"/></a></figure><div id="1fb15e0e-4a09-8015-8d3f-ef6bcf4a9c4e" class="column-list" data-notion-column-list="" dir="auto"><div id="1fb15e0e-4a09-8069-8690-f770103f19d4" style="width:43.75%" class="column" data-notion-column-ratio="0.4375" dir="auto"><h2 id="1fb15e0e-4a09-80ab-b020-ca0ee37555a6" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 3</h2><figure id="1fb15e0e-4a09-80a6-a49d-e9f8f1252b80" class="image" style="text-align:left" data-notion-image="10%20Word%20building%20(nouns)/Untitled.png" dir="ltr"><a href="10%20Word%20building%20(nouns)/Untitled.png"><img style="width:336px" src="10%20Word%20building%20(nouns)/Untitled.png"/></a></figure></div><div id="1fb15e0e-4a09-80a3-a315-e8f8de71c2cd" style="width:56.25%" class="column" data-notion-column-ratio="0.5625" dir="auto"><h2 id="1fb15e0e-4a09-808c-a969-eab0b4976310" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 4</h2><figure id="1fb15e0e-4a09-8098-83b9-ed9ad1c49924" class="image" style="text-align:left" data-notion-image="10%20Word%20building%20(nouns)/Untitled%201.png" dir="ltr"><a href="10%20Word%20building%20(nouns)/Untitled%201.png"><img style="width:432px" src="10%20Word%20building%20(nouns)/Untitled%201.png"/></a></figure><p id="1fb15e0e-4a09-80c9-93cb-d1704f0aeac1" class="" dir="auto">
+</p></div></div><p id="1fb15e0e-4a09-80c3-a911-d94d25d5d897" class="" dir="auto">
+</p><h2 id="1fb15e0e-4a09-80c9-a49f-f20ef3bc29ce" class="block-color-blue_background" data-notion-highlight="blue_background" dir="auto">Exercise 5</h2><p id="1fb15e0e-4a09-8042-92a3-dcd452fcc45f" class="" dir="auto">Choose 2 challenges from the previous lesson and think of how they would make you feel using new nouns from today’s lesson.</p><figure id="1fb15e0e-4a09-8062-bd13-db9cd6638035" class="link-to-page"><a href="10%20Word%20building%20(nouns)/Speakout%20Wordbook%201%202%20VOCABULARY%20PLUS%20+%20EXTRA%20WORD%201fb15e0e4a098062bd13db9cd6638035.html" data-notion-page-id="1fb15e0e-4a09-8062-bd13-db9cd6638035" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Speakout Wordbook 1.2 VOCABULARY PLUS + EXTRA WORDS  </a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

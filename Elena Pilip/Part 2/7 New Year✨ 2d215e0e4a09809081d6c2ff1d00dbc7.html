@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="2d215e0e-4a09-8090-81d6-c2ff1d00dbc7" class="page sans"><header><h1 class="page-title" dir="auto">7. New Year✨</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="2d215e0e-4a09-805f-ac82-f153fd29e987" class="image"><a href="7%20New%20Year%E2%9C%A8/b35302c2-d1d8-481f-ab4c-40a9d8131b49.png"><img style="width:265.78226387887526px" src="7%20New%20Year%E2%9C%A8/b35302c2-d1d8-481f-ab4c-40a9d8131b49.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2d315e0e-4a09-80e8-86f7-f16c286fcd5b" class="block-color-teal">Warm-up</h2></div><div style="display:contents" dir="ltr"><figure id="2d215e0e-4a09-8079-b743-f6e2a25b3401" class="image"><a href="7%20New%20Year%E2%9C%A8/7fa23deb-9066-4b0f-ac89-e96765148798.png"><img style="width:291.8463444857497px" src="7%20New%20Year%E2%9C%A8/7fa23deb-9066-4b0f-ac89-e96765148798.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2d315e0e-4a09-80cc-8794-e0ca1325c29f" class="block-color-teal">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="2d315e0e-4a09-8082-aa1f-e14a0a5dcfcc"><a href="https://wordwall.net/resource/40315460/are-you-ready-for-the-new-year-check-put-your-finger-down-if" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&quot;Are you ready for the New Year&quot;- check. Put your finger down if you</div><div class="bookmark-description">Speaking cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/40315460/are-you-ready-for-the-new-year-check-put-your-finger-down-if</div></div><img src="https://screens.cdn.wordwall.net/800/054f6c9eb4304ffb862447cc7f694897_6" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2d315e0e-4a09-8022-939e-cdaed4a5b8a7" class="block-color-teal">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="2d315e0e-4a09-809a-bb15-c068f41cf9c6"><a href="https://wordwall.net/resource/104385283/this-or-that-new-years" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">This or That New Years</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/104385283/this-or-that-new-years</div></div><img src="https://screens.cdn.wordwall.net/800/1dc6fc14cd984e34bb9073a86afe2a7a_6" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2d315e0e-4a09-80cc-8a39-c5425e6bde9b" class="block-color-teal">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="2d215e0e-4a09-8033-a0ea-d37398778635" class="image"><a href="7%20New%20Year%E2%9C%A8/image.png"><img style="width:710px" src="7%20New%20Year%E2%9C%A8/image.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2d315e0e-4a09-802b-b8c1-db5af5d4e107" class="block-color-teal">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="2d215e0e-4a09-808b-ac5e-dba63a8afcb6" class="image"><a href="7%20New%20Year%E2%9C%A8/image%201.png"><img style="width:709.9921875px" src="7%20New%20Year%E2%9C%A8/image%201.png"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="2d215e0e-4a09-8090-81d6-c2ff1d00dbc7" class="page sans"><header><h1 class="page-title" dir="auto">7. New Year✨</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="2d215e0e-4a09-805f-ac82-f153fd29e987" class="image" data-notion-image="7%20New%20Year%E2%9C%A8/b35302c2-d1d8-481f-ab4c-40a9d8131b49.png" dir="ltr"><a href="7%20New%20Year%E2%9C%A8/b35302c2-d1d8-481f-ab4c-40a9d8131b49.png"><img style="width:265.78226387887526px" src="7%20New%20Year%E2%9C%A8/b35302c2-d1d8-481f-ab4c-40a9d8131b49.png"/></a></figure><h2 id="2d315e0e-4a09-80e8-86f7-f16c286fcd5b" class="block-color-teal" data-notion-highlight="teal" dir="auto">Warm-up</h2><figure id="2d215e0e-4a09-8079-b743-f6e2a25b3401" class="image" data-notion-image="7%20New%20Year%E2%9C%A8/7fa23deb-9066-4b0f-ac89-e96765148798.png" dir="ltr"><a href="7%20New%20Year%E2%9C%A8/7fa23deb-9066-4b0f-ac89-e96765148798.png"><img style="width:291.8463444857497px" src="7%20New%20Year%E2%9C%A8/7fa23deb-9066-4b0f-ac89-e96765148798.png"/></a></figure><h2 id="2d315e0e-4a09-80cc-8794-e0ca1325c29f" class="block-color-teal" data-notion-highlight="teal" dir="auto">Exercise 1</h2><figure id="2d315e0e-4a09-8082-aa1f-e14a0a5dcfcc" dir="ltr"><a href="https://wordwall.net/resource/40315460/are-you-ready-for-the-new-year-check-put-your-finger-down-if" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&quot;Are you ready for the New Year&quot;- check. Put your finger down if you</div><div class="bookmark-description">Speaking cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/40315460/are-you-ready-for-the-new-year-check-put-your-finger-down-if</div></div><img src="https://screens.cdn.wordwall.net/800/054f6c9eb4304ffb862447cc7f694897_6" class="bookmark-image"/></a></figure><h2 id="2d315e0e-4a09-8022-939e-cdaed4a5b8a7" class="block-color-teal" data-notion-highlight="teal" dir="auto">Exercise 2</h2><figure id="2d315e0e-4a09-809a-bb15-c068f41cf9c6" dir="ltr"><a href="https://wordwall.net/resource/104385283/this-or-that-new-years" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">This or That New Years</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/104385283/this-or-that-new-years</div></div><img src="https://screens.cdn.wordwall.net/800/1dc6fc14cd984e34bb9073a86afe2a7a_6" class="bookmark-image"/></a></figure><h2 id="2d315e0e-4a09-80cc-8a39-c5425e6bde9b" class="block-color-teal" data-notion-highlight="teal" dir="auto">Exercise 3</h2><figure id="2d215e0e-4a09-8033-a0ea-d37398778635" class="image" data-notion-image="7%20New%20Year%E2%9C%A8/image.png" dir="ltr"><a href="7%20New%20Year%E2%9C%A8/image.png"><img style="width:710px" src="7%20New%20Year%E2%9C%A8/image.png"/></a></figure><h2 id="2d315e0e-4a09-802b-b8c1-db5af5d4e107" class="block-color-teal" data-notion-highlight="teal" dir="auto">Exercise 4</h2><figure id="2d215e0e-4a09-808b-ac5e-dba63a8afcb6" class="image" data-notion-image="7%20New%20Year%E2%9C%A8/image%201.png" dir="ltr"><a href="7%20New%20Year%E2%9C%A8/image%201.png"><img style="width:709.9921875px" src="7%20New%20Year%E2%9C%A8/image%201.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

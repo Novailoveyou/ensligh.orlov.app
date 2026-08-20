@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,6 +791,6 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="815115f0-338b-40cb-9c4a-3685fec58f46" class="page sans"><header><h1 class="page-title" dir="auto">8. Christmas</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="80588f4e-8625-474c-9756-76afe0bf3774" class="image"><a href="8%20Christmas/Untitled.jpeg"><img style="width:1170px" src="8%20Christmas/Untitled.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="34954978-48eb-4cd0-bd79-9f1ed4be0916" class="block-color-red_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="c53491ab-ccbf-41db-aa2c-68e502c876f3" class="image"><a href="8%20Christmas/Untitled.png"><img style="width:760px" src="8%20Christmas/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="d43449a2-82d1-4882-88f8-4c69dc3a3752" class="">
-</p></div><div style="display:contents" dir="ltr"><figure id="43eedda3-c3f7-481f-bf8a-1ddc04c6f800" class="image"><a href="8%20Christmas/Untitled%201.png"><img style="width:724px" src="8%20Christmas/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="6bde37ad-81a6-4688-b5e0-633d11758796" class="">
-</p></div><div style="display:contents" dir="auto"><h2 id="1d2a19d2-76eb-4b59-b7b2-adfcf6579910" class="block-color-red_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="a8467554-24ec-421f-8c27-b1e8239902fd" class="image"><a href="8%20Christmas/Untitled%202.png"><img style="width:703px" src="8%20Christmas/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="04124da9-02df-41c2-ab9e-a61b9b226b16" class="block-color-red_background">Exercise 3</h2></div><div style="display:contents" dir="auto"><p id="b678d7d3-0953-498d-85e1-1a9fd716110f" class="">What can I do now comparing to the beginning of the year?</p></div><div style="display:contents" dir="auto"><p id="60aaa732-793b-4cc2-b239-cc69eb5784d9" class="">In what ways do I feel my progress in English?</p></div><div style="display:contents" dir="auto"><p id="d5e4284b-0cb5-4687-a48a-70e0aa185a4b" class="">Am I happy with my level now? Why (not)? What do I feel like I need to work on?</p></div><div style="display:contents" dir="auto"><p id="ab7b53c8-dbfb-411c-b260-34e041feacda" class="">What was the most fascinating topic?</p></div><div style="display:contents" dir="auto"><p id="19461ce6-7ca5-4e83-8d5c-634b323d92bb" class="">What was the most challenging topic?</p></div><div style="display:contents" dir="auto"><p id="6b0bbbf5-fcee-457f-ac51-eeff9c30b058" class="">What did I like the best on our lessons?</p></div><div style="display:contents" dir="auto"><p id="95b61a00-4dd8-4e52-b20a-ce1e79a54f67" class="">What would I like to improve?</p></div><div style="display:contents" dir="auto"><p id="3f88c5a7-9bcb-4256-959b-da981c51542c" class="">What motivates me to study?</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="815115f0-338b-40cb-9c4a-3685fec58f46" class="page sans"><header><h1 class="page-title" dir="auto">8. Christmas</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="80588f4e-8625-474c-9756-76afe0bf3774" class="image" data-notion-image="8%20Christmas/Untitled.jpeg" dir="ltr"><a href="8%20Christmas/Untitled.jpeg"><img style="width:1170px" src="8%20Christmas/Untitled.jpeg"/></a></figure><h2 id="34954978-48eb-4cd0-bd79-9f1ed4be0916" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 1</h2><figure id="c53491ab-ccbf-41db-aa2c-68e502c876f3" class="image" data-notion-image="8%20Christmas/Untitled.png" dir="ltr"><a href="8%20Christmas/Untitled.png"><img style="width:760px" src="8%20Christmas/Untitled.png"/></a></figure><p id="d43449a2-82d1-4882-88f8-4c69dc3a3752" class="" dir="auto">
+</p><figure id="43eedda3-c3f7-481f-bf8a-1ddc04c6f800" class="image" data-notion-image="8%20Christmas/Untitled%201.png" dir="ltr"><a href="8%20Christmas/Untitled%201.png"><img style="width:724px" src="8%20Christmas/Untitled%201.png"/></a></figure><p id="6bde37ad-81a6-4688-b5e0-633d11758796" class="" dir="auto">
+</p><h2 id="1d2a19d2-76eb-4b59-b7b2-adfcf6579910" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 2</h2><figure id="a8467554-24ec-421f-8c27-b1e8239902fd" class="image" data-notion-image="8%20Christmas/Untitled%202.png" dir="ltr"><a href="8%20Christmas/Untitled%202.png"><img style="width:703px" src="8%20Christmas/Untitled%202.png"/></a></figure><h2 id="04124da9-02df-41c2-ab9e-a61b9b226b16" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 3</h2><p id="b678d7d3-0953-498d-85e1-1a9fd716110f" class="" dir="auto">What can I do now comparing to the beginning of the year?</p><p id="60aaa732-793b-4cc2-b239-cc69eb5784d9" class="" dir="auto">In what ways do I feel my progress in English?</p><p id="d5e4284b-0cb5-4687-a48a-70e0aa185a4b" class="" dir="auto">Am I happy with my level now? Why (not)? What do I feel like I need to work on?</p><p id="ab7b53c8-dbfb-411c-b260-34e041feacda" class="" dir="auto">What was the most fascinating topic?</p><p id="19461ce6-7ca5-4e83-8d5c-634b323d92bb" class="" dir="auto">What was the most challenging topic?</p><p id="6b0bbbf5-fcee-457f-ac51-eeff9c30b058" class="" dir="auto">What did I like the best on our lessons?</p><p id="95b61a00-4dd8-4e52-b20a-ce1e79a54f67" class="" dir="auto">What would I like to improve?</p><p id="3f88c5a7-9bcb-4256-959b-da981c51542c" class="" dir="auto">What motivates me to study?</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

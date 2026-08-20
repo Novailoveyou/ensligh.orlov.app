@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,6 +791,6 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="1adef70c-75bf-4199-9e00-04b79f51e520" class="page sans"><header><h1 class="page-title" dir="auto">1. Education</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="4834e6a9-ff29-4a85-a3e1-624975ec978a" class="image"><a href="1%20Education/Untitled.png"><img style="width:710.0000610351562px" src="1%20Education/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="8bcebd50-fba6-49ef-b930-585dcd5d9bc4" class="block-color-pink_background">Exercise 1</h2></div><div style="display:contents" dir="auto"><div id="14de0b2a-5915-4bae-9a05-7ca33c2dd6ba" class="column-list"><div style="display:contents" dir="auto"><div id="8f1a91dd-cf85-4028-8348-3d6768642a25" style="width:56.25%" class="column"><div style="display:contents" dir="ltr"><figure id="8402b3b2-c051-4cb1-99f5-5bfea5b56043" class="image"><a href="1%20Education/Screenshot_2022-04-12_at_11.20.20.png"><img style="width:373.4895935058594px" src="1%20Education/Screenshot_2022-04-12_at_11.20.20.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="9f0e23f2-5ec0-4483-85de-c70fbd2807fe" style="width:43.75%" class="column"><div style="display:contents" dir="ltr"><figure id="5f9762db-e324-4681-8b98-5afc798c3e46" class="image"><a href="1%20Education/Screenshot_2022-04-12_at_11.20.51.png"><img style="width:290.4861145019531px" src="1%20Education/Screenshot_2022-04-12_at_11.20.51.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2b5bbbb6-99df-4f3c-a968-fed7439b6540" class="column-list"><div style="display:contents" dir="auto"><div id="07a4c72c-daef-42dc-b069-c31b4f8e4a8c" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="5f102f0f-25f3-42c2-815c-f1f3649ef708" class="block-color-pink_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="64793ba7-4fe0-45e0-8dee-0e9056dcadc0" class="image"><a href="1%20Education/Screenshot_2022-04-12_at_11.44.56.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.44.56.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="48d86129-06f3-4d29-b15e-8bdb643f499d" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="847587e2-96ec-423c-9f5e-c3d00d58cb67" class="block-color-pink_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="04e76bc2-0a06-4889-a06a-d91d33a4ff59"><a href="https://wordwall.net/resource/24000733/education-in-the-uk-ef-7a" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education in the UK (EF 7A)</div><div class="bookmark-description">Drag and drop the pins to their correct place on the image.. primary, nursery, secondary, state, private, boarding, pupils, students, head, terms, degree.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/24000733/education-in-the-uk-ef-7a</div></div><img src="https://az779572.vo.msecnd.net/screens-800/b48f7e35849d492ea2b30571fea01e61" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="91647394-78be-4af8-842f-23b489b1cc88"><a href="https://wordwall.net/resource/24000990/education-in-the-us-ef-7a" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education in the US (EF 7A)</div><div class="bookmark-description">Drag and drop the pins to their correct place on the image.. elementary, high, grades, kindergarten, twelth grade, semesters, college.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/24000990/education-in-the-us-ef-7a</div></div><img src="https://az779572.vo.msecnd.net/screens-800/e1ded8f935ac4f639a99eb1e8b3fafef" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><p id="51c9a8a5-e3a8-4e23-99e4-9ff4707bd8f0" class="">
-</p></div><div style="display:contents" dir="auto"><p id="2bbf3113-b3f5-48f6-861e-439ff789b327" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><div id="8405a8fe-8384-4e47-97ed-84f597528881" class="column-list"><div style="display:contents" dir="auto"><div id="5e2415ee-c140-4424-b82c-56d74081f789" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="bddb7296-dd60-4b82-9fe3-bdfff2bf4229" class="block-color-pink_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="2e66aeec-12d1-41c3-94b0-5be8d0e65dd6" class="image"><a href="1%20Education/Screenshot_2022-04-12_at_11.43.15.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.43.15.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="5301cdde-1453-4875-9a7e-3e1a5f57a9f8" class="image"><a href="1%20Education/Screenshot_2022-04-12_at_11.43.24.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.43.24.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="9e47442e-c74a-4c75-9753-7ef0e7748d99" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="26781698-2037-40b0-adbe-c3bbdd2b6e27" class="block-color-pink_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="c3e627be-3a58-46fc-937f-eb3247d22ba0"><a href="https://wordwall.net/resource/31455599/education-ef-7a" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education (EF 7A)</div><div class="bookmark-description">Deal out cards at random from a shuffled deck.. , , , , , , , , , , .</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31455599/education-ef-7a</div></div><img src="https://az779572.vo.msecnd.net/screens-800/b3f494d80818430ba347e95368a86e29_2" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="7c9bb80c-d209-4bef-873c-55c4685ac65c" class="block-color-pink_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="6f965499-0088-49c4-ab22-a0b10fba69bd" class="image"><a href="1%20Education/Screenshot_2022-04-12_at_11.47.55.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.47.55.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="2e7b5cef-3cf1-4972-a823-0538333e8145" class="block-color-pink_background">Exercise 7</h2></div><div style="display:contents" dir="ltr"><figure id="d923fdaf-827e-4021-b419-5e3d7db6f9f9"><a href="https://wordwall.net/resource/20728393/education-speaking" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education (speaking)</div><div class="bookmark-description">1) How important do you think education is? 2) Do you think you had a good education? 3) Was there a high standard of education at your schools?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/20728393/education-speaking</div></div><img src="https://az779572.vo.msecnd.net/screens-800/7caf9a9627b74078af0b2e7882742e2e" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="67bde051-8189-41a3-9408-c6a111bd7596" class="link-to-page"><a href="1%20Education/English%20File%20Workbook%207A%2067bde051818941a39408c6a111bd7596.html"><span class="icon">📒</span>English File Workbook 7A</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="1adef70c-75bf-4199-9e00-04b79f51e520" class="page sans"><header><h1 class="page-title" dir="auto">1. Education</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="4834e6a9-ff29-4a85-a3e1-624975ec978a" class="image" data-notion-image="1%20Education/Untitled.png" dir="ltr"><a href="1%20Education/Untitled.png"><img style="width:710.0000610351562px" src="1%20Education/Untitled.png"/></a></figure><h2 id="8bcebd50-fba6-49ef-b930-585dcd5d9bc4" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 1</h2><div id="14de0b2a-5915-4bae-9a05-7ca33c2dd6ba" class="column-list" data-notion-column-list="" dir="auto"><div id="8f1a91dd-cf85-4028-8348-3d6768642a25" style="width:56.25%" class="column" data-notion-column-ratio="0.5625" dir="auto"><figure id="8402b3b2-c051-4cb1-99f5-5bfea5b56043" class="image" data-notion-image="1%20Education/Screenshot_2022-04-12_at_11.20.20.png" dir="ltr"><a href="1%20Education/Screenshot_2022-04-12_at_11.20.20.png"><img style="width:373.4895935058594px" src="1%20Education/Screenshot_2022-04-12_at_11.20.20.png"/></a></figure></div><div id="9f0e23f2-5ec0-4483-85de-c70fbd2807fe" style="width:43.75%" class="column" data-notion-column-ratio="0.4375" dir="auto"><figure id="5f9762db-e324-4681-8b98-5afc798c3e46" class="image" data-notion-image="1%20Education/Screenshot_2022-04-12_at_11.20.51.png" dir="ltr"><a href="1%20Education/Screenshot_2022-04-12_at_11.20.51.png"><img style="width:290.4861145019531px" src="1%20Education/Screenshot_2022-04-12_at_11.20.51.png"/></a></figure></div></div><div id="2b5bbbb6-99df-4f3c-a968-fed7439b6540" class="column-list" data-notion-column-list="" dir="auto"><div id="07a4c72c-daef-42dc-b069-c31b4f8e4a8c" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="5f102f0f-25f3-42c2-815c-f1f3649ef708" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 2</h2><figure id="64793ba7-4fe0-45e0-8dee-0e9056dcadc0" class="image" data-notion-image="1%20Education/Screenshot_2022-04-12_at_11.44.56.png" dir="ltr"><a href="1%20Education/Screenshot_2022-04-12_at_11.44.56.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.44.56.png"/></a></figure></div><div id="48d86129-06f3-4d29-b15e-8bdb643f499d" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="847587e2-96ec-423c-9f5e-c3d00d58cb67" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 3</h2><figure id="04e76bc2-0a06-4889-a06a-d91d33a4ff59" dir="ltr"><a href="https://wordwall.net/resource/24000733/education-in-the-uk-ef-7a" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education in the UK (EF 7A)</div><div class="bookmark-description">Drag and drop the pins to their correct place on the image.. primary, nursery, secondary, state, private, boarding, pupils, students, head, terms, degree.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/24000733/education-in-the-uk-ef-7a</div></div><img src="https://az779572.vo.msecnd.net/screens-800/b48f7e35849d492ea2b30571fea01e61" class="bookmark-image"/></a></figure><figure id="91647394-78be-4af8-842f-23b489b1cc88" dir="ltr"><a href="https://wordwall.net/resource/24000990/education-in-the-us-ef-7a" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education in the US (EF 7A)</div><div class="bookmark-description">Drag and drop the pins to their correct place on the image.. elementary, high, grades, kindergarten, twelth grade, semesters, college.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/24000990/education-in-the-us-ef-7a</div></div><img src="https://az779572.vo.msecnd.net/screens-800/e1ded8f935ac4f639a99eb1e8b3fafef" class="bookmark-image"/></a></figure><p id="51c9a8a5-e3a8-4e23-99e4-9ff4707bd8f0" class="" dir="auto">
+</p><p id="2bbf3113-b3f5-48f6-861e-439ff789b327" class="" dir="auto">
+</p></div></div><div id="8405a8fe-8384-4e47-97ed-84f597528881" class="column-list" data-notion-column-list="" dir="auto"><div id="5e2415ee-c140-4424-b82c-56d74081f789" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="bddb7296-dd60-4b82-9fe3-bdfff2bf4229" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 4</h2><figure id="2e66aeec-12d1-41c3-94b0-5be8d0e65dd6" class="image" data-notion-image="1%20Education/Screenshot_2022-04-12_at_11.43.15.png" dir="ltr"><a href="1%20Education/Screenshot_2022-04-12_at_11.43.15.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.43.15.png"/></a></figure><figure id="5301cdde-1453-4875-9a7e-3e1a5f57a9f8" class="image" data-notion-image="1%20Education/Screenshot_2022-04-12_at_11.43.24.png" dir="ltr"><a href="1%20Education/Screenshot_2022-04-12_at_11.43.24.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.43.24.png"/></a></figure></div><div id="9e47442e-c74a-4c75-9753-7ef0e7748d99" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="26781698-2037-40b0-adbe-c3bbdd2b6e27" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 5</h2><figure id="c3e627be-3a58-46fc-937f-eb3247d22ba0" dir="ltr"><a href="https://wordwall.net/resource/31455599/education-ef-7a" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education (EF 7A)</div><div class="bookmark-description">Deal out cards at random from a shuffled deck.. , , , , , , , , , , .</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31455599/education-ef-7a</div></div><img src="https://az779572.vo.msecnd.net/screens-800/b3f494d80818430ba347e95368a86e29_2" class="bookmark-image"/></a></figure><h2 id="7c9bb80c-d209-4bef-873c-55c4685ac65c" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 6</h2><figure id="6f965499-0088-49c4-ab22-a0b10fba69bd" class="image" data-notion-image="1%20Education/Screenshot_2022-04-12_at_11.47.55.png" dir="ltr"><a href="1%20Education/Screenshot_2022-04-12_at_11.47.55.png"><img style="width:331.98785400390625px" src="1%20Education/Screenshot_2022-04-12_at_11.47.55.png"/></a></figure></div></div><h2 id="2e7b5cef-3cf1-4972-a823-0538333e8145" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 7</h2><figure id="d923fdaf-827e-4021-b419-5e3d7db6f9f9" dir="ltr"><a href="https://wordwall.net/resource/20728393/education-speaking" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Education (speaking)</div><div class="bookmark-description">1) How important do you think education is? 2) Do you think you had a good education? 3) Was there a high standard of education at your schools?</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/20728393/education-speaking</div></div><img src="https://az779572.vo.msecnd.net/screens-800/7caf9a9627b74078af0b2e7882742e2e" class="bookmark-image"/></a></figure><figure id="67bde051-8189-41a3-9408-c6a111bd7596" class="link-to-page"><a href="1%20Education/English%20File%20Workbook%207A%2067bde051818941a39408c6a111bd7596.html" data-notion-page-id="67bde051-8189-41a3-9408-c6a111bd7596" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab"><span class="icon" data-emoji="📒"></span>English File Workbook 7A</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

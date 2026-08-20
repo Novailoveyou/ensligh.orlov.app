@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2. Family</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2. Family</title><meta name="data-notion-page-icon" content="👨‍👩‍👧"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%91%A8%E2%80%8D%F0%9F%91%A9%E2%80%8D%F0%9F%91%A7%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,5 +791,5 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="f26b8031-d0c4-470b-bf4d-9897643aa284" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👨‍👩‍👧</span></div><h1 class="page-title" dir="auto">2. Family</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="4f6095fe-c554-4915-bb84-6acba4aa5b9d" class="image"><a href="2%20Family/Untitled.png"><img style="width:709.9921875px" src="2%20Family/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="e5816eb0-2d4f-484f-a79e-b241fd9dd805" class="block-color-yellow_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="54bb90f6-59e7-4079-b1b2-ebab13ce2089" class="image"><a href="2%20Family/Screenshot_2022-05-04_at_14.49.49.png"><img style="width:480px" src="2%20Family/Screenshot_2022-05-04_at_14.49.49.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="806a9665-8889-4758-8691-9e3ba8682888" class="block-color-yellow_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="cf057686-241e-49b2-a88c-0b5cffd134dd"><a href="https://wordwall.net/resource/16954624/family-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Family (EF)</div><div class="bookmark-description">a stepmother - the woman who is married to someone&#x27;s father but who is not their real mother, a brother-in-law - the husband of your sister or brother, or the brother of your husband or wife, a half-sister - a sister who is the daughter of only one of your</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/16954624/family-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/405e5acb004f460a8cb95faa831c7809_2" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="985be982-1fbe-4151-a3fd-86a1cf02b188" class="block-color-yellow_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="04b95f5d-0e92-480c-af46-04622b95edfc" class="image"><a href="2%20Family/Screenshot_2022-05-04_at_14.51.42.png"><img style="width:624px" src="2%20Family/Screenshot_2022-05-04_at_14.51.42.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="ede7b711-f649-4f83-833d-e9665347a102" class="block-color-yellow_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="ee7e960f-fc00-4ecb-8d55-a8ba0512555a"><a href="https://wordwall.net/resource/23482776/family-questions" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Family Questions</div><div class="bookmark-description">Do you have a big family? Who do you live with?, How often do you see your extended family?, Do you spend more of your free time with family or friends? Why?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/23482776/family-questions</div></div><img src="https://az779572.vo.msecnd.net/screens-800/4b797ff5f9764efdb76f3a2fdd58fa60_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="0b5f088b-1562-4bd3-92f7-762304b9ff75" class="block-color-yellow_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="c85fce9f-8335-44eb-8fb7-09de82f4c430" class="image"><a href="2%20Family/Screenshot_2022-05-04_at_14.47.49.png"><img style="width:709.9921875px" src="2%20Family/Screenshot_2022-05-04_at_14.47.49.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="723a1ad1-85da-468a-943e-20869cfecd25" class="">
-</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="f26b8031-d0c4-470b-bf4d-9897643aa284" class="page sans" data-notion-page-icon="👨‍👩‍👧"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="👨‍👩‍👧"></span></div><h1 class="page-title" dir="auto">2. Family</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="4f6095fe-c554-4915-bb84-6acba4aa5b9d" class="image" data-notion-image="2%20Family/Untitled.png" dir="ltr"><a href="2%20Family/Untitled.png"><img style="width:709.9921875px" src="2%20Family/Untitled.png"/></a></figure><h2 id="e5816eb0-2d4f-484f-a79e-b241fd9dd805" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 1</h2><figure id="54bb90f6-59e7-4079-b1b2-ebab13ce2089" class="image" data-notion-image="2%20Family/Screenshot_2022-05-04_at_14.49.49.png" dir="ltr"><a href="2%20Family/Screenshot_2022-05-04_at_14.49.49.png"><img style="width:480px" src="2%20Family/Screenshot_2022-05-04_at_14.49.49.png"/></a></figure><h2 id="806a9665-8889-4758-8691-9e3ba8682888" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 2</h2><figure id="cf057686-241e-49b2-a88c-0b5cffd134dd" dir="ltr"><a href="https://wordwall.net/resource/16954624/family-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Family (EF)</div><div class="bookmark-description">a stepmother - the woman who is married to someone&#x27;s father but who is not their real mother, a brother-in-law - the husband of your sister or brother, or the brother of your husband or wife, a half-sister - a sister who is the daughter of only one of your</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/16954624/family-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/405e5acb004f460a8cb95faa831c7809_2" class="bookmark-image"/></a></figure><h2 id="985be982-1fbe-4151-a3fd-86a1cf02b188" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 3</h2><figure id="04b95f5d-0e92-480c-af46-04622b95edfc" class="image" data-notion-image="2%20Family/Screenshot_2022-05-04_at_14.51.42.png" dir="ltr"><a href="2%20Family/Screenshot_2022-05-04_at_14.51.42.png"><img style="width:624px" src="2%20Family/Screenshot_2022-05-04_at_14.51.42.png"/></a></figure><h2 id="ede7b711-f649-4f83-833d-e9665347a102" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 4</h2><figure id="ee7e960f-fc00-4ecb-8d55-a8ba0512555a" dir="ltr"><a href="https://wordwall.net/resource/23482776/family-questions" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Family Questions</div><div class="bookmark-description">Do you have a big family? Who do you live with?, How often do you see your extended family?, Do you spend more of your free time with family or friends? Why?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/23482776/family-questions</div></div><img src="https://az779572.vo.msecnd.net/screens-800/4b797ff5f9764efdb76f3a2fdd58fa60_0" class="bookmark-image"/></a></figure><h2 id="0b5f088b-1562-4bd3-92f7-762304b9ff75" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 5</h2><figure id="c85fce9f-8335-44eb-8fb7-09de82f4c430" class="image" data-notion-image="2%20Family/Screenshot_2022-05-04_at_14.47.49.png" dir="ltr"><a href="2%20Family/Screenshot_2022-05-04_at_14.47.49.png"><img style="width:709.9921875px" src="2%20Family/Screenshot_2022-05-04_at_14.47.49.png"/></a></figure><p id="723a1ad1-85da-468a-943e-20869cfecd25" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

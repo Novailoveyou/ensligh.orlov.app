@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="895521e6-b672-454a-a411-6f3c1c8d4cee" class="page sans"><header><h1 class="page-title" dir="auto">11. Revision 3</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="4d3dc90e-6d03-4f41-a8b6-b2aa6d64a0ed" class="image"><a href="11%20Revision%203/Screenshot_2023-03-28_at_19.55.35.png"><img style="width:1442px" src="11%20Revision%203/Screenshot_2023-03-28_at_19.55.35.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="97a45ef2-f225-4a27-9691-6e40e2a53322" class="block-color-orange_background">Modals of obligation</h2></div><div style="display:contents" dir="auto"><h3 id="a3845096-7d87-4226-90d7-a907964a54db" class="">Exercise 1</h3></div><div style="display:contents" dir="ltr"><figure id="49f7f3c2-12ab-49cc-98c1-21df72a2103c"><a href="https://wordwall.net/resource/25281546/modals-revision-practice-https-wwwmyenglishpagescom-english" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Modals Revision Practice (https://www.myenglishpages.com/english/grammar-exercise-modals.php)</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/25281546/modals-revision-practice-https-wwwmyenglishpagescom-english</div></div><img src="https://az779572.vo.msecnd.net/screens-800/6661819fc7a44ff4883eb94ce2f31b0f" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="2591dc07-f09e-4b35-a19c-d249e409ae09" class="">Exercise 2</h3></div><div style="display:contents" dir="ltr"><figure id="1b552cc0-8e2d-485c-966f-d18a40cb26d8"><a href="https://wordwall.net/resource/17772593/-modals-of-obligation-strange-laws" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Modals of obligation (Strange laws)</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/17772593/-modals-of-obligation-strange-laws</div></div><img src="https://az779572.vo.msecnd.net/screens-800/10da17ece61a4f0b83e6185367795a07_41" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="c2dfabba-8ff7-43e3-a16c-cafc5b9ea316" class="">Exercise 3</h3></div><div style="display:contents" dir="ltr"><figure id="445beaa6-4a41-4e4c-9565-b1bc2cdc67ce"><a href="https://wordwall.net/resource/27758104/modals-of-obligation-three-things" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Modals of obligation (three things...)</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href">https://wordwall.net/resource/27758104/modals-of-obligation-three-things</div></div><img src="https://az779572.vo.msecnd.net/screens-800/c8555aaea1d94dcda497fe12e17162de" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="7afe0e37-ff06-4dd4-8f71-ed10a643b3bb" class="block-color-orange_background">Past habits and states + Narrative tenses</h2></div><div style="display:contents" dir="auto"><h3 id="a1d5135c-bc76-47a1-9240-db0e021fb185" class="">Exercise 4</h3></div><div style="display:contents" dir="ltr"><figure id="22564bb3-67d7-48af-b3c0-cac0dc1ab5c2" class="image"><a href="11%20Revision%203/Screenshot_2023-03-28_at_19.31.17.png"><img style="width:1072px" src="11%20Revision%203/Screenshot_2023-03-28_at_19.31.17.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="6eea441b-61ba-4231-9c12-9e381cf88845" class="">Exercise 5</h3></div><div style="display:contents" dir="ltr"><figure id="ab6841b5-5e4d-4d57-bf43-a206d2848d88"><a href="https://wordwall.net/resource/52241048/past-narrative-tenses-warm-up-int-i" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Past (narrative) tenses warm-up int I</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/52241048/past-narrative-tenses-warm-up-int-i</div></div><img src="https://az779572.vo.msecnd.net/screens-800/0c9b82a11c244becab5a087a84003aed_41" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="e2195558-a342-4286-8278-52916279cfd7" class="">Exercise 6</h3></div><div style="display:contents" dir="ltr"><figure id="68687d31-8814-4600-9b3c-728680bf6b91"><a href="https://wordwall.net/resource/12472171/-narrative-tenses-intermediate" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Narrative tenses Intermediate</div><div class="bookmark-description">Random wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href">https://wordwall.net/resource/12472171/-narrative-tenses-intermediate</div></div><img src="https://az779572.vo.msecnd.net/screens-800/1dcf00ac502a4fdb9f5f518d2b810fb9_0" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="895521e6-b672-454a-a411-6f3c1c8d4cee" class="page sans"><header><h1 class="page-title" dir="auto">11. Revision 3</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="4d3dc90e-6d03-4f41-a8b6-b2aa6d64a0ed" class="image" data-notion-image="11%20Revision%203/Screenshot_2023-03-28_at_19.55.35.png" dir="ltr"><a href="11%20Revision%203/Screenshot_2023-03-28_at_19.55.35.png"><img style="width:1442px" src="11%20Revision%203/Screenshot_2023-03-28_at_19.55.35.png"/></a></figure><h2 id="97a45ef2-f225-4a27-9691-6e40e2a53322" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Modals of obligation</h2><h3 id="a3845096-7d87-4226-90d7-a907964a54db" class="" dir="auto">Exercise 1</h3><figure id="49f7f3c2-12ab-49cc-98c1-21df72a2103c" dir="ltr"><a href="https://wordwall.net/resource/25281546/modals-revision-practice-https-wwwmyenglishpagescom-english" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Modals Revision Practice (https://www.myenglishpages.com/english/grammar-exercise-modals.php)</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/25281546/modals-revision-practice-https-wwwmyenglishpagescom-english</div></div><img src="https://az779572.vo.msecnd.net/screens-800/6661819fc7a44ff4883eb94ce2f31b0f" class="bookmark-image"/></a></figure><h3 id="2591dc07-f09e-4b35-a19c-d249e409ae09" class="" dir="auto">Exercise 2</h3><figure id="1b552cc0-8e2d-485c-966f-d18a40cb26d8" dir="ltr"><a href="https://wordwall.net/resource/17772593/-modals-of-obligation-strange-laws" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Modals of obligation (Strange laws)</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/17772593/-modals-of-obligation-strange-laws</div></div><img src="https://az779572.vo.msecnd.net/screens-800/10da17ece61a4f0b83e6185367795a07_41" class="bookmark-image"/></a></figure><h3 id="c2dfabba-8ff7-43e3-a16c-cafc5b9ea316" class="" dir="auto">Exercise 3</h3><figure id="445beaa6-4a41-4e4c-9565-b1bc2cdc67ce" dir="ltr"><a href="https://wordwall.net/resource/27758104/modals-of-obligation-three-things" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Modals of obligation (three things...)</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href">https://wordwall.net/resource/27758104/modals-of-obligation-three-things</div></div><img src="https://az779572.vo.msecnd.net/screens-800/c8555aaea1d94dcda497fe12e17162de" class="bookmark-image"/></a></figure><h2 id="7afe0e37-ff06-4dd4-8f71-ed10a643b3bb" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Past habits and states + Narrative tenses</h2><h3 id="a1d5135c-bc76-47a1-9240-db0e021fb185" class="" dir="auto">Exercise 4</h3><figure id="22564bb3-67d7-48af-b3c0-cac0dc1ab5c2" class="image" data-notion-image="11%20Revision%203/Screenshot_2023-03-28_at_19.31.17.png" dir="ltr"><a href="11%20Revision%203/Screenshot_2023-03-28_at_19.31.17.png"><img style="width:1072px" src="11%20Revision%203/Screenshot_2023-03-28_at_19.31.17.png"/></a></figure><h3 id="6eea441b-61ba-4231-9c12-9e381cf88845" class="" dir="auto">Exercise 5</h3><figure id="ab6841b5-5e4d-4d57-bf43-a206d2848d88" dir="ltr"><a href="https://wordwall.net/resource/52241048/past-narrative-tenses-warm-up-int-i" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Past (narrative) tenses warm-up int I</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/52241048/past-narrative-tenses-warm-up-int-i</div></div><img src="https://az779572.vo.msecnd.net/screens-800/0c9b82a11c244becab5a087a84003aed_41" class="bookmark-image"/></a></figure><h3 id="e2195558-a342-4286-8278-52916279cfd7" class="" dir="auto">Exercise 6</h3><figure id="68687d31-8814-4600-9b3c-728680bf6b91" dir="ltr"><a href="https://wordwall.net/resource/12472171/-narrative-tenses-intermediate" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Narrative tenses Intermediate</div><div class="bookmark-description">Random wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href">https://wordwall.net/resource/12472171/-narrative-tenses-intermediate</div></div><img src="https://az779572.vo.msecnd.net/screens-800/1dcf00ac502a4fdb9f5f518d2b810fb9_0" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

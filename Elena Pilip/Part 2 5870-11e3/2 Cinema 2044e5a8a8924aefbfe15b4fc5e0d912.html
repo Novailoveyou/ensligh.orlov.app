@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="2044e5a8-a892-4aef-bfe1-5b4fc5e0d912" class="page sans"><header><h1 class="page-title" dir="auto">2. Cinema</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="fc8bea1a-7e67-4ceb-b4cd-d70ace17f92d" class="image"><a href="2%20Cinema/Screenshot_2022-04-05_at_14.53.46.png"><img style="width:1316px" src="2%20Cinema/Screenshot_2022-04-05_at_14.53.46.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="0d477a7b-dff7-4cea-b2c5-29cb8decd31e" class="block-color-yellow_background">Warm-up</h2></div><div style="display:contents" dir="ltr"><figure id="b349eb9b-5dd6-4d36-97e0-b3d56b202f2e" class="image"><a href="2%20Cinema/Screenshot_2023-04-26_at_21.01.14.png"><img style="width:1104px" src="2%20Cinema/Screenshot_2023-04-26_at_21.01.14.png"/></a></figure></div><div style="display:contents" dir="auto"><div id="144c31b8-72b6-4f55-8671-512d19cb4a9e" class="column-list"><div style="display:contents" dir="auto"><div id="54c33d76-9d53-46c0-a790-bd8228c11f4b" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="754bf92f-99fb-4acc-8000-56441f3fef4b" class="block-color-yellow_background">Exercise 1</h2></div></div></div><div style="display:contents" dir="auto"><div id="b5b1c60b-f155-4fba-a4fd-0c3609a205b7" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="50260ed9-dfce-48f1-8de7-aa5751e9887e" class="block-color-yellow_background">Exercise 2</h2></div></div></div></div></div><div style="display:contents" dir="auto"><div id="7e02f730-81bc-49f0-a571-a6b9ce3b4a2b" class="column-list"><div style="display:contents" dir="auto"><div id="5dbe6031-8243-4d07-b15d-4ad0fba643ce" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="83a857e7-1deb-47fd-b185-bf102b75bdad"><a href="https://wordwall.net/resource/31064286/film-genres-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Film genres (EF)</div><div class="bookmark-description">a drama, a musical, an animation, a war film, an action film, a horror film, a thriller, a western, a science fiction film, a rom-com, a historical fim.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31064286/film-genres-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/39bb78e0a37849c5b903c1fc704cd6d9" class="bookmark-image"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="be147b92-3c5e-4d7b-85d5-2d1d952f40a5" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="8fa2fc9f-803c-4b44-9f3c-1d00521a08cf"><a href="https://wordwall.net/resource/12248932/film-vocabulary" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Film Vocabulary</div><div class="bookmark-description">cast - all the people who act in a film, a star / to star - (also a verb) the most important actor in a film, soundtrack - the music of a film, plot - the general story of a film, scene - a part of a film which happens</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/12248932/film-vocabulary</div></div><img src="https://az779572.vo.msecnd.net/screens-800/24a5303993954ade8d04f640f7486065" class="bookmark-image"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="4c1f68d8-c966-480e-96b7-4566919ed37f" class="block-color-yellow_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="73c64103-46b9-46c5-a0eb-6b89b89b442b"><a href="https://wordwall.net/resource/31066122/cinema-phrases-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Cinema phrases (EF)</div><div class="bookmark-description">the film is an adaptation of a true story - The film is based on the story of opera singer Florence Foster Jenkins, it is situated in that place at that time - It is set in New York during the 1940s, he is the director - It is directed</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31066122/cinema-phrases-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/6eceafeacb7749d2915a89bf7b085dee" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><div id="d26c0f25-e340-4e40-96ac-009cf016455b" class="column-list"><div style="display:contents" dir="auto"><div id="d221c711-5d86-4613-9a47-e4c13391dd35" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="47f17db9-a440-4b29-aa6d-feffbfc67935" class="block-color-yellow_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="bbdbb896-2123-41a3-a16a-549bbc5153b1" class="image"><a href="2%20Cinema/Screenshot_2022-04-05_at_13.55.23.png"><img style="width:610px" src="2%20Cinema/Screenshot_2022-04-05_at_13.55.23.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="e66bbc89-1ece-4323-9402-8b9b338a2a2c" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="1b09872d-4948-4869-a7ad-a923e511d62d" class="block-color-yellow_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="1a339559-a2e2-407e-8735-036c8e0c4eda" class="image"><a href="2%20Cinema/Screenshot_2022-04-05_at_13.55.30.png"><img style="width:998px" src="2%20Cinema/Screenshot_2022-04-05_at_13.55.30.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="ff205605-6e1a-4d73-9ddd-856685cf7be2" class="block-color-yellow_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="0d441d5c-788b-41c9-bb1a-3225e376a0f7"><a href="https://wordwall.net/resource/21505699/cinema-production-ef-6a-prod-practice" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Cinema (production, EF 6A), prod\practice</div><div class="bookmark-description">Do you like s_____ e______ in movies? Why / why not?, Do you watch movies with su______? When was the last time you watched a movie with su______?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/21505699/cinema-production-ef-6a-prod-practice</div></div><img src="https://az779572.vo.msecnd.net/screens-800/68d80ede631d4465a5ca353725d9d6f4" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="0f3e7a18-6926-4536-b80b-77c99efe5365" class="block-color-yellow_background">Exercise 7</h2></div><div style="display:contents" dir="ltr"><figure id="c8d217cc-0ab9-4903-9615-ffe4fd38461e"><a href="https://wordwall.net/resource/52049824/-movies-and-cinema-discussion-questions-int-ii" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Movies and Cinema discussion questions (Int II)</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/52049824/-movies-and-cinema-discussion-questions-int-ii</div></div><img src="https://az779572.vo.msecnd.net/screens-800/528646a7e1b448f2b2cbe4329f8ecda0_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="ee6e522c-e351-4f12-b730-53a911a33cd1" class="block-color-yellow_background">Exercise 8</h2></div><div style="display:contents" dir="ltr"><figure id="828c373b-fe9a-43c6-a9b6-1adc57c9c81c" class="image"><a href="2%20Cinema/Screenshot_2023-05-10_at_11.06.58.png"><img style="width:992px" src="2%20Cinema/Screenshot_2023-05-10_at_11.06.58.png"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="2044e5a8-a892-4aef-bfe1-5b4fc5e0d912" class="page sans"><header><h1 class="page-title" dir="auto">2. Cinema</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="fc8bea1a-7e67-4ceb-b4cd-d70ace17f92d" class="image" data-notion-image="2%20Cinema/Screenshot_2022-04-05_at_14.53.46.png" dir="ltr"><a href="2%20Cinema/Screenshot_2022-04-05_at_14.53.46.png"><img style="width:1316px" src="2%20Cinema/Screenshot_2022-04-05_at_14.53.46.png"/></a></figure><h2 id="0d477a7b-dff7-4cea-b2c5-29cb8decd31e" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Warm-up</h2><figure id="b349eb9b-5dd6-4d36-97e0-b3d56b202f2e" class="image" data-notion-image="2%20Cinema/Screenshot_2023-04-26_at_21.01.14.png" dir="ltr"><a href="2%20Cinema/Screenshot_2023-04-26_at_21.01.14.png"><img style="width:1104px" src="2%20Cinema/Screenshot_2023-04-26_at_21.01.14.png"/></a></figure><div id="144c31b8-72b6-4f55-8671-512d19cb4a9e" class="column-list" data-notion-column-list="" dir="auto"><div id="54c33d76-9d53-46c0-a790-bd8228c11f4b" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="754bf92f-99fb-4acc-8000-56441f3fef4b" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 1</h2></div><div id="b5b1c60b-f155-4fba-a4fd-0c3609a205b7" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="50260ed9-dfce-48f1-8de7-aa5751e9887e" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 2</h2></div></div><div id="7e02f730-81bc-49f0-a571-a6b9ce3b4a2b" class="column-list" data-notion-column-list="" dir="auto"><div id="5dbe6031-8243-4d07-b15d-4ad0fba643ce" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="83a857e7-1deb-47fd-b185-bf102b75bdad" dir="ltr"><a href="https://wordwall.net/resource/31064286/film-genres-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Film genres (EF)</div><div class="bookmark-description">a drama, a musical, an animation, a war film, an action film, a horror film, a thriller, a western, a science fiction film, a rom-com, a historical fim.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31064286/film-genres-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/39bb78e0a37849c5b903c1fc704cd6d9" class="bookmark-image"/></a></figure></div><div id="be147b92-3c5e-4d7b-85d5-2d1d952f40a5" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="8fa2fc9f-803c-4b44-9f3c-1d00521a08cf" dir="ltr"><a href="https://wordwall.net/resource/12248932/film-vocabulary" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Film Vocabulary</div><div class="bookmark-description">cast - all the people who act in a film, a star / to star - (also a verb) the most important actor in a film, soundtrack - the music of a film, plot - the general story of a film, scene - a part of a film which happens</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/12248932/film-vocabulary</div></div><img src="https://az779572.vo.msecnd.net/screens-800/24a5303993954ade8d04f640f7486065" class="bookmark-image"/></a></figure></div></div><h2 id="4c1f68d8-c966-480e-96b7-4566919ed37f" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 3</h2><figure id="73c64103-46b9-46c5-a0eb-6b89b89b442b" dir="ltr"><a href="https://wordwall.net/resource/31066122/cinema-phrases-ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Cinema phrases (EF)</div><div class="bookmark-description">the film is an adaptation of a true story - The film is based on the story of opera singer Florence Foster Jenkins, it is situated in that place at that time - It is set in New York during the 1940s, he is the director - It is directed</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/31066122/cinema-phrases-ef</div></div><img src="https://az779572.vo.msecnd.net/screens-800/6eceafeacb7749d2915a89bf7b085dee" class="bookmark-image"/></a></figure><div id="d26c0f25-e340-4e40-96ac-009cf016455b" class="column-list" data-notion-column-list="" dir="auto"><div id="d221c711-5d86-4613-9a47-e4c13391dd35" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="47f17db9-a440-4b29-aa6d-feffbfc67935" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 4</h2><figure id="bbdbb896-2123-41a3-a16a-549bbc5153b1" class="image" data-notion-image="2%20Cinema/Screenshot_2022-04-05_at_13.55.23.png" dir="ltr"><a href="2%20Cinema/Screenshot_2022-04-05_at_13.55.23.png"><img style="width:610px" src="2%20Cinema/Screenshot_2022-04-05_at_13.55.23.png"/></a></figure></div><div id="e66bbc89-1ece-4323-9402-8b9b338a2a2c" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="1b09872d-4948-4869-a7ad-a923e511d62d" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 5</h2><figure id="1a339559-a2e2-407e-8735-036c8e0c4eda" class="image" data-notion-image="2%20Cinema/Screenshot_2022-04-05_at_13.55.30.png" dir="ltr"><a href="2%20Cinema/Screenshot_2022-04-05_at_13.55.30.png"><img style="width:998px" src="2%20Cinema/Screenshot_2022-04-05_at_13.55.30.png"/></a></figure></div></div><h2 id="ff205605-6e1a-4d73-9ddd-856685cf7be2" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 6</h2><figure id="0d441d5c-788b-41c9-bb1a-3225e376a0f7" dir="ltr"><a href="https://wordwall.net/resource/21505699/cinema-production-ef-6a-prod-practice" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Cinema (production, EF 6A), prod\practice</div><div class="bookmark-description">Do you like s_____ e______ in movies? Why / why not?, Do you watch movies with su______? When was the last time you watched a movie with su______?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/21505699/cinema-production-ef-6a-prod-practice</div></div><img src="https://az779572.vo.msecnd.net/screens-800/68d80ede631d4465a5ca353725d9d6f4" class="bookmark-image"/></a></figure><h2 id="0f3e7a18-6926-4536-b80b-77c99efe5365" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 7</h2><figure id="c8d217cc-0ab9-4903-9615-ffe4fd38461e" dir="ltr"><a href="https://wordwall.net/resource/52049824/-movies-and-cinema-discussion-questions-int-ii" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Movies and Cinema discussion questions (Int II)</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/52049824/-movies-and-cinema-discussion-questions-int-ii</div></div><img src="https://az779572.vo.msecnd.net/screens-800/528646a7e1b448f2b2cbe4329f8ecda0_0" class="bookmark-image"/></a></figure><h2 id="ee6e522c-e351-4f12-b730-53a911a33cd1" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 8</h2><figure id="828c373b-fe9a-43c6-a9b6-1adc57c9c81c" class="image" data-notion-image="2%20Cinema/Screenshot_2023-05-10_at_11.06.58.png" dir="ltr"><a href="2%20Cinema/Screenshot_2023-05-10_at_11.06.58.png"><img style="width:992px" src="2%20Cinema/Screenshot_2023-05-10_at_11.06.58.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

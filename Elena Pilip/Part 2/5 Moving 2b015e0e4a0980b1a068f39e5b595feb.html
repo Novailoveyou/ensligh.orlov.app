@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,6 +791,6 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="2b015e0e-4a09-80b1-a068-f39e5b595feb" class="page sans"><header><h1 class="page-title" dir="auto">5. Moving</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="2b015e0e-4a09-8004-98f5-f39ae085e716" class="image"><a href="5%20Moving/tumblr_efe6a9b0d1db2406ab1e21f530caad5d_2ed84157_1280.webp"><img style="width:708px" src="5%20Moving/tumblr_efe6a9b0d1db2406ab1e21f530caad5d_2ed84157_1280.webp"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2b015e0e-4a09-8039-b497-ef4b712bd68e" class="block-color-orange_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="2b015e0e-4a09-80d9-b8fb-f8617481cbf5" class="image"><a href="5%20Moving/Untitled.png"><img style="width:707.9765625px" src="5%20Moving/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2b015e0e-4a09-80bd-b44d-fd0ed76a4b22" class="block-color-orange_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="2b015e0e-4a09-80e5-b237-f81c8a16d19d"><a href="https://wordwall.net/resource/39520321/-expressions-for-moving-travelling-nte-upper-23" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Expressions for moving/travelling (NTE Upper 2.3)</div><div class="bookmark-description">Match up - Drag and drop each keyword next to its definition.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/39520321/-expressions-for-moving-travelling-nte-upper-23</div></div><img src="https://az779572.vo.msecnd.net/screens-800/0ea7b1cc78444de6b123d102fccb68b5_46" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b015e0e-4a09-8090-b320-c123c004bb51" class="">
-</p></div><div style="display:contents" dir="auto"><div id="2b015e0e-4a09-80a2-a20e-dd6b7df40453" class="column-list"><div style="display:contents" dir="auto"><div id="2b015e0e-4a09-80db-abb2-ed0781b20a1c" style="width:31.25%" class="column"><div style="display:contents" dir="auto"><h2 id="2b015e0e-4a09-808e-bb07-d77656d4b7fd" class="block-color-orange_background">Exercise 2</h2></div><div style="display:contents" dir="auto"><h3 id="2b715e0e-4a09-80de-9883-da2273be3218" class="">Task A</h3></div><div style="display:contents" dir="ltr"><figure id="2b015e0e-4a09-806a-a398-c0164d1e44f0"><a href="https://wordwall.net/resource/38458964" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">moving/travelling vocab (nte wb p.17)</div><div class="bookmark-description">Match up - Drag and drop each keyword next to its definition.</div></div><div class="bookmark-href">https://wordwall.net/resource/38458964</div></div><img src="https://az779572.vo.msecnd.net/screens-800/16bd8f167e7b467da96542c0a7a4070d_46" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="2b715e0e-4a09-80c9-986d-e3d3e0ec9157" class="">Task B</h3></div><div style="display:contents" dir="ltr"><figure id="2b715e0e-4a09-80b1-b4e8-c016f8c40010"><a href="https://wordwall.net/resource/84028875/expressions-for-moving-travelling-nte-upper-23" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">**Expressions for moving/travelling (NTE Upper 2.3)</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/84028875/expressions-for-moving-travelling-nte-upper-23</div></div><img src="https://screens.cdn.wordwall.net/800/795692b8656c45e59e98ecb06e174050_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b715e0e-4a09-8033-9b64-dcaa179ef077" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="2b015e0e-4a09-80bb-b2c0-cd85158101f5" style="width:68.75%" class="column"><div style="display:contents" dir="auto"><h2 id="2b015e0e-4a09-8024-a372-c0951e819e10" class="block-color-orange_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="2b015e0e-4a09-803d-a7e5-df5bc4099da3" class="image" style="text-align:left"><a href="5%20Moving/Untitled%201.png"><img style="width:480px" src="5%20Moving/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b015e0e-4a09-80e7-bbeb-fb1a0a4cf952" class=""><strong>Discuss the questions!</strong></p></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="2b015e0e-4a09-80eb-bf57-ce0b2a9ec30d" class="block-color-orange_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="2b715e0e-4a09-80dd-a9c6-d0594ace5d31"><a href="https://wordwall.net/resource/73456031/moving-flash-cards-questions-nte-upper-23" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Moving - flash cards + questions (NTE Upper 2.3)</div><div class="bookmark-description">Flash cards - Test yourself using cards with prompts on the front and answers on the back.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/73456031/moving-flash-cards-questions-nte-upper-23</div></div><img src="https://screens.cdn.wordwall.net/800/08ecdad8bd394ceca64870d945f636de_52" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2b715e0e-4a09-803f-9cd1-e6e8b670174d" class="block-color-orange_background">Exercise 5</h2></div><div style="display:contents" dir="auto"><p id="2b015e0e-4a09-8047-9d2f-d9d2fd60cd20" class="">Choose a country/city you would love to move to, e.g. Russia vs Finland<br/>You need to come up with reasons why you want to move to this particular country or why you want to stay in Russia. </p></div><div style="display:contents" dir="auto"><h2 id="2b715e0e-4a09-80bd-893b-c6bdaf8dfc73" class="block-color-orange_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="2b715e0e-4a09-8092-88f3-d5a228434a6f"><a href="https://wordwall.net/resource/72159847/moving-revision-month-1-upper-i" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Moving revision (Month 1 Upper I)</div><div class="bookmark-description">Speaking cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/72159847/moving-revision-month-1-upper-i</div></div><img src="https://screens.cdn.wordwall.net/800/acd0eba7de6d49eabbb294de449cf372_22" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="2b015e0e-4a09-80b1-a068-f39e5b595feb" class="page sans"><header><h1 class="page-title" dir="auto">5. Moving</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="2b015e0e-4a09-8004-98f5-f39ae085e716" class="image" data-notion-image="5%20Moving/tumblr_efe6a9b0d1db2406ab1e21f530caad5d_2ed84157_1280.webp" dir="ltr"><a href="5%20Moving/tumblr_efe6a9b0d1db2406ab1e21f530caad5d_2ed84157_1280.webp"><img style="width:708px" src="5%20Moving/tumblr_efe6a9b0d1db2406ab1e21f530caad5d_2ed84157_1280.webp"/></a></figure><h2 id="2b015e0e-4a09-8039-b497-ef4b712bd68e" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 1</h2><figure id="2b015e0e-4a09-80d9-b8fb-f8617481cbf5" class="image" data-notion-image="5%20Moving/Untitled.png" dir="ltr"><a href="5%20Moving/Untitled.png"><img style="width:707.9765625px" src="5%20Moving/Untitled.png"/></a></figure><h2 id="2b015e0e-4a09-80bd-b44d-fd0ed76a4b22" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 2</h2><figure id="2b015e0e-4a09-80e5-b237-f81c8a16d19d" dir="ltr"><a href="https://wordwall.net/resource/39520321/-expressions-for-moving-travelling-nte-upper-23" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Expressions for moving/travelling (NTE Upper 2.3)</div><div class="bookmark-description">Match up - Drag and drop each keyword next to its definition.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/39520321/-expressions-for-moving-travelling-nte-upper-23</div></div><img src="https://az779572.vo.msecnd.net/screens-800/0ea7b1cc78444de6b123d102fccb68b5_46" class="bookmark-image"/></a></figure><p id="2b015e0e-4a09-8090-b320-c123c004bb51" class="" dir="auto">
+</p><div id="2b015e0e-4a09-80a2-a20e-dd6b7df40453" class="column-list" data-notion-column-list="" dir="auto"><div id="2b015e0e-4a09-80db-abb2-ed0781b20a1c" style="width:31.25%" class="column" data-notion-column-ratio="0.3125" dir="auto"><h2 id="2b015e0e-4a09-808e-bb07-d77656d4b7fd" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 2</h2><h3 id="2b715e0e-4a09-80de-9883-da2273be3218" class="" dir="auto">Task A</h3><figure id="2b015e0e-4a09-806a-a398-c0164d1e44f0" dir="ltr"><a href="https://wordwall.net/resource/38458964" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">moving/travelling vocab (nte wb p.17)</div><div class="bookmark-description">Match up - Drag and drop each keyword next to its definition.</div></div><div class="bookmark-href">https://wordwall.net/resource/38458964</div></div><img src="https://az779572.vo.msecnd.net/screens-800/16bd8f167e7b467da96542c0a7a4070d_46" class="bookmark-image"/></a></figure><h3 id="2b715e0e-4a09-80c9-986d-e3d3e0ec9157" class="" dir="auto">Task B</h3><figure id="2b715e0e-4a09-80b1-b4e8-c016f8c40010" dir="ltr"><a href="https://wordwall.net/resource/84028875/expressions-for-moving-travelling-nte-upper-23" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">**Expressions for moving/travelling (NTE Upper 2.3)</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/84028875/expressions-for-moving-travelling-nte-upper-23</div></div><img src="https://screens.cdn.wordwall.net/800/795692b8656c45e59e98ecb06e174050_0" class="bookmark-image"/></a></figure><p id="2b715e0e-4a09-8033-9b64-dcaa179ef077" class="" dir="auto">
+</p></div><div id="2b015e0e-4a09-80bb-b2c0-cd85158101f5" style="width:68.75%" class="column" data-notion-column-ratio="0.6875" dir="auto"><h2 id="2b015e0e-4a09-8024-a372-c0951e819e10" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 3</h2><figure id="2b015e0e-4a09-803d-a7e5-df5bc4099da3" class="image" style="text-align:left" data-notion-image="5%20Moving/Untitled%201.png" dir="ltr"><a href="5%20Moving/Untitled%201.png"><img style="width:480px" src="5%20Moving/Untitled%201.png"/></a></figure><p id="2b015e0e-4a09-80e7-bbeb-fb1a0a4cf952" class="" dir="auto"><strong>Discuss the questions!</strong></p></div></div><h2 id="2b015e0e-4a09-80eb-bf57-ce0b2a9ec30d" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 4</h2><figure id="2b715e0e-4a09-80dd-a9c6-d0594ace5d31" dir="ltr"><a href="https://wordwall.net/resource/73456031/moving-flash-cards-questions-nte-upper-23" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Moving - flash cards + questions (NTE Upper 2.3)</div><div class="bookmark-description">Flash cards - Test yourself using cards with prompts on the front and answers on the back.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/73456031/moving-flash-cards-questions-nte-upper-23</div></div><img src="https://screens.cdn.wordwall.net/800/08ecdad8bd394ceca64870d945f636de_52" class="bookmark-image"/></a></figure><h2 id="2b715e0e-4a09-803f-9cd1-e6e8b670174d" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 5</h2><p id="2b015e0e-4a09-8047-9d2f-d9d2fd60cd20" class="" dir="auto">Choose a country/city you would love to move to, e.g. Russia vs Finland<br/>You need to come up with reasons why you want to move to this particular country or why you want to stay in Russia. </p><h2 id="2b715e0e-4a09-80bd-893b-c6bdaf8dfc73" class="block-color-orange_background" data-notion-highlight="orange_background" dir="auto">Exercise 6</h2><figure id="2b715e0e-4a09-8092-88f3-d5a228434a6f" dir="ltr"><a href="https://wordwall.net/resource/72159847/moving-revision-month-1-upper-i" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Moving revision (Month 1 Upper I)</div><div class="bookmark-description">Speaking cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/72159847/moving-revision-month-1-upper-i</div></div><img src="https://screens.cdn.wordwall.net/800/acd0eba7de6d49eabbb294de449cf372_22" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

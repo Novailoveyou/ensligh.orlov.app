@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="22015e0e-4a09-8049-9fac-cbc4e4d567a1" class="page sans"><header><h1 class="page-title" dir="auto">12. Revision</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-80c8-9d18-e07d34846c92" class="image"><a href="12%20Revision/Untitled.png"><img style="width:709.9921875px" src="12%20Revision/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="22015e0e-4a09-804e-a970-dc5a24c18e35" class="block-color-pink_background">Polite enquieries/Warm-up</h2></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-80f8-9895-eb9e25b01246" class="">Exercise 1</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-808c-9175-e35707a3756a" class="image"><a href="11%20Polite%20enquiries/Untitled%205.png"><img style="width:709.9921875px" src="11%20Polite%20enquiries/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="22415e0e-4a09-803e-8e52-faa0786ae0f8" class="image"><a href="12%20Revision/Screenshot_2025-07-02_at_21.18.16.png"><img style="width:710px" src="12%20Revision/Screenshot_2025-07-02_at_21.18.16.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="22015e0e-4a09-802c-a861-f767dab3e0e8" class="block-color-pink_background">Different question types</h2></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-80dc-8b6c-f130de6b99cc" class="">Exercise 2</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-8076-a798-d0aaa3e44e67"><a href="https://wordwall.net/resource/38612764/polite-indirect-questions" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Polite + indirect questions</div><div class="bookmark-description">Random wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/38612764/polite-indirect-questions</div></div><img src="https://az779572.vo.msecnd.net/screens-800/7cf2526ab0d7477ba196a2884b4b74cb_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-8057-a055-f976bcf09ff4" class="">Exercise 3</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-8064-9640-f8389f258392"><a href="https://wordwall.net/resource/38752161/-ask-a-question-react-and-discuss-revision" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Ask a question, react and discuss (revision)</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/38752161/-ask-a-question-react-and-discuss-revision</div></div><img src="https://az779572.vo.msecnd.net/screens-800/fb2b1d2b442540d1b6a56a0a9e7d421e_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-80a9-9f22-f47e251ef0a0" class="">Exercise 4</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-8042-91bd-e988114b1d56" class="image"><a href="12%20Revision/Untitled%201.png"><img style="width:709.9921875px" src="12%20Revision/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="22015e0e-4a09-809b-b5a3-dd21ca648a94" class="block-color-pink_background">Auxiliaries</h2></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-8048-80db-dd5f8198aa71" class="">Exercise 5</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-806e-8e45-de4273409d42"><a href="https://wordwall.net/resource/58621821/auxiliaries-extra-practice-up" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Auxiliaries (extra practice) Up</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://wordwallapp.azureedge.net/static/content/images/favicon.1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/58621821/auxiliaries-extra-practice-up</div></div><img src="https://wordwallscreens.azureedge.net/800/ee5109e56a3d4e6ea2eab9a05b622c9f_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-80ed-b800-e292832f6f00" class="">Exercise 6</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-808a-9d28-c53b182b8c6b"><a href="https://wordwall.net/resource/52169369/so-neither-auxiliaries-ii" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">So/Neither + auxiliaries II</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://wordwallapp.azureedge.net/static/content/images/favicon.1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/52169369/so-neither-auxiliaries-ii</div></div><img src="https://wordwallscreens.azureedge.net/800/7ba8b450a8944c8ca62bb3424df10273_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><hr id="22015e0e-4a09-808b-a136-eb5ba6b00609"/></div><div style="display:contents" dir="auto"><h2 id="22015e0e-4a09-80fc-8e2b-db4784e0af85" class="block-color-pink_background">Present Perfect</h2></div><div style="display:contents" dir="auto"><h3 id="22015e0e-4a09-8076-97c4-e8891503ab1c" class="">Exercise 7</h3></div><div style="display:contents" dir="ltr"><figure id="22015e0e-4a09-8070-8aab-f04e99b840f3"><a href="https://wordwall.net/resource/14010930/never-have-i-ever" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Never have I ever</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/14010930/never-have-i-ever</div></div><img src="https://az779572.vo.msecnd.net/screens-800/20b63f56964640599cd0e10c69e34ac9_41" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="23915e0e-4a09-8053-8546-dbe875617b72" class="">Exercise 8</h3></div><div style="display:contents" dir="ltr"><figure id="23915e0e-4a09-8069-9afb-fa047500aad8"><a href="https://wordwall.net/resource/74657393/feelings-present-perfect-discussion-so-upper-12" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Feelings + Present Perfect discussion (SO Upper 1.2)</div><div class="bookmark-description">Spin the wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/74657393/feelings-present-perfect-discussion-so-upper-12</div></div><img src="https://screens.cdn.wordwall.net/800/c443469e7db74b0ba02625f63db2b763_2" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="22515e0e-4a09-80a2-b177-e0ec84fc4e4e" class="link-to-page"><a href="12%20Revision/English%20Grammar%20in%20Use%20Unit%2050%2022515e0e4a0980a2b177e0ec84fc4e4e.html">English Grammar in Use Unit 50</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="22015e0e-4a09-8049-9fac-cbc4e4d567a1" class="page sans"><header><h1 class="page-title" dir="auto">12. Revision</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="22015e0e-4a09-80c8-9d18-e07d34846c92" class="image" data-notion-image="12%20Revision/Untitled.png" dir="ltr"><a href="12%20Revision/Untitled.png"><img style="width:709.9921875px" src="12%20Revision/Untitled.png"/></a></figure><h2 id="22015e0e-4a09-804e-a970-dc5a24c18e35" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Polite enquieries/Warm-up</h2><h3 id="22015e0e-4a09-80f8-9895-eb9e25b01246" class="" dir="auto">Exercise 1</h3><figure id="22015e0e-4a09-808c-9175-e35707a3756a" class="image" data-notion-image="11%20Polite%20enquiries/Untitled%205.png" dir="ltr"><a href="11%20Polite%20enquiries/Untitled%205.png"><img style="width:709.9921875px" src="11%20Polite%20enquiries/Untitled%205.png"/></a></figure><figure id="22415e0e-4a09-803e-8e52-faa0786ae0f8" class="image" data-notion-image="12%20Revision/Screenshot_2025-07-02_at_21.18.16.png" dir="ltr"><a href="12%20Revision/Screenshot_2025-07-02_at_21.18.16.png"><img style="width:710px" src="12%20Revision/Screenshot_2025-07-02_at_21.18.16.png"/></a></figure><h2 id="22015e0e-4a09-802c-a861-f767dab3e0e8" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Different question types</h2><h3 id="22015e0e-4a09-80dc-8b6c-f130de6b99cc" class="" dir="auto">Exercise 2</h3><figure id="22015e0e-4a09-8076-a798-d0aaa3e44e67" dir="ltr"><a href="https://wordwall.net/resource/38612764/polite-indirect-questions" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Polite + indirect questions</div><div class="bookmark-description">Random wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/38612764/polite-indirect-questions</div></div><img src="https://az779572.vo.msecnd.net/screens-800/7cf2526ab0d7477ba196a2884b4b74cb_0" class="bookmark-image"/></a></figure><h3 id="22015e0e-4a09-8057-a055-f976bcf09ff4" class="" dir="auto">Exercise 3</h3><figure id="22015e0e-4a09-8064-9640-f8389f258392" dir="ltr"><a href="https://wordwall.net/resource/38752161/-ask-a-question-react-and-discuss-revision" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* Ask a question, react and discuss (revision)</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/38752161/-ask-a-question-react-and-discuss-revision</div></div><img src="https://az779572.vo.msecnd.net/screens-800/fb2b1d2b442540d1b6a56a0a9e7d421e_0" class="bookmark-image"/></a></figure><h3 id="22015e0e-4a09-80a9-9f22-f47e251ef0a0" class="" dir="auto">Exercise 4</h3><figure id="22015e0e-4a09-8042-91bd-e988114b1d56" class="image" data-notion-image="12%20Revision/Untitled%201.png" dir="ltr"><a href="12%20Revision/Untitled%201.png"><img style="width:709.9921875px" src="12%20Revision/Untitled%201.png"/></a></figure><h2 id="22015e0e-4a09-809b-b5a3-dd21ca648a94" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Auxiliaries</h2><h3 id="22015e0e-4a09-8048-80db-dd5f8198aa71" class="" dir="auto">Exercise 5</h3><figure id="22015e0e-4a09-806e-8e45-de4273409d42" dir="ltr"><a href="https://wordwall.net/resource/58621821/auxiliaries-extra-practice-up" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Auxiliaries (extra practice) Up</div><div class="bookmark-description">Quiz - A series of multiple choice questions. Tap the correct answer to proceed.</div></div><div class="bookmark-href"><img src="https://wordwallapp.azureedge.net/static/content/images/favicon.1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/58621821/auxiliaries-extra-practice-up</div></div><img src="https://wordwallscreens.azureedge.net/800/ee5109e56a3d4e6ea2eab9a05b622c9f_0" class="bookmark-image"/></a></figure><h3 id="22015e0e-4a09-80ed-b800-e292832f6f00" class="" dir="auto">Exercise 6</h3><figure id="22015e0e-4a09-808a-9d28-c53b182b8c6b" dir="ltr"><a href="https://wordwall.net/resource/52169369/so-neither-auxiliaries-ii" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">So/Neither + auxiliaries II</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://wordwallapp.azureedge.net/static/content/images/favicon.1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/52169369/so-neither-auxiliaries-ii</div></div><img src="https://wordwallscreens.azureedge.net/800/7ba8b450a8944c8ca62bb3424df10273_0" class="bookmark-image"/></a></figure><hr id="22015e0e-4a09-808b-a136-eb5ba6b00609" dir="auto"/><h2 id="22015e0e-4a09-80fc-8e2b-db4784e0af85" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Present Perfect</h2><h3 id="22015e0e-4a09-8076-97c4-e8891503ab1c" class="" dir="auto">Exercise 7</h3><figure id="22015e0e-4a09-8070-8aab-f04e99b840f3" dir="ltr"><a href="https://wordwall.net/resource/14010930/never-have-i-ever" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Never have I ever</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/14010930/never-have-i-ever</div></div><img src="https://az779572.vo.msecnd.net/screens-800/20b63f56964640599cd0e10c69e34ac9_41" class="bookmark-image"/></a></figure><h3 id="23915e0e-4a09-8053-8546-dbe875617b72" class="" dir="auto">Exercise 8</h3><figure id="23915e0e-4a09-8069-9afb-fa047500aad8" dir="ltr"><a href="https://wordwall.net/resource/74657393/feelings-present-perfect-discussion-so-upper-12" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Feelings + Present Perfect discussion (SO Upper 1.2)</div><div class="bookmark-description">Spin the wheel - Spin the wheel to see which item comes up next.</div></div><div class="bookmark-href"><img src="https://app.cdn.wordwall.net/static/content/images/favicon.2evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/74657393/feelings-present-perfect-discussion-so-upper-12</div></div><img src="https://screens.cdn.wordwall.net/800/c443469e7db74b0ba02625f63db2b763_2" class="bookmark-image"/></a></figure><figure id="22515e0e-4a09-80a2-b177-e0ec84fc4e4e" class="link-to-page"><a href="12%20Revision/English%20Grammar%20in%20Use%20Unit%2050%2022515e0e4a0980a2b177e0ec84fc4e4e.html" data-notion-page-id="22515e0e-4a09-80a2-b177-e0ec84fc4e4e" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">English Grammar in Use Unit 50</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

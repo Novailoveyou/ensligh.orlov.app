@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,5 +791,5 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="1f215e0e-4a09-80d8-a30d-f5d5781411fb" class="page sans"><header><h1 class="page-title" dir="auto">9. Present Perfect</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-805c-be2d-f04c7e3b7e35" class="image"><a href="9%20Present%20Perfect/Screenshot_2023-11-23_at_23.07.48.png"><img style="width:709.9921875px" src="9%20Present%20Perfect/Screenshot_2023-11-23_at_23.07.48.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8022-9f57-f928e207d11a" class="block-color-yellow_background">Warm-up</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-801b-be80-fc64c08925cb"><a href="https://wordwall.net/resource/54660165" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* What will you feel? (warm-up)</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/54660165</div></div><img src="https://az779572.vo.msecnd.net/screens-800/789d4b36819a4035b4a83c836b2a1c9c_0" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8054-b6f1-cf4626e3695c" class="block-color-yellow_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-809e-9da6-dca3d8bf2bf2" class="image"><a href="9%20Present%20Perfect/Untitled.png"><img style="width:720px" src="9%20Present%20Perfect/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-80d7-8eba-f3612ca10118" class="column-list"><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-8028-b6a0-d4b1000cd177" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80bc-8984-ec9340743a95" class="image"><a href="9%20Present%20Perfect/Untitled%201.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%201.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-8063-b908-c5c0e3e3678a" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80b4-8ffd-e0e21d77f78c" class="image"><a href="9%20Present%20Perfect/Untitled%202.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%202.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="1f215e0e-4a09-80f8-bcbb-e2be00f93516" class="">
-</p></div><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-80a8-87dd-fb81f75b9c52" class="column-list"><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-80bf-a757-c6452956177c" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8001-9ff4-d56ec6292d35" class="block-color-yellow_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80f6-8979-d4686fc07a61" class="image"><a href="9%20Present%20Perfect/Untitled%203.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8057-8a11-edadcc5bb1da" class="block-color-yellow_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-8008-a681-d97098e631bc" class="image"><a href="9%20Present%20Perfect/Untitled%204.png"><img style="width:288px" src="9%20Present%20Perfect/Untitled%204.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-80bc-ade5-c18c106bb6be" style="width:49.99999999999999%" class="column"><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8060-9820-c2d7dc6b6bcb" class="block-color-yellow_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80df-9c22-ebabd32f6069" class="image"><a href="9%20Present%20Perfect/Untitled%205.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8024-a242-fcabf2d0c78c" class="block-color-yellow_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80f5-be0c-f9bf0c2e62cb" class="image"><a href="9%20Present%20Perfect/Untitled%206.png"><img style="width:384px" src="9%20Present%20Perfect/Untitled%206.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-806d-b122-d486ab942b5e" class="column-list"><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-80f2-9be4-d04eb4022125" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-800b-b96f-d5ecf4291f1f" class="block-color-yellow_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80e7-8192-e2b08fc8c975"><a href="https://wordwall.net/resource/34392300/english/-what-have-i-done-present-perfect-and-past-simple-so" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* What have I done? Present Perfect and Past Simple (SO Upper based)</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://www.notion.so//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/34392300/english/-what-have-i-done-present-perfect-and-past-simple-so</div></div><img src="https://az779572.vo.msecnd.net/screens-800/762e659ffb9549b1bd8305b20e32b03e_46" class="bookmark-image"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="1f215e0e-4a09-80c6-a1de-d41c180ec655" style="width:50%" class="column"><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-8099-b0aa-de6d0ef385f1" class="block-color-yellow_background">Exercise 7</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-8001-8da1-eab2479c11b4" class="image" style="text-align:left"><a href="9%20Present%20Perfect/Untitled%207.png"><img style="width:480px" src="9%20Present%20Perfect/Untitled%207.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="1f215e0e-4a09-80cc-83dc-d54f0ddb39d4" class="block-color-yellow_background">Exercise 8</h2></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-80b6-a1d3-ce33f2dd3273" class="image"><a href="9%20Present%20Perfect/Untitled%208.png"><img style="width:709.9921875px" src="9%20Present%20Perfect/Untitled%208.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1f215e0e-4a09-8037-853c-f16c2590192e" class="link-to-page"><a href="9%20Present%20Perfect/Speakout%20Workbook%201%202%20GRAMMAR%201f215e0e4a098037853cf16c2590192e.html">Speakout Workbook 1.2 GRAMMAR</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="1f215e0e-4a09-80d8-a30d-f5d5781411fb" class="page sans"><header><h1 class="page-title" dir="auto">9. Present Perfect</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="1f215e0e-4a09-805c-be2d-f04c7e3b7e35" class="image" data-notion-image="9%20Present%20Perfect/Screenshot_2023-11-23_at_23.07.48.png" dir="ltr"><a href="9%20Present%20Perfect/Screenshot_2023-11-23_at_23.07.48.png"><img style="width:709.9921875px" src="9%20Present%20Perfect/Screenshot_2023-11-23_at_23.07.48.png"/></a></figure><h2 id="1f215e0e-4a09-8022-9f57-f928e207d11a" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Warm-up</h2><figure id="1f215e0e-4a09-801b-be80-fc64c08925cb" dir="ltr"><a href="https://wordwall.net/resource/54660165" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* What will you feel? (warm-up)</div><div class="bookmark-description">Random cards - Deal out cards at random from a shuffled deck.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/54660165</div></div><img src="https://az779572.vo.msecnd.net/screens-800/789d4b36819a4035b4a83c836b2a1c9c_0" class="bookmark-image"/></a></figure><h2 id="1f215e0e-4a09-8054-b6f1-cf4626e3695c" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 1</h2><figure id="1f215e0e-4a09-809e-9da6-dca3d8bf2bf2" class="image" data-notion-image="9%20Present%20Perfect/Untitled.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled.png"><img style="width:720px" src="9%20Present%20Perfect/Untitled.png"/></a></figure><div id="1f215e0e-4a09-80d7-8eba-f3612ca10118" class="column-list" data-notion-column-list="" dir="auto"><div id="1f215e0e-4a09-8028-b6a0-d4b1000cd177" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="1f215e0e-4a09-80bc-8984-ec9340743a95" class="image" data-notion-image="9%20Present%20Perfect/Untitled%201.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%201.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%201.png"/></a></figure></div><div id="1f215e0e-4a09-8063-b908-c5c0e3e3678a" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="1f215e0e-4a09-80b4-8ffd-e0e21d77f78c" class="image" data-notion-image="9%20Present%20Perfect/Untitled%202.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%202.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%202.png"/></a></figure></div></div><p id="1f215e0e-4a09-80f8-bcbb-e2be00f93516" class="" dir="auto">
+</p><div id="1f215e0e-4a09-80a8-87dd-fb81f75b9c52" class="column-list" data-notion-column-list="" dir="auto"><div id="1f215e0e-4a09-80bf-a757-c6452956177c" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="1f215e0e-4a09-8001-9ff4-d56ec6292d35" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 2</h2><figure id="1f215e0e-4a09-80f6-8979-d4686fc07a61" class="image" data-notion-image="9%20Present%20Perfect/Untitled%203.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%203.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%203.png"/></a></figure><h2 id="1f215e0e-4a09-8057-8a11-edadcc5bb1da" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 3</h2><figure id="1f215e0e-4a09-8008-a681-d97098e631bc" class="image" data-notion-image="9%20Present%20Perfect/Untitled%204.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%204.png"><img style="width:288px" src="9%20Present%20Perfect/Untitled%204.png"/></a></figure></div><div id="1f215e0e-4a09-80bc-ade5-c18c106bb6be" style="width:49.99999999999999%" class="column" data-notion-column-ratio="0.49999999999999994" dir="auto"><h2 id="1f215e0e-4a09-8060-9820-c2d7dc6b6bcb" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 4</h2><figure id="1f215e0e-4a09-80df-9c22-ebabd32f6069" class="image" data-notion-image="9%20Present%20Perfect/Untitled%205.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%205.png"><img style="width:331.9921875px" src="9%20Present%20Perfect/Untitled%205.png"/></a></figure><h2 id="1f215e0e-4a09-8024-a242-fcabf2d0c78c" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 5</h2><figure id="1f215e0e-4a09-80f5-be0c-f9bf0c2e62cb" class="image" data-notion-image="9%20Present%20Perfect/Untitled%206.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%206.png"><img style="width:384px" src="9%20Present%20Perfect/Untitled%206.png"/></a></figure></div></div><div id="1f215e0e-4a09-806d-b122-d486ab942b5e" class="column-list" data-notion-column-list="" dir="auto"><div id="1f215e0e-4a09-80f2-9be4-d04eb4022125" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="1f215e0e-4a09-800b-b96f-d5ecf4291f1f" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 6</h2><figure id="1f215e0e-4a09-80e7-8192-e2b08fc8c975" dir="ltr"><a href="https://wordwall.net/resource/34392300/english/-what-have-i-done-present-perfect-and-past-simple-so" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">* What have I done? Present Perfect and Past Simple (SO Upper based)</div><div class="bookmark-description">Open the box - Tap each box in turn to open them up and reveal the item inside.</div></div><div class="bookmark-href"><img src="https://app.notion.com//az779572.vo.msecnd.net/res/content/images/favicon.ico%7C1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/34392300/english/-what-have-i-done-present-perfect-and-past-simple-so</div></div><img src="https://az779572.vo.msecnd.net/screens-800/762e659ffb9549b1bd8305b20e32b03e_46" class="bookmark-image"/></a></figure></div><div id="1f215e0e-4a09-80c6-a1de-d41c180ec655" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h2 id="1f215e0e-4a09-8099-b0aa-de6d0ef385f1" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 7</h2><figure id="1f215e0e-4a09-8001-8da1-eab2479c11b4" class="image" style="text-align:left" data-notion-image="9%20Present%20Perfect/Untitled%207.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%207.png"><img style="width:480px" src="9%20Present%20Perfect/Untitled%207.png"/></a></figure></div></div><h2 id="1f215e0e-4a09-80cc-83dc-d54f0ddb39d4" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Exercise 8</h2><figure id="1f215e0e-4a09-80b6-a1d3-ce33f2dd3273" class="image" data-notion-image="9%20Present%20Perfect/Untitled%208.png" dir="ltr"><a href="9%20Present%20Perfect/Untitled%208.png"><img style="width:709.9921875px" src="9%20Present%20Perfect/Untitled%208.png"/></a></figure><figure id="1f215e0e-4a09-8037-853c-f16c2590192e" class="link-to-page"><a href="9%20Present%20Perfect/Speakout%20Workbook%201%202%20GRAMMAR%201f215e0e4a098037853cf16c2590192e.html" data-notion-page-id="1f215e0e-4a09-8037-853c-f16c2590192e" data-notion-space-id="89e416b1-5688-4c17-ab31-1703bfdb9bab">Speakout Workbook 1.2 GRAMMAR</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

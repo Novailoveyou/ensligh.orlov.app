@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="e6abdaa5-9ee4-469b-bbdf-0e33f32b8e69" class="page sans"><header><h1 class="page-title" dir="auto">6. Kindness</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="513b4f5a-4e60-489e-be93-6cfc3c2b5611" class="image"><a href="6%20Kindness/Untitled.png"><img style="width:708px" src="6%20Kindness/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="82b0a288-2a3c-44fd-8901-5b6d9510440c" class="block-color-red_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="a4003c6e-0805-4ac1-9445-bd7ffbb33bab" class="image"><a href="6%20Kindness/Untitled%201.png"><img style="width:2404px" src="6%20Kindness/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="c3c463ac-006e-4f56-8d77-8fb1c6f4be16" class="block-color-red_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="5733978d-053d-4d39-b6c8-d6c547b054fd" class="image"><a href="6%20Kindness/Untitled%202.png"><img style="width:2398px" src="6%20Kindness/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="de375962-dfa7-404e-a43a-0df0d5b916e3" class="block-color-red_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="2edff583-79b5-4074-8254-09b77f7023d0" class="image"><a href="6%20Kindness/Untitled%203.png"><img style="width:708px" src="6%20Kindness/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="4204ac6f-2218-46a5-9c16-ccb393274c38" class="block-color-red_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="d1bb2981-c776-4389-b493-293a1314575d" class="image"><a href="6%20Kindness/Untitled%204.png"><img style="width:708px" src="6%20Kindness/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="07b50388-7b9d-42aa-bd95-fffda3cca448" class="block-color-red_background">Exercise 6</h2></div><div style="display:contents" dir="ltr"><figure id="b688b2ff-cec7-4e31-88a4-ed554fd777af"><div class="source"><a href="https://www.youtube.com/watch?v=OBqfKUWaku8&amp;list=PLUrl2TS6VHopvGVLpqRlFRrGCRDnWbp4m&amp;index=7">https://www.youtube.com/watch?v=OBqfKUWaku8&amp;list=PLUrl2TS6VHopvGVLpqRlFRrGCRDnWbp4m&amp;index=7</a></div></figure></div><div style="display:contents" dir="ltr"><figure id="b2265b8f-2f02-4d98-b96b-e85780e8144f" class="image"><a href="6%20Kindness/Untitled%205.png"><img style="width:708px" src="6%20Kindness/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="089233d6-62ab-459d-8aba-01601d6eb165" class="block-color-red_background">Exercise 7</h2></div><div style="display:contents" dir="ltr"><figure id="5e260407-b96f-483b-a05c-fb7e47b6e063" class="image"><a href="6%20Kindness/Untitled%206.png"><img style="width:708px" src="6%20Kindness/Untitled%206.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="b3cc9fd8-5599-42c5-996a-a43971f7d725" class="block-color-red_background">Exercise 8</h2></div><div style="display:contents" dir="ltr"><figure id="4ade4cf7-8b5d-4966-806d-dc400a56fed7" class="image"><a href="6%20Kindness/Untitled%207.png"><img style="width:2386px" src="6%20Kindness/Untitled%207.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="3654ffe4-84ac-4f05-bb5b-fd4580bb399c"><a href="https://www.randomactsofkindness.org/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Welcome to RandomActsofKindness.org</div><div class="bookmark-description">Thank you for visiting.</div></div><div class="bookmark-href"><img src="https://www.randomactsofkindness.org/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.randomactsofkindness.org/</div></div><img src="https://assets.randomactsofkindness.org/site/mktn.jpg" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="e6abdaa5-9ee4-469b-bbdf-0e33f32b8e69" class="page sans"><header><h1 class="page-title" dir="auto">6. Kindness</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="513b4f5a-4e60-489e-be93-6cfc3c2b5611" class="image" data-notion-image="6%20Kindness/Untitled.png" dir="ltr"><a href="6%20Kindness/Untitled.png"><img style="width:708px" src="6%20Kindness/Untitled.png"/></a></figure><h2 id="82b0a288-2a3c-44fd-8901-5b6d9510440c" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 1</h2><figure id="a4003c6e-0805-4ac1-9445-bd7ffbb33bab" class="image" data-notion-image="6%20Kindness/Untitled%201.png" dir="ltr"><a href="6%20Kindness/Untitled%201.png"><img style="width:2404px" src="6%20Kindness/Untitled%201.png"/></a></figure><h2 id="c3c463ac-006e-4f56-8d77-8fb1c6f4be16" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 2</h2><figure id="5733978d-053d-4d39-b6c8-d6c547b054fd" class="image" data-notion-image="6%20Kindness/Untitled%202.png" dir="ltr"><a href="6%20Kindness/Untitled%202.png"><img style="width:2398px" src="6%20Kindness/Untitled%202.png"/></a></figure><h2 id="de375962-dfa7-404e-a43a-0df0d5b916e3" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 4</h2><figure id="2edff583-79b5-4074-8254-09b77f7023d0" class="image" data-notion-image="6%20Kindness/Untitled%203.png" dir="ltr"><a href="6%20Kindness/Untitled%203.png"><img style="width:708px" src="6%20Kindness/Untitled%203.png"/></a></figure><h2 id="4204ac6f-2218-46a5-9c16-ccb393274c38" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 5</h2><figure id="d1bb2981-c776-4389-b493-293a1314575d" class="image" data-notion-image="6%20Kindness/Untitled%204.png" dir="ltr"><a href="6%20Kindness/Untitled%204.png"><img style="width:708px" src="6%20Kindness/Untitled%204.png"/></a></figure><h2 id="07b50388-7b9d-42aa-bd95-fffda3cca448" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 6</h2><figure id="b688b2ff-cec7-4e31-88a4-ed554fd777af" dir="ltr"><div class="source"><a href="https://www.youtube.com/watch?v=OBqfKUWaku8&amp;list=PLUrl2TS6VHopvGVLpqRlFRrGCRDnWbp4m&amp;index=7">https://www.youtube.com/watch?v=OBqfKUWaku8&amp;list=PLUrl2TS6VHopvGVLpqRlFRrGCRDnWbp4m&amp;index=7</a></div></figure><figure id="b2265b8f-2f02-4d98-b96b-e85780e8144f" class="image" data-notion-image="6%20Kindness/Untitled%205.png" dir="ltr"><a href="6%20Kindness/Untitled%205.png"><img style="width:708px" src="6%20Kindness/Untitled%205.png"/></a></figure><h2 id="089233d6-62ab-459d-8aba-01601d6eb165" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 7</h2><figure id="5e260407-b96f-483b-a05c-fb7e47b6e063" class="image" data-notion-image="6%20Kindness/Untitled%206.png" dir="ltr"><a href="6%20Kindness/Untitled%206.png"><img style="width:708px" src="6%20Kindness/Untitled%206.png"/></a></figure><h2 id="b3cc9fd8-5599-42c5-996a-a43971f7d725" class="block-color-red_background" data-notion-highlight="red_background" dir="auto">Exercise 8</h2><figure id="4ade4cf7-8b5d-4966-806d-dc400a56fed7" class="image" data-notion-image="6%20Kindness/Untitled%207.png" dir="ltr"><a href="6%20Kindness/Untitled%207.png"><img style="width:2386px" src="6%20Kindness/Untitled%207.png"/></a></figure><figure id="3654ffe4-84ac-4f05-bb5b-fd4580bb399c" dir="ltr"><a href="https://www.randomactsofkindness.org/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Welcome to RandomActsofKindness.org</div><div class="bookmark-description">Thank you for visiting.</div></div><div class="bookmark-href"><img src="https://www.randomactsofkindness.org/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.randomactsofkindness.org/</div></div><img src="https://assets.randomactsofkindness.org/site/mktn.jpg" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

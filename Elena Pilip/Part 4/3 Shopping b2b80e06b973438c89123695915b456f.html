@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,4 +791,4 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="b2b80e06-b973-438c-8912-3695915b456f" class="page sans"><header><h1 class="page-title" dir="auto">3. Shopping</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="842f3800-458c-4a55-a882-b094074df258" class="image"><a href="3%20Shopping/Untitled.png"><img style="width:900px" src="3%20Shopping/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="82fe1c86-676e-44ff-b001-caaded7b1412" class="block-color-pink_background">Warm-up</h2></div><div style="display:contents" dir="ltr"><figure id="9f4f2dc1-7684-4c2e-828a-5d90bc624e34" class="image"><a href="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.21.png"><img style="width:1916px" src="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.21.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="7c092d24-30c5-4fa1-9816-e82944f655fb" class="image"><a href="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.27.png"><img style="width:1930px" src="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.27.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="59e4e0f4-8d36-4436-8b81-5048687175cd" class="block-color-pink_background">Exercise 1</h2></div><div style="display:contents" dir="ltr"><figure id="9966721d-3126-4a85-bce6-b1150c02534b"><a href="https://wordwall.net/resource/18169898/shopping-int" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Shopping (Int)</div><div class="bookmark-description">customer - a person who buys products or services, consumer - a person who buys products or services for personal use, deals - special agreements in certain conditions, discount - a reduction in the price, half-price - you pay 50% of the original price, items - products / things, purchaser</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/18169898/shopping-int</div></div><img src="https://az779572.vo.msecnd.net/screens-800/cebcb6c07072436a88d294cfeede83e5" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="99925d04-a638-46a1-8187-74f6d1bcfea9" class="block-color-pink_background">Exercise 2</h2></div><div style="display:contents" dir="ltr"><figure id="a5d84dfc-14eb-4690-801a-e3beb9586054" class="image"><a href="3%20Shopping/Screenshot_2022-06-01_at_15.15.08.png"><img style="width:1414px" src="3%20Shopping/Screenshot_2022-06-01_at_15.15.08.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="b10c6f6f-3490-49b6-a73b-f5e3eef010db" class="block-color-pink_background">Exercise 3</h2></div><div style="display:contents" dir="ltr"><figure id="4905eacc-387e-415a-964a-be5bd725ec30" class="image"><a href="3%20Shopping/Screenshot_2022-06-01_at_15.16.14.png"><img style="width:1124px" src="3%20Shopping/Screenshot_2022-06-01_at_15.16.14.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="0098d0f8-eb17-4949-9408-40894872b148" class="block-color-pink_background">Exercise 4</h2></div><div style="display:contents" dir="ltr"><figure id="29b52dfe-0e55-47b2-8516-ab4aa2656f53" class="image"><a href="3%20Shopping/Screenshot_2021-11-10_at_11.35.02.png"><img style="width:692px" src="3%20Shopping/Screenshot_2021-11-10_at_11.35.02.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1a2be82d-0ca2-49aa-bab2-27503ef65114" class="block-color-pink_background">Exercise 5</h2></div><div style="display:contents" dir="ltr"><figure id="74d6d40f-29a9-40e8-af0b-a19a799f3568"><a href="https://wordwall.net/resource/17660469/shopping-ef-8b" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Shopping EF 8B</div><div class="bookmark-description">Are you a bargain hunter?, Are you a participant of some loyalty program? What store? , Do you prefer online or offline shopping?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/17660469/shopping-ef-8b</div></div><img src="https://az779572.vo.msecnd.net/screens-800/085d5a2624f14590a287b8f54e5a1870_0" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="b2b80e06-b973-438c-8912-3695915b456f" class="page sans"><header><h1 class="page-title" dir="auto">3. Shopping</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><figure id="842f3800-458c-4a55-a882-b094074df258" class="image" data-notion-image="3%20Shopping/Untitled.png" dir="ltr"><a href="3%20Shopping/Untitled.png"><img style="width:900px" src="3%20Shopping/Untitled.png"/></a></figure><h2 id="82fe1c86-676e-44ff-b001-caaded7b1412" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Warm-up</h2><figure id="9f4f2dc1-7684-4c2e-828a-5d90bc624e34" class="image" data-notion-image="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.21.png" dir="ltr"><a href="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.21.png"><img style="width:1916px" src="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.21.png"/></a></figure><figure id="7c092d24-30c5-4fa1-9816-e82944f655fb" class="image" data-notion-image="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.27.png" dir="ltr"><a href="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.27.png"><img style="width:1930px" src="2%20Gerund%20vs%20infinitive/Screenshot_2021-10-08_at_18.11.27.png"/></a></figure><h2 id="59e4e0f4-8d36-4436-8b81-5048687175cd" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 1</h2><figure id="9966721d-3126-4a85-bce6-b1150c02534b" dir="ltr"><a href="https://wordwall.net/resource/18169898/shopping-int" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Shopping (Int)</div><div class="bookmark-description">customer - a person who buys products or services, consumer - a person who buys products or services for personal use, deals - special agreements in certain conditions, discount - a reduction in the price, half-price - you pay 50% of the original price, items - products / things, purchaser</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/18169898/shopping-int</div></div><img src="https://az779572.vo.msecnd.net/screens-800/cebcb6c07072436a88d294cfeede83e5" class="bookmark-image"/></a></figure><h2 id="99925d04-a638-46a1-8187-74f6d1bcfea9" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 2</h2><figure id="a5d84dfc-14eb-4690-801a-e3beb9586054" class="image" data-notion-image="3%20Shopping/Screenshot_2022-06-01_at_15.15.08.png" dir="ltr"><a href="3%20Shopping/Screenshot_2022-06-01_at_15.15.08.png"><img style="width:1414px" src="3%20Shopping/Screenshot_2022-06-01_at_15.15.08.png"/></a></figure><h2 id="b10c6f6f-3490-49b6-a73b-f5e3eef010db" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 3</h2><figure id="4905eacc-387e-415a-964a-be5bd725ec30" class="image" data-notion-image="3%20Shopping/Screenshot_2022-06-01_at_15.16.14.png" dir="ltr"><a href="3%20Shopping/Screenshot_2022-06-01_at_15.16.14.png"><img style="width:1124px" src="3%20Shopping/Screenshot_2022-06-01_at_15.16.14.png"/></a></figure><h2 id="0098d0f8-eb17-4949-9408-40894872b148" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 4</h2><figure id="29b52dfe-0e55-47b2-8516-ab4aa2656f53" class="image" data-notion-image="3%20Shopping/Screenshot_2021-11-10_at_11.35.02.png" dir="ltr"><a href="3%20Shopping/Screenshot_2021-11-10_at_11.35.02.png"><img style="width:692px" src="3%20Shopping/Screenshot_2021-11-10_at_11.35.02.png"/></a></figure><h2 id="1a2be82d-0ca2-49aa-bab2-27503ef65114" class="block-color-pink_background" data-notion-highlight="pink_background" dir="auto">Exercise 5</h2><figure id="74d6d40f-29a9-40e8-af0b-a19a799f3568" dir="ltr"><a href="https://wordwall.net/resource/17660469/shopping-ef-8b" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Shopping EF 8B</div><div class="bookmark-description">Are you a bargain hunter?, Are you a participant of some loyalty program? What store? , Do you prefer online or offline shopping?.</div></div><div class="bookmark-href"><img src="https://az779572.vo.msecnd.net/res/content/images/favicon.ico|1evmh0qrg1aqcgft8tddfea2.ico" class="icon bookmark-icon"/>https://wordwall.net/resource/17660469/shopping-ef-8b</div></div><img src="https://az779572.vo.msecnd.net/screens-800/085d5a2624f14590a287b8f54e5a1870_0" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

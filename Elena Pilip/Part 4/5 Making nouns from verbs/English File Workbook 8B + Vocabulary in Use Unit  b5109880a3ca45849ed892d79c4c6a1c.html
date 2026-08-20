@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title> English File Workbook 8B + Vocabulary in Use Unit 71</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title> English File Workbook 8B + Vocabulary in Use Unit 71</title><meta name="data-notion-page-icon" content="📒"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%92%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -88,9 +88,43 @@ h3 {
 	padding: 1rem;
 }
 
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
 }
 
 figcaption {
@@ -184,7 +218,8 @@ img {
 	display: block;
 	font-size: 0.875rem;
 	line-height: 1.3;
-	padding: 0.125rem;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
 }
 
 .table_of_contents-indent-1 {
@@ -367,6 +402,17 @@ time {
 	margin-right: 0.5em;
 }
 
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
 img.icon {
 	border-radius: 3px;
 }
@@ -440,8 +486,7 @@ td > time {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
+	margin-right: 0.4em;
 	vertical-align: middle;
 }
 
@@ -549,6 +594,12 @@ blockquote.quote-large {
 .bookmark-href {
 	font-size: 0.75em;
 	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -740,5 +791,5 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="b5109880-a3ca-4584-9ed8-92d79c4c6a1c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📒</span></div><h1 class="page-title" dir="auto"> English File Workbook 8B + Vocabulary in Use Unit 71</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="f6ce406b-d3c9-4082-b4eb-2865bdf81af5" class=""> English File Workbook 8B</h2></div><div style="display:contents" dir="auto"><div id="6ec498c1-b20f-41a0-b754-dbaf272a5070" class="column-list"><div style="display:contents" dir="auto"><div id="9f7da308-692c-4951-8fdb-feb45fc7a824" style="width:37.5%" class="column"><div style="display:contents" dir="ltr"><figure id="76564161-f1c8-4eed-ae4a-fca179628c20" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled.png"><img style="width:688px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="5cac5d09-f006-4bb6-a6f5-a5e7612da37c" style="width:62.5%" class="column"><div style="display:contents" dir="ltr"><figure id="db7cf85d-fcfb-41cd-a45c-54b801a416dd" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%201.png"><img style="width:1164px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="698f47b1-84f9-4d3f-9ca8-0ced5d09e79c" class="toggle"><li><details open=""><summary>Keys</summary><div style="display:contents" dir="ltr"><figure id="99687b01-e745-444b-a100-915a7ddcc6fc" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%202.png"><img style="width:240px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%202.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="8034d038-edf8-4837-9531-7dff9f656efe" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="a18a4ccf-9688-44a2-a746-9f3c2f4c2d89" class="">Vocabulary in Use Unit 71</h2></div><div style="display:contents" dir="ltr"><figure id="04151e1f-0baa-4af1-8a51-0d196d85e9fd" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%203.png"><img style="width:1248px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="f8646ca6-6e70-42bd-84a3-9e1589953e23" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%204.png"><img style="width:1244px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="e1e088d4-85a2-4013-b6e1-18f91e2b4efd" class="toggle"><li><details open=""><summary>Keys</summary><div style="display:contents" dir="ltr"><figure id="163fa08a-9847-4b41-bed2-72dd0cd39c88" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%205.png"><img style="width:1236px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="a80cca33-757c-493a-96bf-919440d19c3f" class="image"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%206.png"><img style="width:1018px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%206.png"/></a></figure></div></details></li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="b5109880-a3ca-4584-9ed8-92d79c4c6a1c" class="page sans" data-notion-page-icon="📒"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="📒"></span></div><h1 class="page-title" dir="auto"> English File Workbook 8B + Vocabulary in Use Unit 71</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h2 id="f6ce406b-d3c9-4082-b4eb-2865bdf81af5" class="" dir="auto"> English File Workbook 8B</h2><div id="6ec498c1-b20f-41a0-b754-dbaf272a5070" class="column-list" data-notion-column-list="" dir="auto"><div id="9f7da308-692c-4951-8fdb-feb45fc7a824" style="width:37.5%" class="column" data-notion-column-ratio="0.375" dir="auto"><figure id="76564161-f1c8-4eed-ae4a-fca179628c20" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled.png"><img style="width:688px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled.png"/></a></figure></div><div id="5cac5d09-f006-4bb6-a6f5-a5e7612da37c" style="width:62.5%" class="column" data-notion-column-ratio="0.625" dir="auto"><figure id="db7cf85d-fcfb-41cd-a45c-54b801a416dd" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%201.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%201.png"><img style="width:1164px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%201.png"/></a></figure><details id="698f47b1-84f9-4d3f-9ca8-0ced5d09e79c" open="" class="toggle" dir="auto"><summary>Keys</summary><div class="indented"><figure id="99687b01-e745-444b-a100-915a7ddcc6fc" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%202.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%202.png"><img style="width:240px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%202.png"/></a></figure></div></details><p id="8034d038-edf8-4837-9531-7dff9f656efe" class="" dir="auto">
+</p></div></div><h2 id="a18a4ccf-9688-44a2-a746-9f3c2f4c2d89" class="" dir="auto">Vocabulary in Use Unit 71</h2><figure id="04151e1f-0baa-4af1-8a51-0d196d85e9fd" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%203.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%203.png"><img style="width:1248px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%203.png"/></a></figure><figure id="f8646ca6-6e70-42bd-84a3-9e1589953e23" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%204.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%204.png"><img style="width:1244px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%204.png"/></a></figure><details id="e1e088d4-85a2-4013-b6e1-18f91e2b4efd" open="" class="toggle" dir="auto"><summary>Keys</summary><div class="indented"><figure id="163fa08a-9847-4b41-bed2-72dd0cd39c88" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%205.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%205.png"><img style="width:1236px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%205.png"/></a></figure><figure id="a80cca33-757c-493a-96bf-919440d19c3f" class="image" data-notion-image="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%206.png" dir="ltr"><a href="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%206.png"><img style="width:1018px" src="English%20File%20Workbook%208B%20+%20Vocabulary%20in%20Use%20Unit%20/Untitled%206.png"/></a></figure></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
